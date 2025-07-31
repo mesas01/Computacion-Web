@@ -1,0 +1,315 @@
+/* se crea reglas globales para el estilo de la pagina */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* se crea un estilo para el body de la pagina */
+body {
+    padding-top: 100px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navBar {
+    background-color: #3D5A80;
+    width: 100%;
+    height: 100px;
+    /* el display flex permite que los elementos hijos se alineen en una fila */
+    display: flex;
+    /* justify-content: space-between distribuye a los elementos hijos dejando el máximo espacio entre cada uno, pero sin espacio a los extremos */
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 70px;
+    /* position fixed permite que la barra de navegación se mantenga en la parte superior de la pantalla al hacer scroll */
+    position: fixed;
+    /* top: 0 y left: 0 posicionan la barra de navegación en la esquina superior izquierda de la pantalla */
+    top: 0;
+    left: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: normal;
+    /* position relative permite que los pseudo-elementos se posicionen en relación a este elemento y necesario para la linea de abajo */
+    position: relative;
+}
+
+/* Se crea un efecto hover para los enlaces de navegación */
+.nav-links a:hover {
+    /* cambia a el cursor pointer cuando se pasa el mouse por encima del enlace */
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+/* Se crea una linea invisible debajo de cada enlace */
+.nav-links a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    /* transform: scaleX(0) oculta la linea inicialmente */
+    transform: scaleX(0);
+    /* transition: transform 0.3s ease permite que la linea aparezca suavemente al pasar el mouse por encima */
+    transition: transform 0.3s ease;
+    /* transform-origin: left asegura que la linea se expanda desde la izquierda al pasar el mouse por encima */
+    transform-origin: left;
+}
+
+/* Al pasar el mouse por encima del enlace, la linea se expande */
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+.logo {
+    width: 300px;
+    height: auto;
+}
+
+.container {
+    background-color: #3D5A80;
+    width: auto;
+    height: 700px;
+    border-bottom-right-radius: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-direction: row permite que los elementos hijos se alineen horizontalmente, es necesario usar display:flex */
+    flex-direction: row;
+
+}
+
+.container h1 {
+    color: #E0FBFC;
+    font-size: 80px;
+    text-align: left;
+    padding-top: 160px;
+    line-height: 1;
+}
+
+.container .subtitle {
+    display: block;
+    font-size: 80px;
+    color: #E0FBFC;
+
+}
+
+.container .introduction {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    letter-spacing: 2px;
+    word-spacing: 3px;
+
+
+}
+
+.container img {
+    width: 800px;
+    height: 500px;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+.container .text-container {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: 200px;
+    margin-bottom: 200px;
+}
+
+.projectContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 150px;
+}
+
+.projectContainer .projectImg-Title {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-left: 250px;
+}
+
+.projectContainer h2 {
+    color: #EE6C4D;
+    font-size: 40px;
+}
+
+.projectContainer .project-logo {
+    height: 600px;
+    width: 700px;
+}
+
+.projectContainer .project-description {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 24px;
+}
+
+.projectContainer p {
+    font-size: 17px;
+    max-width: 600px;
+}
+
+.objectivesContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+}
+
+.objectivesContainer h2 {
+    color: #EE6C4D;
+    font-size: 40px;
+    padding-left: 250px;
+}
+
+.objectives-list {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: start;
+    gap: 40px;
+    margin-top: 100px;
+}
+
+.objectives-list .objective-item {
+    width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+}
+
+.objectives-list .objective-item img {
+    width: 150px;
+    height: 150px;
+}
+
+.objectives-list .objective-item p {
+    font-size: 18px;
+    color: black;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.teamContainer {
+    background-color: #E0FBFC;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+    padding-top: 40px;
+}
+
+.teamContainer h2 {
+    color: #EE6C4D;
+    font-size: 40px;
+    padding-left: 250px;
+}
+
+.team-carousel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 80px;
+    position: relative;
+    justify-content: center;
+    gap: 30px;
+}
+
+.carousel-wrapper {
+    overflow: hidden;
+    width: 940px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    gap: 20px;
+}
+
+.team-member img {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    margin-top: 15px;
+    object-fit: cover;
+    border: 5px solid #293241;
+    min-width: 33.33%;
+    box-sizing: border-box;
+    padding: 10px;
+    flex: 0 0 300px;;
+}
+
+.team-member .name {
+    font-size: 24px;
+    color: black;
+    margin-top: 16px;
+    text-align: center;
+}
+
+.team-member .role {
+    font-size: 18px;
+    color: black;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.team-member .description {
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    margin-top: 8px;
+    max-width: 300px;
+}
+
+.prev-btn,
+.next-btn {
+    background-color: #3D5A80;
+    color: white;
+    border: none;
+    font-size: 32px;
+    padding: 10px 16px;
+    cursor: pointer;
+    z-index: 2;
+    align-self: center;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    background-color: #EE6C4D;
+}
