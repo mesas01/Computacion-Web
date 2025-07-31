@@ -1,10 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Titles</title>
-</head>
-<body>
+<html>
 
+<head>
+    <title>Arrienda tu finca</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <nav class="navBar">
+        <img src="logo arrienda tu finca.png" alt="Logo de Arrienda tu finca" class="logo">
+        <div class="nav-links">
+            <a>Home</a>
+            <a>Requerimientos</a>
+            <a>Arquitectura del proyecto</a>
+            <a>Modelos</a>
+            <a>Desarrollo</a>
+            <a>Pruebas</a>
+            <a>Despliegue</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="text-container">
+            <h1>ARRIENDA<br>
+                <span class="subtitle">TU FINCA</span>
+            </h1>
+            <p class="introduction">Bienvenido a la Wiki del proyecto. Aquí encontrarás toda la documentación
+                relacionada con el proyecto: descripción general, presentación del equipo, requerimientos, arquitectura
+                del proyecto, modelos, pruebas y por ultimo, su despliegue. Nuestro objetivo es ofrecer una guía clara y
+                detallada del desarrollo y funcionamiento de la plataforma.</p>
+        </div>
+        <img src="Finca.jpg" alt="Imagen de una finca" class="finca-image">
+    </div>
+    <div class="projectContainer">
+        <div class="projectImg-Title">
+            <h2>Proyecto</h2>
+            <img src="logo arrienda tu finca.png" alt="Logo de Arrienda tu finca" class="project-logo">
+        </div>
+        <div class="project-description">
+            <p>
+                Arrienda tu finca es una aplicación web que conecta a personas interesadas en arrendar
+                fincas con propietarios que desean ofrecerlas. El sistema está diseñado para dos tipos de usuarios
+                principales: el Usuario Arrendatario (quien ofrece la finca) y el Usuario Arrendador (quien la busca y
+                arrienda).
+            </p>
+            <p>
+                El Usuario Arrendatario puede gestionar propiedades (crear, editar, eliminar, actualizar), revisar
+                solicitudes de arriendo, aceptarlas o rechazarlas, verificar pagos realizados y calificar al arrendador
+                luego del proceso.
+            </p>
+            <p>
+                El Usuario Arrendador puede buscar fincas por ubicación, solicitar arrendamientos, realizar pagos una
+                vez
+                aprobada la solicitud y calificar tanto la finca como al arrendatario después del uso.
+            </p>
+            <p>
+                La plataforma requerirá un sistema sólido de autenticación y autorización, interfaces intuitivas y una
+                arquitectura que permita una experiencia fluida y segura. El enfoque se centra en facilitar el proceso
+                de
+                arrendamiento para ambas partes, garantizando eficiencia, transparencia y satisfacción.
+            </p>
+        </div>
+    </div>
+    <section class="objectivesContainer">
+        <div class="objectives-title">
+            <h2>Objetivos</h2>
+        </div>
+        <div class="objectives-list">
+            <div class="objective-item">
+                <img src="casa-inteligente.png" alt="objetivo 1" class="objective-icon">
+                <p>Facilitar el arriendo de fincas mediante una plataforma web intuitiva y accesible.</p>
+            </div>
+            <div class="objective-item">
+                <img src="dashboard.png" alt="objetivo 2" class="objective-icon">
+                <p>Gestionar propiedades fácilmente, permitiendo a los arrendatarios crear, editar y controlar sus
+                    publicaciones.</p>
+            </div>
+            <div class="objective-item">
+                <img src="www.png" alt="objetivo 3" class="objective-icon">
+                <p>Optimizar la experiencia del usuario arrendador, con filtros de búsqueda, solicitud de arriendos y
+                    pagos en línea.</p>
+            </div>
+            <div class="objective-item">
+                <img src="candado.png" alt="objetivo 4" class="objective-icon">
+                <p>Garantizar seguridad y confianza mediante autenticación, control de pagos y sistema de
+                    calificaciones.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="teamContainer">
+        <div class="team-title">
+            <h2>Integrantes</h2>
+        </div>
+        <div class="team-carousel">
+            <button class="prev-btn">‹</button>
+
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    <div class="team-member">
+                        <h3 class="name">Catalina Lizarazo</h3>
+                        <p class="role">Ingeniera en base de datos</p>
+                        <img src="Catalina.jpeg" alt="Catalina" class="team-member-image">
+                        <p class="description">Estudiante de ingeniería de sistemas e ingenieria industrial.
+                            Experiencia en construcción de bases de datos relacionales en SQL y en desarrollo de
+                            software en
+                            lenguajes como java, C++ y HTML; también en aplicación de tecnologías de información en
+                            sistemas
+                            hombre-máquina en campos ergonómicos.</p>
+
+                    </div>
+                    <div class="team-member">
+                        <h3 class="name">Daniela Medina</h3>
+                        <p class="role">Desarrolladora Full Stack</p>
+                        <img src="daniela.jpeg" alt="Daniela" class="team-member-image">
+                        <p class="description">Estudiante de sexto semestre de Ingeniería de Sistemas, con interés en
+                            temas
+                            como arquitectura de software, computación en la nube y el desarrollo de proyectos de TI. Le
+                            gusta
+                            entender cómo funcionan las cosas por detrás y pensar en soluciones que sean bien
+                            estructuradas.
+                            Aunque todavía esta aprendiendo, trata de aplicar buenas prácticas desde ya y entender el
+                            panorama
+                            completo de los sistemas.</p>
+                    </div>
+                    <div class="team-member">
+                        <h3 class="name">Juan Ordoñez</h3>
+                        <p class="role">Líder de pruebas</p>
+                        <img src="daniela.jpeg" alt="Juan David" class="team-member-image">
+                        <p class="description">Estudiante de ingeniería de sistemas de 6 semestre con amplio
+                            conocimiento en
+                            lenguajes como Java, c++, Python entre otros. Con grandes habilidades en relación al trabajo
+                            en
+                            equipo y la gestión de proyectos.</p>
+                    </div>
+                    <div class="team-member">
+                        <h3 class="name">Sergio Ortiz</h3>
+                        <p class="role">Líder técnico</p>
+                        <img src="sergio.jpeg" alt="Sergio" class="team-member-image">
+                        <p class="description">Estudiante de sexto semestre de Ingeniería de Sistemas, apasionado por el
+                            desarrollo móvil, Ciencia de Datos, Inteligencia Artificial y gestión de base de datos.
+                            Posee un
+                            Amplio conocimiento en lenguajes como Java, C++, Kotlin, SQL y modelado de sistemas de
+                            información.
+                            Le gusta la comunicación clara, seguir aprendiendo nuevas cosas todos los dias, aplicar
+                            buenas
+                            prácticas de programación y trabajar en equipo.
+                        </p>
+                    </div>
+                    <div class="team-member">
+                        <h3 class="name">Melissa Ruiz</h3>
+                        <p class="role">Líder de planeación</p>
+                        <img src="melissa.jpeg" alt="Melissa" class="team-member-image">
+                        <p class="description">Estudiante de sexto semestre de ingeniería de sistemas, entusiasta
+                            de la robótica con interés en arquitectura e infraestructura de software, computación en la
+                            nube e
+                            inteligencia artificial. Experiencia en lenguajes como Java, C++, Python, Kotlin, HTML,
+                            arduino y
+                            competencia en manejo de sistemas operativos como Linux. Entre las habilidades blandas se
+                            encuentran
+                            el trabajo en equipo, comunicación asertiva y planeación. Le motiva aprender y poner en
+                            práctico sus
+                            conocimientos.</p>
+                    </div>
+                    <div class="team-member">
+                        <h3 class="name">Santiago Mesa</h3>
+                        <p class="role">Project Manager</p>
+                        <img src="santiago.jpeg" alt="Santiago" class="team-member-image">
+                        <p class="description">Ingeniero Electrónico y estudiante de sexto semestre de Ingeniería de
+                            Sistemas.
+                            Tiene un gran interés en la arquitectura de software, blockchain y el desarrollo de
+                            proyectos de TI.
+                            Cuenta con experiencia en lenguajes de programación como Java, C++, Rust, Python y HTML,
+                            además de
+                            conocimientos en modelado de sistemas de información y procesos de negocio. Disfruta
+                            trabajar en
+                            equipo y le motiva aprender de experiencias prácticas.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="next-btn">›</button>
+        </div>
+    </section>
+    <script src="carousel.js" defer></script>
 </body>
+
 </html>
