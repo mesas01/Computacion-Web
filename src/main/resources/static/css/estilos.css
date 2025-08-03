@@ -26,6 +26,8 @@ body {
     /* top: 0 y left: 0 posicionan la barra de navegación en la esquina superior izquierda de la pantalla */
     top: 0;
     left: 0;
+    /* z-index: 1000 asegura que la barra de navegación esté siempre encima de otros elementos, hasta el carrusel de integrantes*/
+    z-index: 1000;
 }
 
 .nav-links a {
