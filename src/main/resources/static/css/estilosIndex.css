@@ -151,9 +151,10 @@ body {
     padding-left: 250px;
 }
 
-.projectContainer h2 {
+.projectContainer .projectImg-Title h2{
     color: #EE6C4D;
-    font-size: 40px;
+    font-size: 2em;
+    
 }
 
 .projectContainer .project-logo {
@@ -169,7 +170,7 @@ body {
 }
 
 .projectContainer p {
-    font-size: 17px;
+    font-size: 1.1em;
     max-width: 600px;
 }
 
@@ -184,8 +185,9 @@ body {
 
 .objectivesContainer h2 {
     color: #EE6C4D;
-    font-size: 40px;
+    font-size: 2em;
     padding-left: 250px;
+    font-weight: 600;
 }
 
 .objectives-list {
@@ -215,7 +217,8 @@ body {
 }
 
 .objectives-list .objective-item p {
-    font-size: 18px;
+    font-size: 1.1em;
+    line-height: 1.5em;
     color: black;
     text-align: center;
     margin-top: 16px;

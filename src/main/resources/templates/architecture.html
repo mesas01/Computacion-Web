@@ -1,200 +1,208 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>Arrienda tu finca</title>
-        <link rel="stylesheet" href="../static/css/estilosArqui.css">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-        <meta charset="UTF-8">
-    </head>
+<head>
+    <title>Arrienda tu finca</title>
+    <link rel="stylesheet" href="../static/css/estilosArqui.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+</head>
 
-    <body>
-        <nav class="navBar">
-            <img src="../static/img/logo arrienda tu finca.png" alt="Logo de Arrienda tu finca" class="logo">
-            <div class="nav-links">
-                <a>Home</a>
-                <a>Requerimientos</a>
-                <a>Arquitectura del proyecto</a>
-                <a>Modelos</a>
-                <a>Desarrollo</a>
-                <a>Pruebas</a>
-                <a>Despliegue</a>
-            </div>
-        </nav>
-        <div class="container">
-            <div class="text-container">
-                <h1>Arquitectura del proyecto</h1>
-                <p class="introduction">En esta sección encontrará los diagramas C4, modelos relacionales y respectivos diagramas
+<body>
+    <nav class="navBar">
+        <img src="../static/img/logo arrienda tu finca.png" alt="Logo de Arrienda tu finca" class="logo">
+        <div class="nav-links">
+            <a>Home</a>
+            <a>Requerimientos</a>
+            <a>Arquitectura del proyecto</a>
+            <a>Modelos</a>
+            <a>Desarrollo</a>
+            <a>Pruebas</a>
+            <a>Despliegue</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="text-container">
+            <h1>Arquitectura del proyecto</h1>
+            <p class="introduction">En esta sección encontrará los diagramas C4, modelos relacionales y respectivos
+                diagramas
                 despliegue, componentes entre otros.</p>
+        </div>
+    </div>
+    <div class="diagramasC4-container">
+        <div class="section-subtitle">
+            <h2>Diagramas C4</h2>
+        </div>
+        <div class="diagramas-description">
+            <p>
+                Los diagramas C4 describen ...
+            </p>
+            <div class="diagramas-grid">
+                <!-- Diagrama de Contexto -->
+                <div class="diagram-card">
+                    <div class="diagram-title">
+                        Diagrama de Contexto (C1)
+                    </div>
+                    <div class="diagram-image">
+
+                        <div class="diagram-placeholder">
+                            Imagen del Diagrama de Contexto
+                        </div>
+                    </div>
+                    <div class="diagram-description">
+                        <p>
+                            Muestra el sistema "Arrienda tu Finca" y cómo interactúa con los usuarios externos
+                            (Arrendatarios y Arrendadores) y sistemas externos como pasarelas de pago y servicios
+                            de geolocalización...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Diagrama de Contenedores -->
+                <div class="diagram-card">
+                    <div class="diagram-title">
+                        Diagrama de Contenedores (C2)
+                    </div>
+                    <div class="diagram-image">
+
+                        <div class="diagram-placeholder">
+                            Imagen del Diagrama de Contenedores
+                        </div>
+                    </div>
+                    <div class="diagram-description">
+                        <p>
+                            Descompone el sistema en contenedores principales: aplicación web frontend,
+                            API backend, base de datos, y servicios de autenticación, mostrando las
+                            tecnologías utilizadas en cada uno...
+                        </p>
+                    </div>
+                </div>
+                <!-- Diagrama de Componentes -->
+                <div class="diagram-card">
+                    <div class="diagram-title">
+                        Diagrama de Componentes (C3)
+                    </div>
+                    <div class="diagram-image">
+
+                        <div class="diagram-placeholder">
+                            Imagen del Diagrama de Componentes
+                        </div>
+                    </div>
+                    <div class="diagram-description">
+                        <p>
+                            Detalla los componentes internos del backend API, incluyendo controladores,
+                            servicios de negocio, repositorios de datos y componentes de seguridad
+                            que manejan la lógica de la aplicación...
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="diagramasC4-container">
-            <div class = "section-subtitle">
-                <h2>Diagramas C4</h2>
+
+        <div class="modelo-container">
+            <div class="section-subtitle">
+                <h2>Modelo</h2>
             </div>
-            <div class="diagramas-description">
-                <p>
-                    Los diagramas C4 describen ...
-                </p>
-                <div class="diagramas-grid">
-                    <!-- Diagrama de Contexto -->
-                    <div class="diagram-card">
-                        <div class="diagram-title">
-                            Diagrama de Contexto (C1)
-                        </div>
-                        <div class="diagram-image">
+            <div class="modelo-card">
+                <div class="modelo-title">
+                    Modelo - Base de Datos
+                </div>
+                <div class="modelo-image">
 
-                            <div class="diagram-placeholder">
-                                Imagen del Diagrama de Contexto
-                            </div>
-                        </div>
-                        <div class="diagram-description">
-                            <p>
-                                Muestra el sistema "Arrienda tu Finca" y cómo interactúa con los usuarios externos
-                                (Arrendatarios y Arrendadores) y sistemas externos como pasarelas de pago y servicios
-                                de geolocalización...
-                            </p>
-                        </div>
+                    <div class="modelo-placeholder">
+                        Diagrama del Modelo <br>
+                        <small>(Esquema de Base de Datos)</small>
                     </div>
+                </div>
+                <div class="modelo-description">
+                    <h3>Descripción del Modelo de Datos</h3>
+                    <p>
+                        El modelo relacional de la base de datos para "Arrienda tu Finca" está diseñado para soportar
+                        todas las funcionalidades del sistema de arrendamiento de propiedades rurales. La estructura
+                        de datos garantiza la integridad referencial y optimiza las
+                        consultas más frecuentes del sistema.
+                    </p>
 
-                    <!-- Diagrama de Contenedores -->
-                    <div class="diagram-card">
-                        <div class="diagram-title">
-                            Diagrama de Contenedores (C2)
-                        </div>
-                        <div class="diagram-image">
+                    <p>
+                        Las entidades principales incluyen:
+                    </p>
 
-                            <div class="diagram-placeholder">
-                                Imagen del Diagrama de Contenedores
-                            </div>
-                        </div>
-                        <div class="diagram-description">
-                            <p>
-                                Descompone el sistema en contenedores principales: aplicación web frontend,
-                                API backend, base de datos, y servicios de autenticación, mostrando las
-                                tecnologías utilizadas en cada uno...
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Diagrama de Componentes -->
-                    <div class="diagram-card">
-                        <div class="diagram-title">
-                            Diagrama de Componentes (C3)
-                        </div>
-                        <div class="diagram-image">
+                    <ul>
+                        <li><strong>Usuarios:</strong> Almacena información de arrendatarios y arrendadores con roles
+                            diferenciados</li>
+                        <li><strong>Propiedades:</strong> Contiene detalles de las fincas disponibles para arrendar</li>
+                        <li><strong>Solicitudes:</strong> Gestiona las peticiones de arriendo entre usuarios</li>
+                        <li><strong>Pagos:</strong> Registra las transacciones financieras del sistema</li>
+                        <li><strong>Calificaciones:</strong> Permite el sistema de reseñas bidireccional</li>
+                        <li><strong>Ubicaciones:</strong> Maneja la información geográfica de las propiedades</li>
+                    </ul>
 
-                            <div class="diagram-placeholder">
-                                Imagen del Diagrama de Componentes
-                            </div>
-                        </div>
-                        <div class="diagram-description">
-                            <p>
-                                Detalla los componentes internos del backend API, incluyendo controladores,
-                                servicios de negocio, repositorios de datos y componentes de seguridad
-                                que manejan la lógica de la aplicación...
-                            </p>
-                        </div>
-                    </div>
+                    <p>
+                        Las relaciones entre entidades soportan la lógica de negocio completa, incluyendo restricciones
+                        de integridad que garantizan que un usuario no pueda calificar una propiedad sin haber
+                        completado un proceso de arriendo exitoso.
+                    </p>
+                </div>
             </div>
         </div>
 
-            <div class="modelo-container">
-                <div class = "section-subtitle">
-                    <h2>Modelo</h2>
+
+        <div class="modelo-container">
+            <div class="section-subtitle">
+                <h2>Diagrama de despliegue</h2>
+            </div>
+            <div class="modelo-card">
+                <div class="modelo-title">
+                    Diagrama de despliegue
                 </div>
-                <div class="modelo-card">
-                    <div class="modelo-title">
-                        Modelo - Base de Datos
+                <div class="modelo-image">
+
+                    <div class="modelo-placeholder">
+                        Diagrama despliegue
                     </div>
-                    <div class="modelo-image">
+                </div>
+                <div class="modelo-description">
+                    <h3>Descripción del diagrama</h3>
+                    <p>
+                        El diagrama de despliegue para "Arrienda tu Finca" muestra la arquitectura física del sistema
+                        y cómo los componentes de software se distribuyen en la infraestructura de hardware. La
+                        configuración garantiza alta disponibilidad y escalabilidad
+                        para soportar múltiples usuarios concurrentes.
+                    </p>
 
-                        <div class="modelo-placeholder">
-                            Diagrama del Modelo <br>
-                            <small>(Esquema de Base de Datos)</small>
-                        </div>
-                    </div>
-                    <div class="modelo-description">
-                        <h3>Descripción del Modelo de Datos</h3>
-                        <p>
-                            El modelo relacional de la base de datos para "Arrienda tu Finca" está diseñado para soportar
-                            todas las funcionalidades del sistema de arrendamiento de propiedades rurales. La estructura
-                            de datos garantiza la integridad referencial y optimiza las
-                            consultas más frecuentes del sistema.
-                        </p>
+                    <p>
+                        Los nodos de despliegue principales incluyen:
+                    </p>
 
-                        <p>
-                            Las entidades principales incluyen:
-                        </p>
+                    <ul>
+                        <li><strong>Servidor Web:</strong> Aloja la aplicación frontend React y sirve contenido estático
+                        </li>
+                        <li><strong>Servidor de Aplicaciones:</strong> Ejecuta la API REST backend con balanceador de
+                            carga</li>
+                        <li><strong>Servidor de Base de Datos:</strong> Contiene el motor PostgreSQL con configuración
+                            maestro-esclavo</li>
+                        <li><strong>Servidor de Caché:</strong> Implementa Redis para optimizar consultas frecuentes
+                        </li>
+                        <li><strong>CDN:</strong> Distribuye imágenes y archivos estáticos globalmente</li>
+                        <li><strong>Servicios Externos:</strong> Integra pasarelas de pago y APIs de geolocalización
+                        </li>
+                    </ul>
 
-                        <ul>
-                            <li><strong>Usuarios:</strong> Almacena información de arrendatarios y arrendadores con roles diferenciados</li>
-                            <li><strong>Propiedades:</strong> Contiene detalles de las fincas disponibles para arrendar</li>
-                            <li><strong>Solicitudes:</strong> Gestiona las peticiones de arriendo entre usuarios</li>
-                            <li><strong>Pagos:</strong> Registra las transacciones financieras del sistema</li>
-                            <li><strong>Calificaciones:</strong> Permite el sistema de reseñas bidireccional</li>
-                            <li><strong>Ubicaciones:</strong> Maneja la información geográfica de las propiedades</li>
-                        </ul>
+                    <p>
+                        La arquitectura implementa contenedorización con Docker y
+                        orquestación mediante Kubernetes, permitiendo escalado automático según la demanda. Los
+                        protocolos de comunicación incluyen HTTPS para el frontend, REST API sobre SSL para el
+                        backend, y conexiones cifradas TCP para la base de datos.
+                    </p>
 
-                        <p>
-                            Las relaciones entre entidades soportan la lógica de negocio completa, incluyendo restricciones
-                            de integridad que garantizan que un usuario no pueda calificar una propiedad sin haber
-                            completado un proceso de arriendo exitoso.
-                        </p>
-                    </div>
+                    <p>
+                        El despliegue considera aspectos de seguridad como firewalls, VPNs para acceso administrativo,
+                        y segregación de redes que garantizan que los datos sensibles de pagos y usuarios estén
+                        protegidos en capas de red separadas con acceso restringido.
+                    </p>
                 </div>
             </div>
+        </div>
+</body>
 
-
-            <div class="modelo-container">
-                <div class = "section-subtitle">
-                    <h2>Diagrama de despliegue</h2>
-                </div>
-                <div class="modelo-card">
-                    <div class="modelo-title">
-                        Diagrama de despliegue
-                    </div>
-                    <div class="modelo-image">
-
-                        <div class="modelo-placeholder">
-                            Diagrama despliegue
-                        </div>
-                    </div>
-                    <div class="modelo-description">
-                        <h3>Descripción del diagrama</h3>
-                        <p>
-                            El diagrama de despliegue para "Arrienda tu Finca" muestra la arquitectura física del sistema
-                            y cómo los componentes de software se distribuyen en la infraestructura de hardware. La
-                            configuración garantiza alta disponibilidad y escalabilidad
-                            para soportar múltiples usuarios concurrentes.
-                        </p>
-
-                        <p>
-                            Los nodos de despliegue principales incluyen:
-                        </p>
-
-                        <ul>
-                            <li><strong>Servidor Web:</strong> Aloja la aplicación frontend React y sirve contenido estático</li>
-                            <li><strong>Servidor de Aplicaciones:</strong> Ejecuta la API REST backend con balanceador de carga</li>
-                            <li><strong>Servidor de Base de Datos:</strong> Contiene el motor PostgreSQL con configuración maestro-esclavo</li>
-                            <li><strong>Servidor de Caché:</strong> Implementa Redis para optimizar consultas frecuentes</li>
-                            <li><strong>CDN:</strong> Distribuye imágenes y archivos estáticos globalmente</li>
-                            <li><strong>Servicios Externos:</strong> Integra pasarelas de pago y APIs de geolocalización</li>
-                        </ul>
-
-                        <p>
-                            La arquitectura implementa contenedorización con Docker y
-                            orquestación mediante Kubernetes, permitiendo escalado automático según la demanda. Los
-                            protocolos de comunicación incluyen HTTPS para el frontend, REST API sobre SSL para el
-                            backend, y conexiones cifradas TCP para la base de datos.
-                        </p>
-
-                        <p>
-                            El despliegue considera aspectos de seguridad como firewalls, VPNs para acceso administrativo,
-                            y segregación de redes que garantizan que los datos sensibles de pagos y usuarios estén
-                            protegidos en capas de red separadas con acceso restringido.
-                        </p>
-                    </div>
-                </div>
-            </div>
-    </body>
 </html>

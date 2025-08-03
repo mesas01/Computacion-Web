@@ -1,0 +1,232 @@
+/* se crea reglas globales para el estilo de la pagina */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        width: 180px;
+    }
+
+    .container {
+        flex-direction: column;
+        height: auto;
+        border-bottom-right-radius: 50px;
+        padding: 20px;
+    }
+
+    .container h1 {
+        font-size: 48px;
+        padding-top: 60px;
+        text-align: center;
+    }
+
+    .container .introduction {
+        font-size: 16px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .container .text-container {
+        margin: 0;
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        padding-top: 10px;
+    }
+
+    .navBar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .testing-section {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+
+/* se crea un estilo para el body de la pagina */
+body {
+    padding-top: 100px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+
+.navBar {
+    background-color: #3D5A80;
+    width: 100%;
+    height: 100px;
+    /* el display flex permite que los elementos hijos se alineen en una fila */
+    display: flex;
+    /* justify-content: space-between distribuye a los elementos hijos dejando el máximo espacio entre cada uno, pero sin espacio a los extremos */
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 70px;
+    /* position fixed permite que la barra de navegación se mantenga en la parte superior de la pantalla al hacer scroll */
+    position: fixed;
+    /* top: 0 y left: 0 posicionan la barra de navegación en la esquina superior izquierda de la pantalla */
+    top: 0;
+    left: 0;
+    /* z-index: 1000 asegura que la barra de navegación esté siempre encima de otros elementos, hasta el carrusel de integrantes*/
+    z-index: 1000;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: normal;
+    /* position relative permite que los pseudo-elementos se posicionen en relación a este elemento y necesario para la linea de abajo */
+    position: relative;
+}
+
+/* Se crea un efecto hover para los enlaces de navegación */
+.nav-links a:hover {
+    /* cambia a el cursor pointer cuando se pasa el mouse por encima del enlace */
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+/* Se crea una linea invisible debajo de cada enlace */
+.nav-links a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    /* transform: scaleX(0) oculta la linea inicialmente */
+    transform: scaleX(0);
+    /* transition: transform 0.3s ease permite que la linea aparezca suavemente al pasar el mouse por encima */
+    transition: transform 0.3s ease;
+    /* transform-origin: left asegura que la linea se expanda desde la izquierda al pasar el mouse por encima */
+    transform-origin: left;
+}
+
+/* Al pasar el mouse por encima del enlace, la linea se expande */
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+.logo {
+    width: 300px;
+    height: auto;
+}
+
+.container {
+    background-color: #3D5A80;
+    width: auto;
+    height: 700px;
+    border-bottom-right-radius: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-direction: row permite que los elementos hijos se alineen horizontalmente, es necesario usar display:flex */
+    flex-direction: row;
+    padding: 0 50px;
+
+}
+
+.container h1 {
+    color: #E0FBFC;
+    font-size: 80px;
+    text-align: left;
+    padding-top: 160px;
+    line-height: 1;
+}
+
+.container .introduction {
+    color: white;
+    font-size: 1.1em;
+    padding-top: 20px;
+    max-width: 800px;
+    text-align: left;
+    letter-spacing: 2px;
+    word-spacing: 3px;
+}
+
+.container .text-container {
+    padding-left: 200px;
+    padding-right: 50px;
+    margin-bottom: 200px;
+}
+
+.testing-section {
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: clamp(20px, 8vw, 200px);
+    padding: 20px;
+    margin-top: 100px;
+
+}
+
+.testing-section .section-subtitle {
+    margin-bottom: 1.875rem;
+    text-align: left;
+}
+
+.testing-section h2 {
+    color: #EE6C4D;
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.testing-section p {
+    color: black;
+    font-size: 1.1em;
+}
+
+.testing-types {
+    margin-top: 100px;
+}
+
+.testing-section h3 {
+    color: #2c3e50;
+    font-size: 1.6em;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #ee6c4d33;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+}
+
+.testing-section ul {
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.testing-section li {
+    margin-bottom: 15px;
+    color: black;
+    font-size: 1.1em;
+}
+
+.testing-tools {
+    margin-top: 100px;
+}
+
+.testing-description,
+.testing-types,
+.testing-tools {
+    background-color: #f4f7fa;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 60px;
+}
