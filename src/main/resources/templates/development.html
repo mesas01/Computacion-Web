@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Arrienda tu finca</title>
+        <link rel="stylesheet" href="../static/css/estilos.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+    </head>
+
+        <body>
+            <nav class="navBar">
+                <img src="../static/img/logo arrienda tu finca.png" alt="Logo de Arrienda tu finca" class="logo">
+                <div class="nav-links">
+                    <a>Home</a>
+                    <a>Requerimientos</a>
+                    <a>Arquitectura del proyecto</a>
+                    <a>Modelos</a>
+                    <a>Desarrollo</a>
+                    <a>Pruebas</a>
+                    <a>Despliegue</a>
+                </div>
+            </nav>
+
+            <div class="container">
+                <div class="text-container">
+                    <h1>Desarrollo del proyecto</h1>
+                    <p class="introduction">En esta sección encontrará la documentación técnica completa del desarrollo, incluyendo especificaciones de endpoints,
+                        guías de implementación y recursos desarrollados por el equipo de trabajo.</p>
+                </div>
+            </div>
+            <!-- Diagramas Container -->
+            <div class="diagramasC4-container">
+                <div class="diagramas-description">
+                    <p>
+                        Esta sección contiene toda la documentación técnica desarrollada internamente por
+                        el equipo de desarrollo del proyecto "Arrienda tu Finca". Los recursos incluyen especificaciones
+                        detalladas de endpoints, guías de implementación, estándares de codificación y arquitectura de software.
+                    </p>
+                    <p>
+                        Cada elemento de esta documentación ha sido cuidadosamente elaborado para proporcionar
+                        una guía completa y detallada que facilite el desarrollo, mantenimiento y escalabilidad
+                        del sistema de arrendamiento de fincas.
+                    </p>
+                </div>
+
+                <div class="diagramas-grid">
+                    <!-- Documentación API - Endpoints -->
+                    <div class="diagram-card">
+                        <div class="diagram-title">
+                            API REST - Endpoints
+                        </div>
+                        <div class="diagram-image">
+                            <div class="diagram-placeholder">
+                                Especificaciones API<br>
+                                <small>Endpoints y Métodos HTTP</small>
+                            </div>
+                        </div>
+                        <div class="diagram-description">
+                            <p>
+                                Documentación completa de todos los endpoints de la API REST del sistema,
+                                incluyendo métodos HTTP, parámetros, respuestas y casos de uso específicos.
+                            </p>
+                            <div class="endpoint-list">
+                                <div class="endpoint-item">
+                                    <span class="endpoint-method get">GET</span>
+                                    <span class="endpoint-path">/api/properties</span>
+                                    <div class="endpoint-description">Obtener lista de propiedades con filtros</div>
+                                </div>
+                                <div class="endpoint-item">
+                                    <span class="endpoint-method post">POST</span>
+                                    <span class="endpoint-path">/api/properties</span>
+                                    <div class="endpoint-description">Crear nueva propiedad</div>
+                                </div>
+                                <div class="endpoint-item">
+                                    <span class="endpoint-method put">PUT</span>
+                                    <span class="endpoint-path">/api/bookings/{id}</span>
+                                    <div class="endpoint-description">Actualizar estado de reserva</div>
+                                </div>
+                                <div class="endpoint-item">
+                                    <span class="endpoint-method delete">DELETE</span>
+                                    <span class="endpoint-path">/api/properties/{id}</span>
+                                    <div class="endpoint-description">Eliminar propiedad del sistema</div>
+                                </div>
+                            </div>
+                            <div class="team-note">
+                                <strong>Descripciones de endpoints realizadas por el equipo</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Arquitectura de Software -->
+                    <div class="diagram-card">
+                        <div class="diagram-title">
+                            Arquitectura de Software
+                        </div>
+                        <div class="diagram-image">
+                            <div class="diagram-placeholder">
+                                Patrones y Estructuras<br>
+                                <small>Diseño de Software</small>
+                            </div>
+                        </div>
+                        <div class="diagram-description">
+                            <p>
+                                Documentación de la arquitectura implementada, patrones de diseño utilizados
+                                y principios de desarrollo aplicados en el sistema.
+                            </p>
+                            <div class="dev-list">
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Patrón MVC</div>
+                                    <div class="dev-item-description">Separación de lógica, presentación y datos</div>
+                                </div>
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Principios SOLID</div>
+                                    <div class="dev-item-description">Aplicación de principios de diseño orientado a objetos</div>
+                                </div>
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Arquitectura en Capas</div>
+                                    <div class="dev-item-description">Organización modular del código</div>
+                                </div>
+                            </div>
+                            <div class="team-note">
+                                <strong>Documentación elaborada por el equipo técnico</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stack Tecnológico -->
+                    <div class="diagram-card">
+                        <div class="diagram-title">
+                            Stack Tecnológico
+                        </div>
+                        <div class="diagram-image">
+                            <div class="diagram-placeholder">
+                                Tecnologías Utilizadas<br>
+                                <small>Frontend y Backend</small>
+                            </div>
+                        </div>
+                        <div class="diagram-description">
+                            <p>
+                                Conjunto de tecnologías, frameworks y herramientas seleccionadas para
+                                el desarrollo del sistema de arrendamiento de fincas.
+                            </p>
+                            <div class="dev-list">
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Frontend</div>
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">React</span>
+                                        <span class="tech-tag">TypeScript</span>
+                                        <span class="tech-tag">Tailwind CSS</span>
+                                    </div>
+                                </div>
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Backend</div>
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">Node.js</span>
+                                        <span class="tech-tag">Express</span>
+                                        <span class="tech-tag">PostgreSQL</span>
+                                    </div>
+                                </div>
+                                <div class="dev-item">
+                                    <div class="dev-item-title">DevOps</div>
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">Docker</span>
+                                        <span class="tech-tag">GitHub Actions</span>
+                                        <span class="tech-tag">AWS</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-note">
+                                <strong>Selección tecnológica realizada por el equipo</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testing y Calidad -->
+                    <div class="diagram-card">
+                        <div class="diagram-title">
+                            Testing y Calidad
+                        </div>
+                        <div class="diagram-image">
+                            <div class="diagram-placeholder">
+                                Estrategias de Testing<br>
+                                <small>Pruebas y Validación</small>
+                            </div>
+                        </div>
+                        <div class="diagram-description">
+                            <p>
+                                Metodologías y herramientas implementadas para garantizar la calidad
+                                del código y la funcionalidad del sistema.
+                            </p>
+                            <div class="dev-list">
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Pruebas Unitarias</div>
+                                    <div class="dev-item-description">Testing de componentes individuales con Jest</div>
+                                </div>
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Pruebas de Integración</div>
+                                    <div class="dev-item-description">Validación de interacciones entre módulos</div>
+                                </div>
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Análisis de Código</div>
+                                    <div class="dev-item-description">ESLint y Prettier para estándares de calidad</div>
+                                </div>
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Cobertura de Código</div>
+                                    <div class="dev-item-description">Métricas de cobertura >85%</div>
+                                </div>
+                            </div>
+                            <div class="team-note">
+                                <strong>Metodologías definidas por el equipo de desarrollo</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Guías de Desarrollo -->
+                    <div class="diagram-card">
+                        <div class="diagram-title">
+                            Guías de Desarrollo
+                        </div>
+                        <div class="diagram-image">
+                            <div class="diagram-placeholder">
+                                Estándares y Metodologías<br>
+                                <small>Buenas Prácticas</small>
+                            </div>
+                        </div>
+                        <div class="diagram-description">
+                            <p>
+                                Conjunto de estándares, convenciones y mejores prácticas establecidas
+                                para el desarrollo consistente del proyecto.
+                            </p>
+                            <div class="dev-list">
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Convenciones de Código</div>
+                                    <div class="dev-item-description">Estándares de nomenclatura y estructura</div>
+                                </div>
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Git Flow</div>
+                                    <div class="dev-item-description">Metodología de control de versiones</div>
+                                </div>
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Code Review</div>
+                                    <div class="dev-item-description">Proceso de revisión de código entre pares</div>
+                                </div>
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Documentación</div>
+                                    <div class="dev-item-description">Estándares para documentación técnica</div>
+                                </div>
+                            </div>
+                            <div class="team-note">
+                                <strong>Guías elaboradas por el equipo de desarrollo</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seguridad y Performance -->
+                    <div class="diagram-card">
+                        <div class="diagram-title">
+                            Seguridad y Performance
+                        </div>
+                        <div class="diagram-image">
+                            <div class="diagram-placeholder">
+                                Optimización y Seguridad<br>
+                                <small>Mejores Prácticas</small>
+                            </div>
+                        </div>
+                        <div class="diagram-description">
+                            <p>
+                                Implementación de medidas de seguridad y optimización de rendimiento
+                                para garantizar un sistema robusto y eficiente.
+                            </p>
+                            <div class="dev-list">
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Autenticación JWT</div>
+                                    <div class="dev-item-description">Sistema seguro de autenticación de usuarios</div>
+                                </div>
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Validación de Datos</div>
+                                    <div class="dev-item-description">Sanitización y validación de inputs</div>
+                                </div>
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Optimización BD</div>
+                                    <div class="dev-item-description">Índices y consultas optimizadas</div>
+                                </div>
+                                <div class="dev-item">
+                                    <div class="dev-item-title">Caching</div>
+                                    <div class="dev-item-description">Implementación de Redis para cache</div>
+                                </div>
+                            </div>
+                            <div class="team-note">
+                                <strong>Implementaciones desarrolladas por el equipo técnico</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </body>
+    <script src="../static/js/carousel.js" defer></script>
+</html>
