@@ -18,64 +18,72 @@ document.addEventListener('DOMContentLoaded', function() {
     return;
   }
 
-  let currentIndex = 0;
-  // Estado interno que rastrea el índice del primer elemento visible en el carrusel.
+  const initialMemberCount = members.length;
+  let itemsInView = itemsPerView();
+  let currentIndex = 0; // Estado interno que rastrea el índice del primer elemento visible en el carrusel.
 
-  /* descripción: Recalcula y aplica la transformación de desplazamiento (translateX) al carrusel
-     basándose en el índice actual y el tamaño de los elementos.*/
-  function updatePosition() {
-    const itemWidth = members[0].offsetWidth;
-    // Obtiene el ancho computado del primer elemento para asegurar consistencia.
-    const gap = parseInt(window.getComputedStyle(track).gap);
-    // Obtiene el valor del "gap" CSS para una medición precisa de la distancia entre elementos.
-    const offset = currentIndex * (itemWidth + gap);
-    // Calcula el desplazamiento total necesario para alinear el elemento en 'currentIndex'.
-    track.style.transform = `translateX(-${offset}px)`;
-    // Aplica la transformación CSS para mover el 'track' al offset calculado.
-
-    // Lógica de UI para los controles de navegación.
-    // Se deshabilitan los botones para indicar al usuario que no hay más elementos en esa dirección.
-    prevBtn.disabled = (currentIndex === 0);
-    nextBtn.disabled = (currentIndex >= members.length - itemsPerView());
+  /* Descripción: Clona elementos para crear un bucle infinito.
+  // Clonamos los primeros 'itemsInView' elementos y los agregamos al final del track.
+  // Esto crea el "espacio" para que el carrusel se mueva sin interrupciones.*/
+  for (let i = 0; i < itemsInView; i++) {
+    const clone = members[i].cloneNode(true);
+    track.appendChild(clone);
   }
+  // Refrescar la lista de miembros después de clonar.
+  const allMembers = track.querySelectorAll('.team-member');
 
-  /* Descripción: Determina la cantidad de elementos visibles en el carrusel según el ancho de la ventana.
-   * retorna: {number} El número de elementos que deben ser visibles en la vista actual. */
   function itemsPerView() {
-    if (window.innerWidth <= 768) {
-      return 1;
-      // Retorna 1 para vistas móviles, permitiendo que el carrusel se desplace de a un elemento.
-    } else {
-      return 3;
-      // Retorna 3 para vistas de escritorio, manteniendo la visualización de tres elementos.
-    }
+    return window.innerWidth <= 768 ? 1 : 3;
   }
 
-  // Handlers de eventos para los botones de navegación.
+  function updatePosition() {
+    const itemWidth = members[0].offsetWidth; // Obtiene el ancho computado del primer elemento para asegurar consistencia.
+    const gap = parseInt(window.getComputedStyle(track).gap);// Obtiene el valor del "gap" CSS para una medición precisa de la distancia entre elementos.
+    const offset = currentIndex * (itemWidth + gap); // Calcula el desplazamiento total necesario para alinear el elemento en 'currentIndex'.
+
+    track.style.transform = `translateX(-${offset}px)`; // Aplica la transformación CSS para mover el 'track' al offset calculado.
+  }
+
+  // Descripción: Modificar los event listeners para el movimiento infinito.
   nextBtn.addEventListener('click', () => {
-    const maxIndex = members.length - itemsPerView();
-    // Limita el desplazamiento máximo para evitar que el carrusel se mueva a un espacio vacío.
-    if (currentIndex < maxIndex) {
+    // Si estamos en el último elemento original (o el que está justo antes del duplicado)
+    if (currentIndex >= initialMemberCount) {
+      // "saltamos" instantáneamente de vuelta al inicio.
+      currentIndex = 0;
+      updatePosition(false);// Forzamos un re-render y una nueva transición para que el movimiento continúe.
+      setTimeout(() => {
+        currentIndex++;
+        updatePosition();
+      }, 50); // Pequeño retraso para que el navegador procese el cambio de posición sin transición.
+    } else {
       currentIndex++;
       updatePosition();
     }
   });
 
   prevBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
+    // lo mismo que el anterior pero esto es en caso de que estemos en el primer elemento
+    if (currentIndex <= 0) {
+      // "saltamos" instantáneamente a la posición de los clones.
+      currentIndex = initialMemberCount;
+      updatePosition(false);
+      // Forzamos un re-render y una nueva transición para el movimiento en reversa.
+      setTimeout(() => {
+        currentIndex--;
+        updatePosition();
+      }, 50);
+    } else {
       currentIndex--;
       updatePosition();
     }
   });
 
-  // Se agrega un 'event listener' para el evento 'resize' de la ventana.
-  // Esto asegura que el carrusel se adapte correctamente si el usuario cambia el tamaño del navegador,
-  // por ejemplo, al rotar un dispositivo móvil o redimensionar la ventana de un escritorio.
   window.addEventListener('resize', () => {
-    currentIndex = 0; // Reinicia la posición para evitar un estado inconsistente en el reajuste.
+    itemsInView = itemsPerView();
+    // No es necesario clonar de nuevo, solo re-inicializamos.
+    currentIndex = 0;
     updatePosition();
   });
 
-  // Inicialización del carrusel en su estado inicial.
   updatePosition();
 });
