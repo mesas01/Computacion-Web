@@ -1,4 +1,8 @@
-/*REGLAS GLOBALES Y RESETS*/
+/*
+    ---------------------
+    REGLAS GLOBALES Y RESETS
+    ---------------------
+*/
 /* Aplicación de 'box-sizing: border-box' y reseteo de márgenes y paddings para todos los elementos.
    Esto facilita el control de las dimensiones de los elementos. */
 * {
@@ -14,7 +18,11 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-/*BARRA DE NAVEGACIÓN*/
+/*
+    ---------------------
+    BARRA DE NAVEGACIÓN
+    ---------------------
+*/
 /* Estilos para el contenedor principal de la barra de navegación.
    'position: fixed' mantiene la barra en la parte superior de la ventana al hacer scroll.
    'z-index' asegura que esté por encima de otros elementos. */
@@ -82,7 +90,11 @@ body {
     transform: scaleX(1);
 }
 
-/*ESTILOS MENÚ DE HAMBURGUESA (desktop)*/
+/*
+    ---------------------
+    ESTILOS MENÚ DE HAMBURGUESA
+    ---------------------
+*/
 /* Estilos para el botón de hamburguesa (oculto por defecto) */
 .hamburger-menu {
     display: none;
@@ -103,7 +115,21 @@ body {
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
 }
-/*CONTENEDOR PRINCIPAL (HERO)*/
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/*
+    ---------------------
+    CONTENEDOR PRINCIPAL (HERO)
+    ---------------------
+*/
 /* Estilos para la sección principal. Usa Flexbox para organizar el texto y la imagen. */
 .container {
     background-color: #3D5A80;
@@ -145,6 +171,7 @@ body {
     text-align: justify;
     padding-top: 20px;
     max-width: 600px;
+    margin: 0 auto;
     letter-spacing: 2px;
     word-spacing: 3px;
 }
@@ -157,7 +184,11 @@ body {
     border-bottom-left-radius: 100px;
 }
 
-/*SECCIÓN "PROYECTO"*/
+/*
+    ---------------------
+    SECCIÓN "PROYECTO"
+    ---------------------
+*/
 /* Contenedor de la sección "Proyecto", usa Flexbox para alinear el logo y la descripción. */
 .projectContainer {
     display: flex;
@@ -200,9 +231,14 @@ body {
 .projectContainer p {
     font-size: 1.1em;
     max-width: 600px;
+    text-align: justify;
 }
 
-/*SECCIÓN "OBJETIVOS"*/
+/*
+    ---------------------
+    SECCIÓN "OBJETIVOS"
+    ---------------------
+*/
 /* Contenedor de la sección "Objetivos", usa Flexbox para un layout flexible. */
 .objectivesContainer {
     display: flex;
@@ -255,11 +291,15 @@ body {
     font-size: 1.1em;
     line-height: 1.5em;
     color: black;
-    text-align: center;
+    text-align: justify;
     margin-top: 16px;
 }
 
-/*SECCIÓN "EQUIPO" (CARRUSEL)*/
+/*
+    ---------------------
+    SECCIÓN "EQUIPO" (CARRUSEL)
+    ---------------------
+*/
 /* Contenedor de la sección del equipo. */
 .teamContainer {
     background-color: #E0FBFC;
@@ -364,7 +404,136 @@ body {
     background-color: #EE6C4D;
 }
 
-/*MEDIA QUERIES (RESPONSIVE)*/
+/*
+    ---------------------
+    SECCIÓN "CONTACTO"
+    ---------------------
+*/
+.contact-section {
+    background: #f9f9f9;
+    padding: 50px 20px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-left {
+    flex: 2; /* el doble de espacio que la derecha */
+}
+
+.contact-right {
+    flex: 1; /* la mitad que la izquierda */
+}
+
+.contact-title {
+    color: #1E4C9C; /* mismo color de la sección inicial */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+    border: 2px solid red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    display: none;
+}
+
+#char-count {
+    font-size: 0.8em;
+    text-align: right;
+    display: block;
+    margin-top: 5px;
+}
+
+.btn-enviar {
+    background: #1E4C9C;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-enviar:hover {
+    background: #163b78;
+}
+
+.divider {
+    width: 1px;
+    background: black;
+    align-self: stretch;
+}
+
+.contact-subtitle {
+    color: #1E4C9C;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    margin-top: 150px;
+    margin-bottom: 15px;
+}
+
+.contact-text {
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    line-height: 1.4em;
+}
+
+/*
+    ---------------------
+    PIE DE PÁGINA
+    ---------------------
+*/
+.footer {
+    background: #29476d;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*
+    ---------------------
+    MEDIA QUERIES (RESPONSIVE)
+    ---------------------
+*/
 /* Estilos para pantallas con un ancho máximo de 992px (tablets). */
 @media screen and (max-width: 992px) {
     .navBar {
@@ -406,7 +575,6 @@ body {
     }
     .projectContainer {
         flex-direction: column;
-        text-align: justify;
         margin-top: 50px;
     }
     .projectContainer .projectImg-Title {
@@ -423,7 +591,7 @@ body {
     }
     .projectContainer p {
         max-width: 90%;
-        text-align: center;
+        text-align: justify;
     }
     .objectivesContainer {
         align-items: center;
@@ -443,8 +611,7 @@ body {
         align-items: center;
         text-align: center;
         padding-top: 20px;
-        margin-top: 40px;
-        margin-bottom: 40px;
+        margin: 40px 0;
     }
     .teamContainer h2 {
         padding-left: 0;
@@ -463,6 +630,22 @@ body {
     .team-member img {
         width: 250px;
         height: 250px;
+    }
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-left {
+        width: 100%;
+    }
+    .contact-right {
+        width: 100%;
+    }
+    .divider {
+        display: none;
+    }
+    .contact-subtitle {
+        margin-top: 20px;
     }
 }
 
@@ -515,16 +698,6 @@ body {
     .hamburger-menu {
         display: flex;
     }
-    /* Animación del botón de hamburguesa. */
-    .hamburger-menu.active .bar:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    .hamburger-menu.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger-menu.active .bar:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-    }
     .container h1 {
         font-size: 48px;
     }
@@ -533,6 +706,9 @@ body {
     }
     .container .introduction {
         font-size: 16px;
+    }
+    .projectContainer p {
+        text-align: center;
     }
     .objectives-list .objective-item {
         width: 100%;
