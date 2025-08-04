@@ -1,56 +1,64 @@
-/* se crea reglas globales para el estilo de la pagina */
+/*REGLAS GLOBALES Y RESETS*/
+/* Aplicación de 'box-sizing: border-box' y reseteo de márgenes y paddings para todos los elementos.
+   Esto facilita el control de las dimensiones de los elementos. */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* se crea un estilo para el body de la pagina */
+/* Define estilos base para el cuerpo del documento.
+   'padding-top' se usa para evitar que la barra de navegación fija cubra el contenido. */
 body {
     padding-top: 100px;
     font-family: 'Montserrat', sans-serif;
 }
 
+/*BARRA DE NAVEGACIÓN*/
+/* Estilos para el contenedor principal de la barra de navegación.
+   'position: fixed' mantiene la barra en la parte superior de la ventana al hacer scroll.
+   'z-index' asegura que esté por encima de otros elementos. */
 .navBar {
     background-color: #3D5A80;
     width: 100%;
     height: 100px;
-    /* el display flex permite que los elementos hijos se alineen en una fila */
     display: flex;
-    /* justify-content: space-between distribuye a los elementos hijos dejando el máximo espacio entre cada uno, pero sin espacio a los extremos */
     justify-content: space-between;
     align-items: center;
     padding-right: 70px;
-    /* position fixed permite que la barra de navegación se mantenga en la parte superior de la pantalla al hacer scroll */
     position: fixed;
-    /* top: 0 y left: 0 posicionan la barra de navegación en la esquina superior izquierda de la pantalla */
     top: 0;
     left: 0;
-    /* z-index: 1000 asegura que la barra de navegación esté siempre encima de otros elementos, hasta el carrusel de integrantes*/
     z-index: 1000;
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: normal;
-    /* position relative permite que los pseudo-elementos se posicionen en relación a este elemento y necesario para la linea de abajo */
-    position: relative;
+/* Estilos para el logo dentro de la barra de navegación. */
+.logo {
+    width: 300px;
+    height: auto;
 }
 
-/* Se crea un efecto hover para los enlaces de navegación */
-.nav-links a:hover {
-    /* cambia a el cursor pointer cuando se pasa el mouse por encima del enlace */
-    cursor: pointer;
-}
-
+/* Contenedor de los enlaces de navegación, usa Flexbox para alinear los elementos horizontalmente. */
 .nav-links {
     display: flex;
     gap: 30px;
 }
 
-/* Se crea una linea invisible debajo de cada enlace */
+/* Estilos de los enlaces de navegación. 'position: relative' es necesario para posicionar la línea del efecto 'hover'. */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: normal;
+    position: relative;
+}
+
+/* Efecto de cursor al pasar sobre los enlaces. */
+.nav-links a:hover {
+    cursor: pointer;
+}
+
+/* Pseudo-elemento que crea la línea inferior invisible para el efecto hover. */
 .nav-links a::after {
     content: "";
     display: block;
@@ -61,24 +69,42 @@ body {
     height: 3px;
     background: #fff;
     border-radius: 2px;
-    /* transform: scaleX(0) oculta la linea inicialmente */
+    /* 'transform: scaleX(0)' inicialmente oculta la línea. */
     transform: scaleX(0);
-    /* transition: transform 0.3s ease permite que la linea aparezca suavemente al pasar el mouse por encima */
+    /* Transición suave para la animación de la línea. */
     transition: transform 0.3s ease;
-    /* transform-origin: left asegura que la linea se expanda desde la izquierda al pasar el mouse por encima */
+    /* Define que la animación de la línea se expanda desde la izquierda. */
     transform-origin: left;
 }
 
-/* Al pasar el mouse por encima del enlace, la linea se expande */
+/* Efecto al pasar el mouse: la línea se hace visible. */
 .nav-links a:hover::after {
     transform: scaleX(1);
 }
 
-.logo {
-    width: 300px;
-    height: auto;
+/*ESTILOS MENÚ DE HAMBURGUESA (desktop)*/
+/* Estilos para el botón de hamburguesa (oculto por defecto) */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1010;
 }
-
+.hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+/*CONTENEDOR PRINCIPAL (HERO)*/
+/* Estilos para la sección principal. Usa Flexbox para organizar el texto y la imagen. */
 .container {
     background-color: #3D5A80;
     width: auto;
@@ -87,40 +113,43 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* flex-direction: row permite que los elementos hijos se alineen horizontalmente, es necesario usar display:flex */
     flex-direction: row;
-
 }
 
+/* Contenedor de texto dentro de la sección principal. */
+.container .text-container {
+    padding: 0 50px;
+    margin: 0 200px 200px 0;
+}
+
+/* Estilos para el título principal. */
 .container h1 {
     color: #E0FBFC;
     font-size: 80px;
-    text-align: left;
+    text-align: justify;
     padding-top: 160px;
     line-height: 1;
 }
 
+/* Estilos para el subtítulo del encabezado. */
 .container .subtitle {
     display: block;
     font-size: 80px;
     color: #E0FBFC;
-
 }
 
+/* Estilos para el párrafo de introducción. */
 .container .introduction {
     color: white;
     font-size: 20px;
-    text-align: center;
+    text-align: justify;
     padding-top: 20px;
     max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
     letter-spacing: 2px;
     word-spacing: 3px;
-
-
 }
 
+/* Estilos para la imagen de la finca. */
 .container img {
     width: 800px;
     height: 500px;
@@ -128,13 +157,8 @@ body {
     border-bottom-left-radius: 100px;
 }
 
-.container .text-container {
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-left: 200px;
-    margin-bottom: 200px;
-}
-
+/*SECCIÓN "PROYECTO"*/
+/* Contenedor de la sección "Proyecto", usa Flexbox para alinear el logo y la descripción. */
 .projectContainer {
     display: flex;
     flex-direction: row;
@@ -144,6 +168,7 @@ body {
     margin-top: 150px;
 }
 
+/* Contenedor para el logo y título de la sección "Proyecto". */
 .projectContainer .projectImg-Title {
     display: flex;
     flex-direction: column;
@@ -151,17 +176,19 @@ body {
     padding-left: 250px;
 }
 
-.projectContainer .projectImg-Title h2{
+/* Estilo del título de la sección. */
+.projectContainer .projectImg-Title h2 {
     color: #EE6C4D;
     font-size: 2em;
-    
 }
 
+/* Estilo del logo del proyecto. */
 .projectContainer .project-logo {
     height: 600px;
     width: 700px;
 }
 
+/* Contenedor de la descripción del proyecto. */
 .projectContainer .project-description {
     display: flex;
     flex-direction: column;
@@ -169,11 +196,14 @@ body {
     gap: 24px;
 }
 
+/* Estilos para los párrafos de la descripción. */
 .projectContainer p {
     font-size: 1.1em;
     max-width: 600px;
 }
 
+/*SECCIÓN "OBJETIVOS"*/
+/* Contenedor de la sección "Objetivos", usa Flexbox para un layout flexible. */
 .objectivesContainer {
     display: flex;
     flex-direction: column;
@@ -183,6 +213,7 @@ body {
     margin-top: 50px;
 }
 
+/* Estilo del título de la sección. */
 .objectivesContainer h2 {
     color: #EE6C4D;
     font-size: 2em;
@@ -190,6 +221,7 @@ body {
     font-weight: 600;
 }
 
+/* Contenedor de la lista de objetivos. 'flex-wrap: wrap' permite que las tarjetas salten a una nueva fila si no hay espacio. */
 .objectives-list {
     width: 100%;
     height: auto;
@@ -202,6 +234,7 @@ body {
     margin-top: 100px;
 }
 
+/* Estilos para cada tarjeta de objetivo. */
 .objectives-list .objective-item {
     width: 300px;
     height: 100%;
@@ -211,11 +244,13 @@ body {
     padding: 16px;
 }
 
+/* Estilos para los iconos de los objetivos. */
 .objectives-list .objective-item img {
     width: 150px;
     height: 150px;
 }
 
+/* Estilos para el texto de los objetivos. */
 .objectives-list .objective-item p {
     font-size: 1.1em;
     line-height: 1.5em;
@@ -224,6 +259,8 @@ body {
     margin-top: 16px;
 }
 
+/*SECCIÓN "EQUIPO" (CARRUSEL)*/
+/* Contenedor de la sección del equipo. */
 .teamContainer {
     background-color: #E0FBFC;
     display: flex;
@@ -231,17 +268,18 @@ body {
     align-items: start;
     width: 100%;
     height: auto;
-    margin-top: 80px;
+    margin: 80px 0;
     padding-top: 40px;
-    margin-bottom: 80px;
 }
 
+/* Estilo del título de la sección. */
 .teamContainer h2 {
     color: #EE6C4D;
     font-size: 40px;
     padding-left: 250px;
 }
 
+/* Contenedor del carrusel de integrantes. */
 .team-carousel {
     display: flex;
     flex-direction: row;
@@ -249,18 +287,20 @@ body {
     width: 100%;
     max-width: 1100px;
     overflow: hidden;
-    margin: auto;
-    margin-top: 80px;
+    margin: 80px auto;
     position: relative;
     justify-content: center;
     gap: 30px;
 }
 
+/* Contenedor que enmascara los elementos fuera de la vista. */
 .carousel-wrapper {
     overflow: hidden;
     width: 940px;
+    /* El ancho está calculado para mostrar exactamente 3 tarjetas (300px * 3) más los 2 espacios entre ellas (20px * 2). */
 }
 
+/* La pista del carrusel, que se desplaza horizontalmente. */
 .carousel-track {
     display: flex;
     transition: transform 0.5s ease;
@@ -268,19 +308,21 @@ body {
     gap: 20px;
 }
 
+/* Estilos para cada tarjeta de miembro del equipo. */
+.team-member {
+    flex: 0 0 300px;
+}
+
 .team-member img {
-    width: 300px;
+    width: 100%;
     height: 300px;
     border-radius: 20px;
     margin-top: 15px;
     object-fit: cover;
     border: 5px solid #293241;
-    min-width: 33.33%;
-    box-sizing: border-box;
-    padding: 10px;
-    flex: 0 0 300px;;
 }
 
+/* Estilos para el nombre del miembro. */
 .team-member .name {
     font-size: 24px;
     color: black;
@@ -288,6 +330,7 @@ body {
     text-align: center;
 }
 
+/* Estilos para el rol del miembro. */
 .team-member .role {
     font-size: 18px;
     color: black;
@@ -295,17 +338,17 @@ body {
     margin-top: 8px;
 }
 
+/* Estilos para la descripción del miembro. */
 .team-member .description {
     font-size: 12px;
     color: black;
-    text-align: center;
+    text-align: justify;
     margin-top: 8px;
     max-width: 300px;
 }
 
-
-.prev-btn,
-.next-btn {
+/* Estilos para los botones de navegación del carrusel. */
+.prev-btn, .next-btn {
     background-color: #3D5A80;
     color: white;
     border: none;
@@ -316,7 +359,182 @@ body {
     align-self: center;
 }
 
-.prev-btn:hover,
-.next-btn:hover {
+/* Efecto hover para los botones. */
+.prev-btn:hover, .next-btn:hover {
     background-color: #EE6C4D;
+}
+
+/*MEDIA QUERIES (RESPONSIVE)*/
+/* Estilos para pantallas con un ancho máximo de 992px (tablets). */
+@media screen and (max-width: 992px) {
+    .navBar {
+        height: 80px;
+        padding-right: 20px;
+    }
+    .logo {
+        width: 250px;
+    }
+    .container {
+        height: auto;
+        flex-direction: column;
+        padding: 20px;
+        border-bottom-right-radius: 50px;
+    }
+    .container .text-container {
+        margin: 0;
+        padding: 0;
+        text-align: justify;
+    }
+    .container h1 {
+        font-size: 60px;
+        padding-top: 40px;
+    }
+    .container .subtitle {
+        font-size: 60px;
+    }
+    .container .introduction {
+        max-width: 90%;
+        text-align: justify;
+        padding-top: 10px;
+    }
+    .container img {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+    }
+    .projectContainer {
+        flex-direction: column;
+        text-align: justify;
+        margin-top: 50px;
+    }
+    .projectContainer .projectImg-Title {
+        padding-left: 0;
+        align-items: center;
+    }
+    .projectContainer .project-logo {
+        width: 80%;
+        height: auto;
+    }
+    .projectContainer .project-description {
+        align-items: center;
+        padding: 20px;
+    }
+    .projectContainer p {
+        max-width: 90%;
+        text-align: center;
+    }
+    .objectivesContainer {
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+    }
+    .objectivesContainer h2 {
+        padding-left: 0;
+    }
+    .objectives-list {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        gap: 20px;
+    }
+    .teamContainer {
+        align-items: center;
+        text-align: center;
+        padding-top: 20px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    .teamContainer h2 {
+        padding-left: 0;
+    }
+    .team-carousel {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .carousel-wrapper {
+        width: 100%;
+    }
+    .team-member {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .team-member img {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+/* Estilos para pantallas con un ancho máximo de 768px (teléfonos móviles). */
+@media screen and (max-width: 768px) {
+    .navBar {
+        justify-content: space-between;
+        padding: 0 20px;
+        height: 70px;
+    }
+    .logo {
+        width: 180px;
+    }
+    /* El menú de navegación se oculta por defecto en móviles y se muestra con JavaScript. */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background-color: #3D5A80;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 2px solid white;
+        z-index: 1005;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%);
+    }
+    /* Clase que activa la visibilidad y el desplazamiento del menú. */
+    .nav-links.active {
+        display: flex;
+        transform: translateX(0);
+    }
+    .nav-links a {
+        font-size: 20px;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+    .nav-links a::after {
+        content: none;
+    }
+    /* El botón de hamburguesa se muestra en móviles. */
+    .hamburger-menu {
+        display: flex;
+    }
+    /* Animación del botón de hamburguesa. */
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    .container h1 {
+        font-size: 48px;
+    }
+    .container .subtitle {
+        font-size: 48px;
+    }
+    .container .introduction {
+        font-size: 16px;
+    }
+    .objectives-list .objective-item {
+        width: 100%;
+    }
 }
