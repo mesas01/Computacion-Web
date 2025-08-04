@@ -89,6 +89,7 @@ body {
     align-items: center;
     /* flex-direction: row permite que los elementos hijos se alineen horizontalmente, es necesario usar display:flex */
     flex-direction: row;
+    
 
 }
 
@@ -320,3 +321,114 @@ body {
 .next-btn:hover {
     background-color: #EE6C4D;
 }
+
+.contact-section {
+    background: #f9f9f9;
+    padding: 50px 20px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-left {
+    flex: 2; /* el doble de espacio que la derecha */
+}
+
+.contact-right {
+    flex: 1; /* la mitad que la izquierda */
+}
+
+.contact-title {
+    color: #1E4C9C; /* mismo color de la sección inicial */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+    border: 2px solid red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    display: none;
+}
+
+#char-count {
+    font-size: 0.8em;
+    text-align: right;
+    display: block;
+    margin-top: 5px;
+}
+
+.btn-enviar {
+    background: #1E4C9C;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-enviar:hover {
+    background: #163b78;
+}
+
+.divider {
+    width: 1px;
+    background: black;
+    align-self: stretch;
+}
+
+.contact-subtitle {
+    color: #1E4C9C;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    margin-top: 150px;
+    margin-bottom: 15px;
+}
+
+.contact-text {
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    line-height: 1.4em;
+}
+
+.footer {
+    background: #29476d;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
