@@ -1,56 +1,65 @@
-/* se crea reglas globales para el estilo de la pagina */
+/*REGLAS GLOBALES Y RESETS-*/
+/* Aplica 'box-sizing: border-box' y resetea márgenes y paddings en todos los elementos. */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* se crea un estilo para el body de la pagina */
+/* Define estilos base para el cuerpo del documento, como la fuente y el padding superior. */
 body {
     padding-top: 100px;
     font-family: 'Montserrat', sans-serif;
 }
 
+/*BARRA DE NAVEGACIÓN*/
+/* Estilos para el contenedor principal de la barra de navegación. */
 .navBar {
     background-color: #3D5A80;
     width: 100%;
     height: 100px;
-    /* el display flex permite que los elementos hijos se alineen en una fila */
+    /* Usa flexbox para alinear elementos horizontalmente. */
     display: flex;
-    /* justify-content: space-between distribuye a los elementos hijos dejando el máximo espacio entre cada uno, pero sin espacio a los extremos */
+    /* Distribuye el espacio entre los elementos hijos. */
     justify-content: space-between;
     align-items: center;
     padding-right: 70px;
-    /* position fixed permite que la barra de navegación se mantenga en la parte superior de la pantalla al hacer scroll */
+    /* Mantiene la barra fija en la parte superior de la pantalla. */
     position: fixed;
-    /* top: 0 y left: 0 posicionan la barra de navegación en la esquina superior izquierda de la pantalla */
     top: 0;
     left: 0;
-    /* z-index: 1000 asegura que la barra de navegación esté siempre encima de otros elementos, hasta el carrusel de integrantes*/
+    /* Asegura que la barra de navegación esté por encima de otros elementos. */
     z-index: 1000;
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: normal;
-    /* position relative permite que los pseudo-elementos se posicionen en relación a este elemento y necesario para la linea de abajo */
-    position: relative;
+/* Estilos para el logo dentro de la barra de navegación. */
+.logo {
+    width: 300px;
+    height: auto;
 }
 
-/* Se crea un efecto hover para los enlaces de navegación */
-.nav-links a:hover {
-    /* cambia a el cursor pointer cuando se pasa el mouse por encima del enlace */
-    cursor: pointer;
-}
-
+/* Contenedor de los enlaces de navegación, usa flexbox para alinearlos horizontalmente. */
 .nav-links {
     display: flex;
     gap: 30px;
 }
 
-/* Se crea una linea invisible debajo de cada enlace */
+/* Estilos de los enlaces de navegación. */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: normal;
+    /* 'position: relative' es necesario para posicionar la línea del efecto 'hover'. */
+    position: relative;
+}
+
+/* Efecto de cursor al pasar sobre los enlaces. */
+.nav-links a:hover {
+    cursor: pointer;
+}
+
+/* Pseudo-elemento que crea la línea inferior para el efecto hover. */
 .nav-links a::after {
     content: "";
     display: block;
@@ -61,24 +70,58 @@ body {
     height: 3px;
     background: #fff;
     border-radius: 2px;
-    /* transform: scaleX(0) oculta la linea inicialmente */
+    /* Oculta la línea inicialmente. */
     transform: scaleX(0);
-    /* transition: transform 0.3s ease permite que la linea aparezca suavemente al pasar el mouse por encima */
+    /* Transición suave para la animación de la línea. */
     transition: transform 0.3s ease;
-    /* transform-origin: left asegura que la linea se expanda desde la izquierda al pasar el mouse por encima */
+    /* La animación se expande desde la izquierda. */
     transform-origin: left;
 }
 
-/* Al pasar el mouse por encima del enlace, la linea se expande */
+/* Al pasar el mouse por encima del enlace, la línea se hace visible. */
 .nav-links a:hover::after {
     transform: scaleX(1);
 }
 
-.logo {
-    width: 300px;
-    height: auto;
+/*ESTILOS MENÚ DE HAMBURGUESA*/
+/* Estilos para el botón de hamburguesa (oculto por defecto en desktop) */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1010;
 }
 
+/* Estilos para las barras del menú de hamburguesa. */
+.hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animación de la primera barra al activar el menú. */
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+/* Animación de la segunda barra al activar el menú (la oculta). */
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+/* Animación de la tercera barra al activar el menú. */
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/*SECCIÓN PRINCIPAL (HERO)*/
+/* Estilos para la sección principal. Usa flexbox para organizar el texto y la imagen. */
 .container {
     background-color: #3D5A80;
     width: auto;
@@ -87,11 +130,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* flex-direction: row permite que los elementos hijos se alineen horizontalmente, es necesario usar display:flex */
+    /* Alinea los elementos hijos horizontalmente. */
     flex-direction: row;
-
 }
 
+/* Estilos para el título principal. */
 .container h1 {
     color: #E0FBFC;
     font-size: 80px;
@@ -100,24 +143,25 @@ body {
     line-height: 1;
 }
 
+/* Estilos para el subtítulo del encabezado. */
 .container .subtitle {
     display: block;
     font-size: 80px;
     color: #E0FBFC;
-
 }
 
+/* Estilos para el párrafo de introducción. */
 .container .introduction {
-    margin-top: auto;
+    margin-top: 30px;
     font-size: 1.1em;
     color: rgba(255, 255, 255, 0.9);
     font-weight: 400;
     line-height: 1.4;
     max-width: 800px;
-    margin-top: 30px;
-    padding-left: 5px
+    padding-left: 5px;
 }
 
+/* Estilos para la imagen de la finca. */
 .container img {
     width: 800px;
     height: 500px;
@@ -125,48 +169,33 @@ body {
     border-bottom-left-radius: 100px;
 }
 
+/* Contenedor de texto dentro de la sección principal. */
 .container .text-container {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 0 50px;
     margin-left: 200px;
     margin-bottom: 200px;
 }
 
-.carousel-wrapper {
-    overflow: hidden;
-    width: 940px;
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease;
-    width: 100%;
-    gap: 20px;
-}
-
-.prev-btn,
-.next-btn {
-    background-color: #3D5A80;
-    color: white;
-    border: none;
-    font-size: 32px;
-    padding: 10px 16px;
-    cursor: pointer;
-    z-index: 2;
-    align-self: center;
-}
-
-.prev-btn:hover,
-.next-btn:hover {
-    background-color: #EE6C4D;
-}
-
-.diagramasC4-container {
+/*SECCIÓN DIAGRAMAS C4 Y MODELOS*/
+/* Contenedores principales para los diagramas y modelos. */
+.diagramasC4-container, .modelo-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 40px auto;
     padding: 20px;
 }
 
+/* Estilos para los subtítulos de las secciones. */
+.section-subtitle h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #667eea;
+    position: relative;
+}
+
+/* Estilos para las tarjetas de descripción de diagramas. */
 .diagramas-description {
     background: white;
     border-radius: 12px;
@@ -175,20 +204,24 @@ body {
     margin-bottom: 40px;
 }
 
+/* Estilos para los párrafos dentro de la descripción. */
 .diagramas-description p {
     margin-bottom: 15px;
     text-align: justify;
     color: #555;
 }
 
+/* Contenedor de la cuadrícula de diagramas, usa CSS Grid. */
 .diagramas-grid {
     display: grid;
+    /* Crea columnas que se ajustan automáticamente. */
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
     margin-top: 30px;
 }
 
-.diagram-card {
+/* Estilos para cada tarjeta de diagrama o modelo. */
+.diagram-card, .modelo-card {
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -196,12 +229,14 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.diagram-card:hover {
+/* Efecto hover al pasar el mouse por encima de las tarjetas. */
+.diagram-card:hover, .modelo-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.diagram-title{
+/* Estilos para el título de las tarjetas. */
+.diagram-title, .modelo-title {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: white;
     padding: 20px;
@@ -210,8 +245,8 @@ body {
     font-weight: 600;
 }
 
-.diagram-image {
-    height: 300px;
+/* Contenedores para las imágenes de los diagramas. */
+.diagram-image, .modelo-image {
     background: #f8f9fa;
     display: flex;
     align-items: center;
@@ -222,88 +257,19 @@ body {
     overflow: hidden;
 }
 
-.diagram-image img {
+/* Define las alturas específicas para los contenedores de imagen. */
+.diagram-image { height: 300px; }
+.modelo-image { height: 500px; }
+
+/* Estilos para las imágenes dentro de los contenedores. */
+.diagram-image img, .modelo-image img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
 }
 
-.diagram-placeholder {
-    color: #6c757d;
-    font-style: italic;
-    text-align: center;
-    padding: 20px;
-}
-
-.diagram-description {
-    padding: 20px;
-    background: #fafbfc;
-}
-
-.diagram-description p {
-    font-size: 0.9em;
-    color: #666;
-    margin-bottom: 0;
-    text-align: left;
-}
-
-.section-subtitle {
-    font-size: 1.5em;
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 20px;
-    margin-top: 40px;
-    padding-bottom: 10px;
-    border-bottom: 3px solid #667eea;
-    position: relative;
-}
-.modelo-container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-}
-
-.modelo-card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.modelo-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.modelo-title {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 1.2em;
-    font-weight: 600;
-}
-
-.modelo-image {
-    height: 500px;
-    background: #f8f9fa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top: 1px solid #e9ecef;
-    border-bottom: 1px solid #e9ecef;
-    position: relative;
-    overflow: hidden;
-}
-
-.modelo-image img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.modelo-placeholder {
+/* Estilos para el texto de marcador de posición de las imágenes. */
+.diagram-placeholder, .modelo-placeholder {
     color: #6c757d;
     font-style: italic;
     text-align: center;
@@ -311,11 +277,27 @@ body {
     font-size: 1.1em;
 }
 
+/* Estilos para el contenedor de la descripción del diagrama. */
+.diagram-description {
+    padding: 20px;
+    background: #fafbfc;
+}
+
+/* Estilos para los párrafos de la descripción del diagrama. */
+.diagram-description p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 0;
+    text-align: justify;
+}
+
+/* Estilos para el contenedor de la descripción del modelo. */
 .modelo-description {
     padding: 30px;
     background: #fafbfc;
 }
 
+/* Estilos para los títulos dentro de la descripción del modelo. */
 .modelo-description h3 {
     color: #2c3e50;
     margin-bottom: 15px;
@@ -323,6 +305,7 @@ body {
     font-weight: 600;
 }
 
+/* Estilos para los párrafos dentro de la descripción del modelo. */
 .modelo-description p {
     font-size: 1em;
     color: #555;
@@ -330,45 +313,146 @@ body {
     text-align: justify;
 }
 
+/* Estilos para las listas desordenadas en la descripción del modelo. */
 .modelo-description ul {
     margin-left: 20px;
     color: #555;
 }
 
+/* Estilos para los elementos de lista. */
 .modelo-description li {
     margin-bottom: 8px;
 }
 
-@media (max-width: 768px) {
-    .introduction,
 
+/*MEDIA QUERIES (RESPONSIVE)*/
+/* Estilos para pantallas con un ancho máximo de 992px (tablets). */
+@media screen and (max-width: 992px) {
+    body {
+        padding-top: 80px;
+    }
+    .navBar {
+        height: 80px;
+        padding-right: 20px;
+    }
+    .logo {
+        width: 250px;
+    }
+    .container {
+        height: auto;
+        flex-direction: column;
+        padding: 20px;
+        border-bottom-right-radius: 50px;
+    }
+    .container .text-container {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    .container h1 {
+        font-size: 60px;
+        padding-top: 40px;
+    }
+    .container .introduction {
+        font-size: 16px;
+        padding-top: 10px;
+        text-align: center;
+    }
     .diagramas-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-
     .diagramas-description {
         padding: 20px;
     }
-
     .diagram-image {
         height: 250px;
     }
-    .modelo-relacional-container {
+    .modelo-container {
         margin: 20px auto;
         padding: 15px;
     }
-
     .modelo-title {
         font-size: 1.3em;
         padding: 20px;
     }
-
     .modelo-image {
         height: 350px;
     }
-
     .modelo-description {
         padding: 20px;
+    }
+}
+/* Estilos para pantallas con un ancho máximo de 768px (teléfonos móviles). */
+@media screen and (max-width: 768px) {
+    .navBar {
+        justify-content: space-between;
+        padding: 0 20px;
+        height: 70px;
+    }
+    .logo {
+        width: 180px;
+    }
+    /* El menú de navegación se oculta por defecto en móviles y se muestra con JavaScript. */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background-color: #3D5A80;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 2px solid white;
+        z-index: 1005;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%);
+    }
+    /* Clase que activa la visibilidad y el desplazamiento del menú. */
+    .nav-links.active {
+        display: flex;
+        transform: translateX(0);
+    }
+    .nav-links a {
+        font-size: 20px;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+    .nav-links a::after {
+        content: none;
+    }
+    /* El botón de hamburguesa se muestra en móviles. */
+    .hamburger-menu {
+        display: flex;
+    }
+    .container h1, .container .introduction {
+        font-size: 48px;
+        text-align: center;
+    }
+    .container .introduction {
+        font-size: 16px;
+    }
+    .diagramas-description p,
+    .diagram-description p,
+    .modelo-description p {
+        text-align: center;
+    }
+    .diagram-card {
+        margin-bottom: 20px;
+    }
+    .modelo-description ul {
+        margin-left: 0;
+        list-style-position: inside;
+        text-align: left;
+    }
+    .modelo-description li {
+        text-align: left;
     }
 }
