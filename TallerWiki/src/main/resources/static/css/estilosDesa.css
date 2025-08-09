@@ -1,0 +1,336 @@
+/* se crea reglas globales para el estilo de la pagina */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* se crea un estilo para el body de la pagina */
+body {
+    padding-top: 100px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navBar {
+    background-color: #3D5A80;
+    width: 100%;
+    height: 100px;
+    /* el display flex permite que los elementos hijos se alineen en una fila */
+    display: flex;
+    /* justify-content: space-between distribuye a los elementos hijos dejando el máximo espacio entre cada uno, pero sin espacio a los extremos */
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 70px;
+    /* position fixed permite que la barra de navegación se mantenga en la parte superior de la pantalla al hacer scroll */
+    position: fixed;
+    /* top: 0 y left: 0 posicionan la barra de navegación en la esquina superior izquierda de la pantalla */
+    top: 0;
+    left: 0;
+    /* z-index: 1000 asegura que la barra de navegación esté siempre encima de otros elementos, hasta el carrusel de integrantes*/
+    z-index: 1000;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: normal;
+    /* position relative permite que los pseudo-elementos se posicionen en relación a este elemento y necesario para la linea de abajo */
+    position: relative;
+}
+
+/* Se crea un efecto hover para los enlaces de navegación */
+.nav-links a:hover {
+    /* cambia a el cursor pointer cuando se pasa el mouse por encima del enlace */
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+/* Se crea una linea invisible debajo de cada enlace */
+.nav-links a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    /* transform: scaleX(0) oculta la linea inicialmente */
+    transform: scaleX(0);
+    /* transition: transform 0.3s ease permite que la linea aparezca suavemente al pasar el mouse por encima */
+    transition: transform 0.3s ease;
+    /* transform-origin: left asegura que la linea se expanda desde la izquierda al pasar el mouse por encima */
+    transform-origin: left;
+}
+
+/* Al pasar el mouse por encima del enlace, la linea se expande */
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+.logo {
+    width: 300px;
+    height: auto;
+}
+
+.container {
+    background-color: #3D5A80;
+    width: auto;
+    height: 400px;
+    border-bottom-right-radius: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-direction: row permite que los elementos hijos se alineen horizontalmente, es necesario usar display:flex */
+    flex-direction: row;
+
+}
+
+.container h1 {
+    color: #E0FBFC;
+    font-size: 80px;
+    text-align: left;
+    padding-top: 160px;
+    line-height: 1;
+}
+
+.container .subtitle {
+    display: block;
+    font-size: 80px;
+    color: #E0FBFC;
+
+}
+
+.container .introduction {
+    margin-top: auto;
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    line-height: 1.4;
+    max-width: 800px;
+    margin-top: 30px;
+    padding-left: 5px
+}
+
+.container img {
+    width: 800px;
+    height: 500px;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+.container .text-container {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: 200px;
+    margin-bottom: 200px;
+}
+
+.carousel-wrapper {
+    overflow: hidden;
+    width: 940px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    gap: 20px;
+}
+
+.prev-btn,
+.next-btn {
+    background-color: #3D5A80;
+    color: white;
+    border: none;
+    font-size: 32px;
+    padding: 10px 16px;
+    cursor: pointer;
+    z-index: 2;
+    align-self: center;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    background-color: #EE6C4D;
+}
+
+.desarrollo-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 20px 40px;
+}
+
+.endpoints-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.endpoint-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid #3D5A80;
+}
+
+.endpoint-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.endpoint-header {
+    background: linear-gradient(135deg, #3D5A80 0%, #2a5298 100%);
+    color: white;
+    padding: 20px;
+    text-align: left;
+}
+
+.endpoint-method {
+    display: inline-block;
+    background: #EE6C4D;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.endpoint-method.get {
+    background: #28a745;
+}
+
+.endpoint-method.post {
+    background: #007bff;
+}
+
+.endpoint-url {
+    font-family: 'Courier New', monospace;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.endpoint-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.endpoint-content {
+    padding: 25px;
+}
+
+.endpoint-description {
+    color: #555;
+    margin-bottom: 20px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.endpoint-section {
+    margin-bottom: 20px;
+}
+
+.endpoint-section h4 {
+    color: #3D5A80;
+    margin-bottom: 10px;
+    font-size: 1.05em;
+    font-weight: 600;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 5px;
+}
+
+.parameter-item {
+    background: #f8f9fa;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    border-left: 3px solid #3D5A80;
+}
+
+.parameter-name {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.parameter-type {
+    color: #6c757d;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.parameter-description {
+    color: #555;
+    margin-top: 5px;
+    font-size: 0.95em;
+}
+
+.response-example {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    color: #2c3e50;
+}
+
+.status-code {
+    display: inline-block;
+    background: #28a745;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+
+@media (max-width: 768px) {
+    .introduction,
+
+    .diagramas-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .diagramas-description {
+        padding: 20px;
+    }
+
+    .diagram-image {
+        height: 250px;
+    }
+
+    .endpoints-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .desarrollo-description {
+        padding: 20px;
+    }
+
+    .endpoint-content {
+        padding: 20px;
+    }
+
+    .section-subtitle {
+        font-size: 1.8em;
+    }
+}
