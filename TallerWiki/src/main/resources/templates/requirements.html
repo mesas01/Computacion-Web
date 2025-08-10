@@ -1,107 +1,113 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Requerimientos del Proyecto</title>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="../static/css/estilosReq.css" />
-    </head>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
 
-    <body>
-    <nav class="navBar">
-        <img src="../static/img/logo arrienda tu finca.png" alt="Logo de Arrienda tu finca" class="logo">
-        <div class="nav-links">
-            <a>Home</a>
-            <a>Requerimientos</a>
-            <a>Arquitectura del proyecto</a>
-            <a>Modelos</a>
-            <a>Desarrollo</a>
-            <a>Pruebas</a>
-            <a>Despliegue</a>
+    <title>Requerimientos del Proyecto</title>
+    <link rel="stylesheet" th:href="@{/css/estilosReq.css}" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+<nav class="navBar">
+    <img th:src="@{/img/logo arrienda tu finca.png}" alt="Logo de Arrienda tu finca" class="logo">
+    <button class="hamburger-menu" aria-label="Abrir men&uacute; de navegaci&oacute;n">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <div class="nav-links">
+        <a th:href="@{/index.html}">Home</a>
+        <a th:href="@{/requirements.html}">Requerimientos</a>
+        <a th:href="@{/architecture.html}">Arquitectura del proyecto</a>
+        <a th:href="@{/development.html}">Desarrollo</a>
+        <a th:href="@{/testing.html}">Pruebas</a>
+        <a th:href="@{/deployment.html}">Despliegue</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="text-container">
+        <h1>REQUERIMIENTOS</h1>
+        <p class="introduction">
+            En esta secci&oacute;n se definen los requerimientos que gu&iacute;an el alcance funcional y de calidad del sistema.
+            Se dividen en dos categor&iacute;as: Requisitos Funcionales y Requisitos no Funcionales.
+        </p>
+    </div>
+</div>
+
+<main class="principal-container">
+    <div class="description">
+        <p>
+            A continuaci&oacute;n se presentan los requerimientos del proyecto. Los funcionales describen qu&eacute; debe hacer el sistema,
+            y los no funcionales las restricciones de calidad y comportamiento esperado.
+        </p>
+    </div>
+    <div class="requirement-card">
+        <div class="requirement-title">
+            Requisitos Funcionales
         </div>
-    </nav>
-
-    <div class="container">
-        <div class="text-container">
-            <h1>REQUERIMIENTOS</h1>
-            <p class="introduction">
-                En esta sección se definen los requerimientos que guían el alcance funcional y de calidad del sistema.
-                Se dividen en dos categorías: Requisitos Funcionales y Requisitos no Funcionales.
+        <div class="requirement-description">
+            <p>
+                Los requisitos funcionales describen las capacidades y comportamientos espec&iacute;ficos que el sistema debe ofrecer.
+                Ejemplos ilustrativos:
             </p>
+            <div class="two-columns">
+                <ul class="lista">
+                    <li>El usuario debe poder registrarse en la plataforma.</li>
+                    <li>El sistema debe permitir iniciar sesi&oacute;n con credenciales v&aacute;lidas.</li>
+                    <li>El administrador debe poder crear, editar y eliminar recursos.</li>
+                </ul>
+                <ul class="lista">
+                    <li>El sistema debe mostrar una lista filtrable de elementos.</li>
+                    <li>El usuario debe recibir notificaciones ante eventos importantes.</li>
+                    <li>Se debe poder restablecer la contrase&ntilde;a mediante correo electr&oacute;nico.</li>
+                </ul>
+            </div>
+            <p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.</em></p>
         </div>
     </div>
 
-    <main class="principal-container">
-        <div class="description">
+    <div class="requirement-card">
+        <div class="requirement-title">
+            Requisitos No Funcionales
+        </div>
+        <div class="requirement-description">
             <p>
-                A continuación se presentan los requerimientos del proyecto. Los funcionales describen qué debe hacer el sistema,
-                y los no funcionales las restricciones de calidad y comportamiento esperado.
+                Los requisitos no funcionales establecen criterios de calidad, rendimiento, seguridad y usabilidad.
+                Ejemplos ilustrativos:
             </p>
-        </div>
-        <!-- Requisitos Funcionales -->
-        <div class="requirement-card">
-            <div class="requirement-title">
-                Requisitos Funcionales
+            <div class="two-columns">
+                <ul class="lista">
+                    <li>La aplicaci&oacute;n debe responder en menos de 2 segundos en condiciones normales.</li>
+                    <li>El sistema debe estar disponible el 99.5% del tiempo.</li>
+                    <li>Las comunicaciones deben ser cifradas usando HTTPS.</li>
+                </ul>
+                <ul class="lista">
+                    <li>La interfaz debe cumplir con est&aacute;ndares de accesibilidad WCAG nivel AA.</li>
+                    <li>El sistema debe escalar hasta 500 usuarios concurrentes.</li>
+                    <li>Las acciones cr&iacute;ticas deben quedar registradas en auditor&iacute;a.</li>
+                </ul>
             </div>
-            <div class="requirement-description">
-                <p>
-                    Los requisitos funcionales describen las capacidades y comportamientos específicos que el sistema debe ofrecer.
-                    Ejemplos ilustrativos:
-                </p>
-                <div class="two-columns">
-                    <ul class="lista">
-                        <li>El usuario debe poder registrarse en la plataforma.</li>
-                        <li>El sistema debe permitir iniciar sesión con credenciales válidas.</li>
-                        <li>El administrador debe poder crear, editar y eliminar recursos.</li>
-                    </ul>
-                    <ul class="lista">
-                        <li>El sistema debe mostrar una lista filtrable de elementos.</li>
-                        <li>El usuario debe recibir notificaciones ante eventos importantes.</li>
-                        <li>Se debe poder restablecer la contraseña mediante correo electrónico.</li>
-                    </ul>
-                </div>
-                <p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.</em></p>
-            </div>
+            <p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</em></p>
         </div>
+    </div>
 
-        <!-- Requisitos No Funcionales -->
-        <div class="requirement-card">
-            <div class="requirement-title">
-                Requisitos No Funcionales
-            </div>
-            <div class="requirement-description">
-                <p>
-                    Los requisitos no funcionales establecen criterios de calidad, rendimiento, seguridad y usabilidad.
-                    Ejemplos ilustrativos:
-                </p>
-                <div class="two-columns">
-                    <ul class="lista">
-                        <li>La aplicación debe responder en menos de 2 segundos en condiciones normales.</li>
-                        <li>El sistema debe estar disponible el 99.5% del tiempo.</li>
-                        <li>Las comunicaciones deben ser cifradas usando HTTPS.</li>
-                    </ul>
-                    <ul class="lista">
-                        <li>La interfaz debe cumplir con estándares de accesibilidad WCAG nivel AA.</li>
-                        <li>El sistema debe escalar hasta 500 usuarios concurrentes.</li>
-                        <li>Las acciones críticas deben quedar registradas en auditoría.</li>
-                    </ul>
-                </div>
-                <p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</em></p>
-            </div>
+    <div class="requirement-card">
+        <div class="requirement-title">
+            Notas Adicionales
         </div>
-
-        <!-- Nota adicional -->
-        <div class="requirement-card">
-            <div class="requirement-title">
-                Notas Adicionales
-            </div>
-            <div class="requirement-description">
-                <p>
-                    Estos requerimientos son una base inicial. Deben validarse con los interesados, priorizarse y versionarse durante el ciclo de vida del proyecto.
-                </p>
-                <p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</em></p>
-            </div>
+        <div class="requirement-description">
+            <p>
+                Estos requerimientos son una base inicial. Deben validarse con los interesados, priorizarse y versionarse durante el ciclo de vida del proyecto.
+            </p>
+            <p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</em></p>
         </div>
-    </main>
-    </body>
+    </div>
+</main>
+</body>
+<script th:src="@{/js/menu.js}" defer></script>
 </html>

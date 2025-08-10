@@ -1,139 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <title>Arrienda tu finca</title>
-        <link rel="stylesheet" href="../static/css/estilosDesa.css">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-        <meta charset="UTF-8">
-    </head>
+<head>
+    <title>Arrienda tu finca</title>
+    <link rel="stylesheet" th:href="@{/css/estilosDesa.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+</head>
 
-        <body>
-        <nav class="navBar">
-            <img src="../static/img/logo arrienda tu finca.png" alt="Logo de Arrienda tu finca" class="logo">
-            <div class="nav-links">
-                <a>Home</a>
-                <a>Requerimientos</a>
-                <a>Arquitectura del proyecto</a>
-                <a>Modelos</a>
-                <a>Desarrollo</a>
-                <a>Pruebas</a>
-                <a>Despliegue</a>
+<body>
+<nav class="navBar">
+    <img th:src="@{/img/logo arrienda tu finca.png}" alt="Logo de Arrienda tu finca" class="logo">
+    <button class="hamburger-menu" aria-label="Abrir men&uacute; de navegaci&oacute;n">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <div class="nav-links">
+        <a th:href="@{/index.html}">Home</a>
+        <a th:href="@{/requirements.html}">Requerimientos</a>
+        <a th:href="@{/architecture.html}">Arquitectura del proyecto</a>
+        <a th:href="@{/development.html}">Desarrollo</a>
+        <a th:href="@{/testing.html}">Pruebas</a>
+        <a th:href="@{/deployment.html}">Despliegue</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="text-container">
+        <h1>Desarrollo del proyecto</h1>
+        <p class="introduction">Esta secci&oacute;n presenta los endpoints principales de nuestra API REST, dise&ntilde;ados para la gesti&oacute;n de usuarios
+            del sistema. Cada endpoint implementa las mejores pr&aacute;cticas de desarrollo web y garantiza una comunicaci&oacute;n
+            eficiente entre el cliente y el servidor.</p>
+    </div>
+</div>
+
+
+<section class="desarrollo-container">
+    <div class="endpoints-grid">
+        <div class="endpoint-card">
+            <div class="endpoint-header">
+                <span class="endpoint-method get">GET</span>
+                <div class="endpoint-url">/api/usuarios</div>
+                <h3 class="endpoint-title">Obtener Lista de Usuarios</h3>
             </div>
-        </nav>
+            <div class="endpoint-content">
+                <p class="endpoint-description">
+                    Este endpoint permite obtener la lista completa de usuarios registrados en el sistema.
+                    Incluye funcionalidades de paginaci&oacute;n y filtrado para optimizar el rendimiento.
+                </p>
 
-        <div class="container">
-            <div class="text-container">
-                <h1>Desarrollo del proyecto</h1>
-                <p class="introduction">Esta sección presenta los endpoints principales de nuestra API REST, diseñados para la gestión de usuarios
-                    del sistema. Cada endpoint implementa las mejores prácticas de desarrollo web y garantiza una comunicación
-                    eficiente entre el cliente y el servidor.</p>
-            </div>
-        </div>
-
-
-        <section class="desarrollo-container">
-        <div class="endpoints-grid">
-            <!-- Endpoint GET -->
-            <div class="endpoint-card">
-                <div class="endpoint-header">
-                    <span class="endpoint-method get">GET</span>
-                    <div class="endpoint-url">/api/usuarios</div>
-                    <h3 class="endpoint-title">Obtener Lista de Usuarios</h3>
-                </div>
-                <div class="endpoint-content">
-                    <p class="endpoint-description">
-                        Este endpoint permite obtener la lista completa de usuarios registrados en el sistema.
-                        Incluye funcionalidades de paginación y filtrado para optimizar el rendimiento.
-                    </p>
-
-                    <div class="endpoint-section">
-                        <h4>Parámetros de Consulta</h4>
-                        <div class="parameter-item">
-                            <span class="parameter-name">page</span>
-                            <span class="parameter-type">(integer, opcional)</span>
-                            <div class="parameter-description">Número de página para la paginación. Por defecto: 1</div>
-                        </div>
-                        <div class="parameter-item">
-                            <span class="parameter-name">limit</span>
-                            <span class="parameter-type">(integer, opcional)</span>
-                            <div class="parameter-description">Cantidad de registros por página. Por defecto: 10</div>
-                        </div>
+                <div class="endpoint-section">
+                    <h4>Par&aacute;metros de Consulta</h4>
+                    <div class="parameter-item">
+                        <span class="parameter-name">page</span>
+                        <span class="parameter-type">(integer, opcional)</span>
+                        <div class="parameter-description">N&uacute;mero de p&aacute;gina para la paginaci&oacute;n. Por defecto: 1</div>
                     </div>
-
-                    <div class="endpoint-section">
-                        <h4>Respuesta</h4>
-                        <span class="status-code">200</span> Success
-                        <div class="response-example">{
-                            "data": [
-                            {
-                            "id": 1,
-                            "nombre": "Juan Pérez",
-                            "email": "juan@email.com",
-                            "fecha_registro": "2024-01-15"
-                            }
-                            ],
-                            "pagination": {
-                            "page": 1,
-                            "limit": 10,
-                            "total": 25
-                            }
-                            }</div>
+                    <div class="parameter-item">
+                        <span class="parameter-name">limit</span>
+                        <span class="parameter-type">(integer, opcional)</span>
+                        <div class="parameter-description">Cantidad de registros por p&aacute;gina. Por defecto: 10</div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Endpoint POST -->
-            <div class="endpoint-card">
-                <div class="endpoint-header">
-                    <span class="endpoint-method post">POST</span>
-                    <div class="endpoint-url">/api/usuarios</div>
-                    <h3 class="endpoint-title">Crear Nuevo Usuario</h3>
-                </div>
-                <div class="endpoint-content">
-                    <p class="endpoint-description">
-                        Permite registrar un nuevo usuario en el sistema. Incluye validaciones de integridad
-                        y verificación de duplicados para garantizar la consistencia de los datos.
-                    </p>
-
-                    <div class="endpoint-section">
-                        <h4>Cuerpo de la Solicitud</h4>
-                        <div class="parameter-item">
-                            <span class="parameter-name">nombre</span>
-                            <span class="parameter-type">(string, requerido)</span>
-                            <div class="parameter-description">Nombre completo del usuario (mínimo 2 caracteres)</div>
-                        </div>
-                        <div class="parameter-item">
-                            <span class="parameter-name">email</span>
-                            <span class="parameter-type">(string, requerido)</span>
-                            <div class="parameter-description">Dirección de correo electrónico válida y única</div>
-                        </div>
-                        <div class="parameter-item">
-                            <span class="parameter-name">password</span>
-                            <span class="parameter-type">(string, requerido)</span>
-                            <div class="parameter-description">Contraseña (mínimo 8 caracteres)</div>
-                        </div>
-                    </div>
-
-                    <div class="endpoint-section">
-                        <h4>Respuesta</h4>
-                        <span class="status-code">201</span> Created
-                        <div class="response-example">{
-                            "message": "Usuario creado exitosamente",
-                            "data": {
-                            "id": 26,
-                            "nombre": "María García",
-                            "email": "maria@email.com",
-                            "fecha_registro": "2024-08-03"
-                            }
-                            }</div>
-                    </div>
+                <div class="endpoint-section">
+                    <h4>Respuesta</h4>
+                    <span class="status-code">200</span> Success
+                    <div class="response-example">{
+                        "data": [
+                        {
+                        "id": 1,
+                        "nombre": "Juan P&eacute;rez",
+                        "email": "juan@email.com",
+                        "fecha_registro": "2024-01-15"
+                        }
+                        ],
+                        "pagination": {
+                        "page": 1,
+                        "limit": 10,
+                        "total": 25
+                        }
+                        }</div>
                 </div>
             </div>
         </div>
 
-        </section>
+        <div class="endpoint-card">
+            <div class="endpoint-header">
+                <span class="endpoint-method post">POST</span>
+                <div class="endpoint-url">/api/usuarios</div>
+                <h3 class="endpoint-title">Crear Nuevo Usuario</h3>
+            </div>
+            <div class="endpoint-content">
+                <p class="endpoint-description">
+                    Permite registrar un nuevo usuario en el sistema. Incluye validaciones de integridad
+                    y verificaci&oacute;n de duplicados para garantizar la consistencia de los datos.
+                </p>
 
-        </body>
-    <script src="../static/js/carousel.js" defer></script>
+                <div class="endpoint-section">
+                    <h4>Cuerpo de la Solicitud</h4>
+                    <div class="parameter-item">
+                        <span class="parameter-name">nombre</span>
+                        <span class="parameter-type">(string, requerido)</span>
+                        <div class="parameter-description">Nombre completo del usuario (m&iacute;nimo 2 caracteres)</div>
+                    </div>
+                    <div class="parameter-item">
+                        <span class="parameter-name">email</span>
+                        <span class="parameter-type">(string, requerido)</span>
+                        <div class="parameter-description">Direcci&oacute;n de correo electr&oacute;nico v&aacute;lida y &uacute;nica</div>
+                    </div>
+                    <div class="parameter-item">
+                        <span class="parameter-name">password</span>
+                        <span class="parameter-type">(string, requerido)</span>
+                        <div class="parameter-description">Contrase&ntilde;a (m&iacute;nimo 8 caracteres)</div>
+                    </div>
+                </div>
+
+                <div class="endpoint-section">
+                    <h4>Respuesta</h4>
+                    <span class="status-code">201</span> Created
+                    <div class="response-example">{
+                        "message": "Usuario creado exitosamente",
+                        "data": {
+                        "id": 26,
+                        "nombre": "Mar&iacute;a Garc&iacute;a",
+                        "email": "maria@email.com",
+                        "fecha_registro": "2024-08-03"
+                        }
+                        }</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+</body>
+<script th:src="@{/js/carousel.js}" defer></script>
+<script th:src="@{/js/menu.js}" defer></script>
 </html>

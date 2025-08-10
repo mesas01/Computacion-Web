@@ -1,8 +1,4 @@
-/*
-    ---------------------
-    REGLAS GLOBALES Y RESETS
-    ---------------------
-*/
+/*REGLAS GLOBALES Y RESETS*/
 /* Aplicación de 'box-sizing: border-box' y reseteo de márgenes y paddings para todos los elementos.
    Esto facilita el control de las dimensiones de los elementos. */
 * {
@@ -18,11 +14,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-/*
-    ---------------------
-    BARRA DE NAVEGACIÓN
-    ---------------------
-*/
+/*BARRA DE NAVEGACIÓN*/
 /* Estilos para el contenedor principal de la barra de navegación.
    'position: fixed' mantiene la barra en la parte superior de la ventana al hacer scroll.
    'z-index' asegura que esté por encima de otros elementos. */
@@ -90,11 +82,7 @@ body {
     transform: scaleX(1);
 }
 
-/*
-    ---------------------
-    ESTILOS MENÚ DE HAMBURGUESA
-    ---------------------
-*/
+/*ESTILOS MENÚ DE HAMBURGUESA*/
 /* Estilos para el botón de hamburguesa (oculto por defecto) */
 .hamburger-menu {
     display: none;
@@ -125,11 +113,7 @@ body {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/*
-    ---------------------
-    CONTENEDOR PRINCIPAL (HERO)
-    ---------------------
-*/
+/*CONTENEDOR PRINCIPAL*/
 /* Estilos para la sección principal. Usa Flexbox para organizar el texto y la imagen. */
 .container {
     background-color: #3D5A80;
@@ -184,11 +168,7 @@ body {
     border-bottom-left-radius: 100px;
 }
 
-/*
-    ---------------------
-    SECCIÓN "PROYECTO"
-    ---------------------
-*/
+/*SECCIÓN "PROYECTO"*/
 /* Contenedor de la sección "Proyecto", usa Flexbox para alinear el logo y la descripción. */
 .projectContainer {
     display: flex;
@@ -234,11 +214,7 @@ body {
     text-align: justify;
 }
 
-/*
-    ---------------------
-    SECCIÓN "OBJETIVOS"
-    ---------------------
-*/
+/*SECCIÓN "OBJETIVOS"*/
 /* Contenedor de la sección "Objetivos", usa Flexbox para un layout flexible. */
 .objectivesContainer {
     display: flex;
@@ -295,11 +271,7 @@ body {
     margin-top: 16px;
 }
 
-/*
-    ---------------------
-    SECCIÓN "EQUIPO" (CARRUSEL)
-    ---------------------
-*/
+/*SECCIÓN "EQUIPO" (CARRUSEL)*/
 /* Contenedor de la sección del equipo. */
 .teamContainer {
     background-color: #E0FBFC;
@@ -404,11 +376,7 @@ body {
     background-color: #EE6C4D;
 }
 
-/*
-    ---------------------
-    SECCIÓN "CONTACTO"
-    ---------------------
-*/
+/*SECCIÓN "CONTACTO"*/
 .contact-section {
     background: #f9f9f9;
     padding: 50px 20px;
@@ -516,11 +484,7 @@ body {
     line-height: 1.4em;
 }
 
-/*
-    ---------------------
-    PIE DE PÁGINA
-    ---------------------
-*/
+/*PIE DE PÁGINA*/
 .footer {
     background: #29476d;
     color: white;
@@ -529,11 +493,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-/*
-    ---------------------
-    MEDIA QUERIES (RESPONSIVE)
-    ---------------------
-*/
+/*MEDIA QUERIES (RESPONSIVE)*/
 /* Estilos para pantallas con un ancho máximo de 992px (tablets). */
 @media screen and (max-width: 992px) {
     .navBar {
@@ -692,9 +652,20 @@ body {
         border-bottom: none;
     }
     .nav-links a::after {
-        content: none;
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+        background: #EE6C4D;
+        border-radius: 2px;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+        transform-origin: left;
     }
-    /* El botón de hamburguesa se muestra en móviles. */
+    /* El botón de hamburguesa en móviles. */
     .hamburger-menu {
         display: flex;
     }

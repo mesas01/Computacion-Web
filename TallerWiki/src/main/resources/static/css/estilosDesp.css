@@ -1,92 +1,35 @@
-/* se crea reglas globales para el estilo de la pagina */
+/* REGLAS GLOBALES */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-@media screen and (max-width: 768px) {
-    .logo {
-        width: 180px;
-    }
-
-    .container {
-        flex-direction: column;
-        height: auto;
-        border-bottom-right-radius: 50px;
-        padding: 20px;
-    }
-
-    .container h1 {
-        font-size: 48px;
-        padding-top: 60px;
-        text-align: center;
-    }
-
-    .container .introduction {
-        font-size: 16px;
-        padding: 10px;
-        text-align: center;
-    }
-
-    .container .text-container {
-        margin: 0;
-        padding: 0 20px;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 15px;
-        padding-top: 10px;
-    }
-
-    .navBar {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
-    }
-}
-
-
-/* se crea un estilo para el body de la pagina */
 body {
     padding-top: 100px;
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
+    background-color: #f4f7f6;
 }
 
+/* BARRA DE NAVEGACIÓN */
 .navBar {
     background-color: #3D5A80;
     width: 100%;
     height: 100px;
-    /* el display flex permite que los elementos hijos se alineen en una fila */
     display: flex;
-    /* justify-content: space-between distribuye a los elementos hijos dejando el máximo espacio entre cada uno, pero sin espacio a los extremos */
     justify-content: space-between;
     align-items: center;
-    padding-right: 70px;
-    /* position fixed permite que la barra de navegación se mantenga en la parte superior de la pantalla al hacer scroll */
+    padding: 0 40px;
     position: fixed;
-    /* top: 0 y left: 0 posicionan la barra de navegación en la esquina superior izquierda de la pantalla */
     top: 0;
     left: 0;
-    /* z-index: 1000 asegura que la barra de navegación esté siempre encima de otros elementos, hasta el carrusel de integrantes*/
     z-index: 1000;
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: normal;
-    /* position relative permite que los pseudo-elementos se posicionen en relación a este elemento y necesario para la linea de abajo */
-    position: relative;
-}
-
-/* Se crea un efecto hover para los enlaces de navegación */
-.nav-links a:hover {
-    /* cambia a el cursor pointer cuando se pasa el mouse por encima del enlace */
-    cursor: pointer;
+.logo {
+    width: 280px;
+    height: auto;
 }
 
 .nav-links {
@@ -94,87 +37,113 @@ body {
     gap: 30px;
 }
 
-/* Se crea una linea invisible debajo de cada enlace */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
 .nav-links a::after {
     content: "";
     display: block;
     position: absolute;
     left: 0;
-    bottom: -6px;
+    bottom: 0;
     width: 100%;
     height: 3px;
-    background: #fff;
+    background: #EE6C4D;
     border-radius: 2px;
-    /* transform: scaleX(0) oculta la linea inicialmente */
     transform: scaleX(0);
-    /* transition: transform 0.3s ease permite que la linea aparezca suavemente al pasar el mouse por encima */
     transition: transform 0.3s ease;
-    /* transform-origin: left asegura que la linea se expanda desde la izquierda al pasar el mouse por encima */
     transform-origin: left;
 }
 
-/* Al pasar el mouse por encima del enlace, la linea se expande */
 .nav-links a:hover::after {
     transform: scaleX(1);
 }
 
-.logo {
-    width: 300px;
-    height: auto;
+/* ESTILOS MENÚ DE HAMBURGUESA */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1010;
 }
 
+.hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+/* SECCIÓN DEL TÍTULO PRINCIPAL */
 .container {
     background-color: #3D5A80;
-    width: auto;
-    height: 700px;
-    border-bottom-right-radius: 100px;
+    padding: 60px 40px;
+    min-height: 250px;
+    border-bottom-right-radius: 80px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    /* flex-direction: row permite que los elementos hijos se alineen horizontalmente, es necesario usar display:flex */
-    flex-direction: row;
-    padding: 0 50px;
+    text-align: center;
+}
 
+.container .text-container {
+    padding: 0;
+    margin: 0;
+    max-width: 900px;
 }
 
 .container h1 {
     color: #E0FBFC;
-    font-size: 80px;
-    text-align: left;
-    padding-top: 160px;
-    line-height: 1;
+    font-size: 3.5em;
+    line-height: 1.1;
+    margin-bottom: 20px;
 }
 
 .container .introduction {
-    color: white;
     font-size: 1.1em;
-    padding-top: 20px;
-    max-width: 800px;
-    text-align: left;
-    letter-spacing: 2px;
-    word-spacing: 3px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
 }
 
-.container .text-container {
-    padding-left: 200px;
-    padding-right: 50px;
-    margin-bottom: 200px;
-}
+/* ESTILOS PARA SECCIONES DE CONTENIDO GENERAL */
 .section {
     background-color: white;
     border-radius: 10px;
-    padding: 40px 5vw; 
-    margin: 60px auto;
+    padding: 40px;
+    margin: 40px auto;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: background-color 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
     max-width: 1200px;
     width: 90%;
 }
 .section:hover {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     transform: translateY(-5px);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    background-color: #f2f2f2;
 }
 
 .section h2 {
@@ -184,25 +153,91 @@ body {
     border-bottom: 2px solid #EE6C4D;
     padding-bottom: 10px;
 }
-.section p {
-    color: black;
+.section p, .section li {
+    color: #333;
     font-size: 1.1em;
-    text-align: left;
-    margin-bottom: 15px;
     line-height: 1.6;
 }
+
+.section p {
+    margin-bottom: 15px;
+}
+
 .section ul, .section ol {
-    padding-left: 20px;
-    color: black;
-    font-size: 1.1em;
+    padding-left: 25px;
     margin-bottom: 20px;
 }
 .section li {
     margin-bottom: 10px;
-    line-height: 1.6;
 }
 
+/* MEDIA QUERIES PARA RESPONSIVE */
+@media (max-width: 768px) {
+    body {
+        padding-top: 80px;
+    }
+    .navBar {
+        height: 80px;
+        padding: 0 20px;
+    }
+    .logo {
+        width: 220px;
+    }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: #3D5A80;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
 
+    .nav-links.active {
+        display: flex;
+    }
 
+    .nav-links a {
+        font-size: 20px;
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
 
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
 
+    .nav-links a::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+        background: #EE6C4D;
+        border-radius: 2px;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+        transform-origin: left;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .container h1 {
+        font-size: 2.5em;
+    }
+    .section {
+        width: 95%;
+        padding: 25px 20px;
+    }
+    .section h2 {
+        font-size: 1.5em;
+    }
+}

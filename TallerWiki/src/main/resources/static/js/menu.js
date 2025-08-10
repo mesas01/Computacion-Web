@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.classList.toggle('active');
     });
 
-    // Esta parte es opcional pero mejora la experiencia en móviles.
+    // opcional, mejora la experiencia en móviles.
     // Al hacer clic en cualquier enlace dentro del menú, el menú se cierra automáticamente.
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {

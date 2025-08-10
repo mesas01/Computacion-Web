@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Arrienda tu finca</title>
-    <link rel="stylesheet" href="../static/css/estilosIndex.css">
+    <link rel="stylesheet" th:href="@{/css/estilosIndex.css}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
 
 <body>
 <nav class="navBar">
-    <img src="../static/img/logo arrienda tu finca.png" alt="Logo de Arrienda tu finca" class="logo">
+    <img th:src="@{/img/logo arrienda tu finca.png}" alt="Logo de Arrienda tu finca" class="logo">
     <button class="hamburger-menu" aria-label="Abrir men&uacute; de navegaci&oacute;n">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -18,13 +18,12 @@
     </button>
 
     <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="requirements.html">Requerimientos</a>
-        <a href="architecture.html">Arquitectura del proyecto</a>
-        <a href="model.html">Modelos</a>
-        <a href="development.html">Desarrollo</a>
-        <a href="testing.html">Pruebas</a>
-        <a href="deployment.html">Despliegue</a>
+        <a th:href="@{/index.html}">Home</a>
+        <a th:href="@{/requirements.html}">Requerimientos</a>
+        <a th:href="@{/architecture.html}">Arquitectura del proyecto</a>
+        <a th:href="@{/development.html}">Desarrollo</a>
+        <a th:href="@{/testing.html}">Pruebas</a>
+        <a th:href="@{/deployment.html}">Despliegue</a>
     </div>
 </nav>
 
@@ -38,13 +37,13 @@
             del proyecto, modelos, pruebas y por &uacute;ltimo, su despliegue. Nuestro objetivo es ofrecer una gu&iacute;a clara y
             detallada del desarrollo y funcionamiento de la plataforma.</p>
     </div>
-    <img src="../static/img/Finca.jpg" alt="Imagen de una finca" class="finca-image">
+    <img th:src="@{/img/Finca.jpg}" alt="Imagen de una finca" class="finca-image">
 </div>
 
 <div class="projectContainer">
     <div class="projectImg-Title">
         <h2>Proyecto</h2>
-        <img src="../static/img/logo arrienda tu finca.png" alt="Logo de Arrienda tu finca" class="project-logo">
+        <img th:src="@{/img/logo arrienda tu finca.png}" alt="Logo de Arrienda tu finca" class="project-logo">
     </div>
     <div class="project-description">
         <p>
@@ -78,21 +77,21 @@
     </div>
     <div class="objectives-list">
         <div class="objective-item">
-            <img src="../static/img/casa-inteligente.png" alt="objetivo 1" class="objective-icon">
+            <img th:src="@{/img/casa-inteligente.png}" alt="objetivo 1" class="objective-icon">
             <p>Facilitar el arriendo de fincas mediante una plataforma web intuitiva y accesible.</p>
         </div>
         <div class="objective-item">
-            <img src="../static/img/dashboard.png" alt="objetivo 2" class="objective-icon">
+            <img th:src="@{/img/dashboard.png}" alt="objetivo 2" class="objective-icon">
             <p>Gestionar propiedades f&aacute;cilmente, permitiendo a los arrendatarios crear, editar y controlar sus
                 publicaciones.</p>
         </div>
         <div class="objective-item">
-            <img src="../static/img/www.png" alt="objetivo 3" class="objective-icon">
+            <img th:src="@{/img/www.png}" alt="objetivo 3" class="objective-icon">
             <p>Optimizar la experiencia del usuario arrendador, con filtros de b&uacute;squeda, solicitud de arriendos y
                 pagos en l&iacute;nea.</p>
         </div>
         <div class="objective-item">
-            <img src="../static/img/candado.png" alt="objetivo 4" class="objective-icon">
+            <img th:src="@{/img/candado.png}" alt="objetivo 4" class="objective-icon">
             <p>Garantizar seguridad y confianza mediante autenticaci&oacute;n, control de pagos y sistema de
                 calificaciones.
             </p>
@@ -111,7 +110,7 @@
                 <div class="team-member">
                     <h3 class="name">Catalina Lizarazo</h3>
                     <p class="role">Ingeniera en base de datos</p>
-                    <img src="../static/img/catalina.jpeg" alt="Catalina" class="team-member-image">
+                    <img th:src="@{/img/catalina.jpeg}" alt="Catalina" class="team-member-image">
                     <p class="description">Estudiante de ingenier&iacute;a de sistemas e ingenieria industrial.
                         Experiencia en construcci&oacute;n de bases de datos relacionales en SQL y en desarrollo de
                         software en
@@ -122,7 +121,7 @@
                 <div class="team-member">
                     <h3 class="name">Daniela Medina</h3>
                     <p class="role">Desarrolladora Full Stack</p>
-                    <img src="../static/img/daniela.jpeg" alt="Daniela" class="team-member-image">
+                    <img th:src="@{/img/daniela.jpeg}" alt="Daniela" class="team-member-image">
                     <p class="description">Estudiante de sexto semestre de Ingenier&iacute;a de Sistemas, con inter&eacute;s en
                         temas
                         como arquitectura de software, computaci&oacute;n en la nube y el desarrollo de proyectos de TI. Le
@@ -136,7 +135,7 @@
                 <div class="team-member">
                     <h3 class="name">Juan Ordo&ntilde;ez</h3>
                     <p class="role">L&iacute;der de pruebas</p>
-                    <img src="../static/img/Juan.jpeg" alt="Juan David" class="team-member-image">
+                    <img th:src="@{/img/Juan.jpeg}" alt="Juan David" class="team-member-image">
                     <p class="description">Estudiante de ingenier&iacute;a de sistemas de 6 semestre con amplio
                         conocimiento en
                         lenguajes como Java, c++, Python entre otros. Con grandes habilidades en relaci&oacute;n al trabajo
@@ -146,7 +145,7 @@
                 <div class="team-member">
                     <h3 class="name">Sergio Ortiz</h3>
                     <p class="role">L&iacute;der t&eacute;cnico</p>
-                    <img src="../static/img/sergio.jpeg" alt="Sergio" class="team-member-image">
+                    <img th:src="@{/img/sergio.jpeg}" alt="Sergio" class="team-member-image">
                     <p class="description">Estudiante de sexto semestre de Ingenier&iacute;a de Sistemas, apasionado por el
                         desarrollo m&oacute;vil, Ciencia de Datos, Inteligencia Artificial y gesti&oacute;n de base de datos.
                         Posee un
@@ -160,7 +159,7 @@
                 <div class="team-member">
                     <h3 class="name">Melissa Ruiz</h3>
                     <p class="role">L&iacute;der de planeaci&oacute;n</p>
-                    <img src="../static/img/melissa.jpeg" alt="Melissa" class="team-member-image">
+                    <img th:src="@{/img/melissa.jpeg}" alt="Melissa" class="team-member-image">
                     <p class="description">Estudiante de sexto semestre de ingenier&iacute;a de sistemas, entusiasta
                         de la rob&oacute;tica con inter&eacute;s en arquitectura e infraestructura de software, computaci&oacute;n en la
                         nube e
@@ -175,7 +174,7 @@
                 <div class="team-member">
                     <h3 class="name">Santiago Mesa</h3>
                     <p class="role">Project Manager</p>
-                    <img src="../static/img/santiago.jpeg" alt="Santiago" class="team-member-image">
+                    <img th:src="@{/img/santiago.jpeg}" alt="Santiago" class="team-member-image">
                     <p class="description">Ingeniero Electr&oacute;nico y estudiante de sexto semestre de Ingenier&iacute;a de
                         Sistemas.
                         Tiene un gran inter&eacute;s en la arquitectura de software, blockchain y el desarrollo de
@@ -246,8 +245,8 @@
     <p>© 2025 Arrienda tu finca - Todos los derechos reservados</p>
 </footer>
 
-<script src="../static/js/menu.js" defer></script>
-<script src="../static/js/contacto.js" defer></script>
-<script src="../static/js/carousel.js" defer></script>
+<script th:src="@{/js/menu.js}" defer></script>
+<script th:src="@{/js/contacto.js}" defer></script>
+<script th:src="@{/js/carousel.js}" defer></script>
 </body>
 </html>

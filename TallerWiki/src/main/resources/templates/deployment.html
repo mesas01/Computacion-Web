@@ -1,104 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arrienda tu finca</title>
-    <link rel="stylesheet" href="../static/css/estilosDesp.css">
+    <link rel="stylesheet" th:href="@{/css/estilosDesp.css}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
 </head>
 
 <body>
-    <nav class="navBar">
-        <img src="../static/img/logo arrienda tu finca.png" alt="Logo de Arrienda tu finca" class="logo">
-        <div class="nav-links">
-            <a>Home</a>
-            <a>Requerimientos</a>
-            <a>Arquitectura del proyecto</a>
-            <a>Modelos</a>
-            <a>Desarrollo</a>
-            <a>Pruebas</a>
-            <a>Despliegue</a>
-        </div>
-    </nav>
-    <div class="container">
-        <div class="text-container">
-            <h1>
-                DESPLIEGUE
-            </h1>
-            <p class="introduction">En esta sección se describe el proceso seguido para desplegar la aplicación en un
-                entorno que
-                simula producción, garantizando su funcionamiento adecuado, accesibilidad y estabilidad.</p>
-        </div>
-    </div>
-    <div class="section">
-        <h2>Control de versiones</h2>
-        <p>
-            Durante el desarrollo del proyecto se utilizó <strong>Git</strong> como sistema de control de versiones,
-            permitiendo la gestión eficiente del código fuente, colaboración entre los miembros del equipo y seguimiento
-            de los cambios realizados.
-        </p>
-        <p>
-            Se manejaron distintas ramas para organizar el trabajo:
-        </p>
-        <ul>
-            <li><strong>main:</strong> Contiene el código más estable y preparado para producción.</li>
-            <li><strong>DEV:</strong> Rama destinada a la integración de nuevas funcionalidades antes de ser
-                fusionadas con main.</li>
-            <li><strong>Ramas de cada integrante:</strong> Se crearon para que cada uno de los integrantes desarrolle en
-                alguna funcionalidad del sistema por separado.</li>
-        </ul>
-        <p>
-            Se realizaron merges controlados, revisiones de código (pull requests) y pruebas antes de aprobar los
-            cambios. Esto garantizó que el despliegue final se hiciera con una versión probada, limpia y estable del
-            sistema.
-        </p>
-        <p>
-            Se utilizó <strong>GitHub</strong> como plataforma para alojar el repositorio, permitiendo el trabajo
-            colaborativo, la gestión de issues y la integración con pipelines de despliegue.
-        </p>
-    </div>
-    <div class="section">
-        <h2>Entorno de despliegue</h2>
-        <p>Se utilizó un entorno proporcionado por la Universidad, el cual permite simular condiciones reales de
-            producción. Este entorno cuenta con soporte para tecnologías como Docker y Kubernetes, lo que facilita la
-            orquestación y ejecución de contenedores de manera eficiente y escalable.</p>
-    </div>
+<nav class="navBar">
+    <img th:src="@{/img/logo arrienda tu finca.png}" alt="Logo de Arrienda tu finca" class="logo">
+    <button class="hamburger-menu" aria-label="Abrir men&uacute; de navegaci&oacute;n">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
 
-    <div class="section">
-        <h2>Herramientas utilizadas</h2>
-        <ul>
-            <li><strong>Docker:</strong> Se usó para contenerizar tanto el frontend (Angular) como el backend (Spring
-                Boot), asegurando que cada componente se ejecute de forma aislada y con sus dependencias correctamente
-                definidas.</li>
-            <li><strong>Kubernetes:</strong> Se utilizó para gestionar la orquestación de contenedores, facilitando el
-                escalado, balanceo de carga y monitoreo de los servicios desplegados.</li>
-            <li><strong>Docker Compose:</strong> Se empleó durante la etapa de desarrollo local para facilitar el
-                levantamiento de servicios de forma conjunta antes del despliegue en Kubernetes.</li>
-        </ul>
+    <div class="nav-links">
+        <a th:href="@{/index.html}">Home</a>
+        <a th:href="@{/requirements.html}">Requerimientos</a>
+        <a th:href="@{/architecture.html}">Arquitectura del proyecto</a>
+        <a th:href="@{/development.html}">Desarrollo</a>
+        <a th:href="@{/testing.html}">Pruebas</a>
+        <a th:href="@{/deployment.html}">Despliegue</a>
     </div>
-    <div class="section">
-        <h2>Proceso de despliegue</h2>
-        <ol>
-            <li>Se generó una imagen Docker para el backend y otra para el frontend.</li>
-            <li>Las imágenes se subieron a un registro privado/local.</li>
-            <li>Se configuraron los archivos YAML para el despliegue en Kubernetes.</li>
-            <li>Se aplicaron los manifiestos de Kubernetes en el clúster de la universidad.</li>
-            <li>Se expusieron los servicios mediante un Ingress Controller para permitir el acceso desde el navegador.
-            </li>
-            <li>Se realizaron pruebas en el entorno de despliegue para validar el correcto funcionamiento de la
-                plataforma.</li>
-        </ol>
+</nav>
+<div class="container">
+    <div class="text-container">
+        <h1>
+            DESPLIEGUE
+        </h1>
+        <p class="introduction">En esta secci&oacute;n se describe el proceso seguido para desplegar la aplicaci&oacute;n en un
+            entorno que
+            simula producci&oacute;n, garantizando su funcionamiento adecuado, accesibilidad y estabilidad.</p>
     </div>
+</div>
+<div class="section">
+    <h2>Control de versiones</h2>
+    <p>
+        Durante el desarrollo del proyecto se utiliz&oacute; <strong>Git</strong> como sistema de control de versiones,
+        permitiendo la gesti&oacute;n eficiente del c&oacute;digo fuente, colaboraci&oacute;n entre los miembros del equipo y seguimiento
+        de los cambios realizados.
+    </p>
+    <p>
+        Se manejaron distintas ramas para organizar el trabajo:
+    </p>
+    <ul>
+        <li><strong>main:</strong> Contiene el c&oacute;digo m&aacute;s estable y preparado para producci&oacute;n.</li>
+        <li><strong>DEV:</strong> Rama destinada a la integraci&oacute;n de nuevas funcionalidades antes de ser
+            fusionadas con main.</li>
+        <li><strong>Ramas de cada integrante:</strong> Se crearon para que cada uno de los integrantes desarrolle en
+            alguna funcionalidad del sistema por separado.</li>
+    </ul>
+    <p>
+        Se realizaron merges controlados, revisiones de c&oacute;digo (pull requests) y pruebas antes de aprobar los
+        cambios. Esto garantiz&oacute; que el despliegue final se hiciera con una versi&oacute;n probada, limpia y estable del
+        sistema.
+    </p>
+    <p>
+        Se utiliz&oacute; <strong>GitHub</strong> como plataforma para alojar el repositorio, permitiendo el trabajo
+        colaborativo, la gesti&oacute;n de issues y la integraci&oacute;n con pipelines de despliegue.
+    </p>
+</div>
+<div class="section">
+    <h2>Entorno de despliegue</h2>
+    <p>Se utiliz&oacute; un entorno proporcionado por la Universidad, el cual permite simular condiciones reales de
+        producci&oacute;n. Este entorno cuenta con soporte para tecnolog&iacute;as como Docker y Kubernetes, lo que facilita la
+        orquestaci&oacute;n y ejecuci&oacute;n de contenedores de manera eficiente y escalable.</p>
+</div>
 
-    <div class="section">
-        <h2>Validación del despliegue</h2>
-        <p>Una vez desplegada la aplicación, se realizaron pruebas funcionales y de rendimiento en el entorno,
-            asegurando que todas las funcionalidades estuvieran disponibles, que no hubiera errores en los logs de los
-            contenedores y que el acceso a la plataforma fuera estable y rápido.</p>
-    </div>
+<div class="section">
+    <h2>Herramientas utilizadas</h2>
+    <ul>
+        <li><strong>Docker:</strong> Se us&oacute; para contenerizar tanto el frontend (Angular) como el backend (Spring
+            Boot), asegurando que cada componente se ejecute de forma aislada y con sus dependencias correctamente
+            definidas.</li>
+        <li><strong>Kubernetes:</strong> Se utiliz&oacute; para gestionar la orquestaci&oacute;n de contenedores, facilitando el
+            escalado, balanceo de carga y monitoreo de los servicios desplegados.</li>
+        <li><strong>Docker Compose:</strong> Se emple&oacute; durante la etapa de desarrollo local para facilitar el
+            levantamiento de servicios de forma conjunta antes del despliegue en Kubernetes.</li>
+    </ul>
+</div>
+<div class="section">
+    <h2>Proceso de despliegue</h2>
+    <ol>
+        <li>Se gener&oacute; una imagen Docker para el backend y otra para el frontend.</li>
+        <li>Las im&aacute;genes se subieron a un registro privado/local.</li>
+        <li>Se configuraron los archivos YAML para el despliegue en Kubernetes.</li>
+        <li>Se aplicaron los manifiestos de Kubernetes en el cl&uacute;ster de la universidad.</li>
+        <li>Se expusieron los servicios mediante un Ingress Controller para permitir el acceso desde el navegador.
+        </li>
+        <li>Se realizaron pruebas en el entorno de despliegue para validar el correcto funcionamiento de la
+            plataforma.</li>
+    </ol>
+</div>
+
+<div class="section">
+    <h2>Validaci&oacute;n del despliegue</h2>
+    <p>Una vez desplegada la aplicaci&oacute;n, se realizaron pruebas funcionales y de rendimiento en el entorno,
+        asegurando que todas las funcionalidades estuvieran disponibles, que no hubiera errores en los logs de los
+        contenedores y que el acceso a la plataforma fuera estable y r&aacute;pido.</p>
+</div>
 
 </body>
-
+<script th:src="@{/js/menu.js}" defer></script>
 </html>
