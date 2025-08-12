@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Arrienda tu finca</title>
     <link rel="stylesheet" th:href="@{/css/estilosIndex.css}">
@@ -9,244 +10,264 @@
 </head>
 
 <body>
-<nav class="navBar">
-    <img th:src="@{/img/logo arrienda tu finca.png}" alt="Logo de Arrienda tu finca" class="logo">
-    <button class="hamburger-menu" aria-label="Abrir men&uacute; de navegaci&oacute;n">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </button>
+    <nav class="navBar">
+        <img th:src="@{/img/logo arrienda tu finca.png}" alt="Logo de Arrienda tu finca" class="logo">
+        <button class="hamburger-menu" aria-label="Abrir men&uacute; de navegaci&oacute;n">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
 
-    <div class="nav-links">
-        <a th:href="@{/index.html}">Home</a>
-        <a th:href="@{/requirements.html}">Requerimientos</a>
-        <a th:href="@{/architecture.html}">Arquitectura del proyecto</a>
-        <a th:href="@{/development.html}">Desarrollo</a>
-        <a th:href="@{/testing.html}">Pruebas</a>
-        <a th:href="@{/deployment.html}">Despliegue</a>
-    </div>
-</nav>
-
-<div class="container">
-    <div class="text-container">
-        <h1>ARRIENDA<br>
-            <span class="subtitle">TU FINCA</span>
-        </h1>
-        <p class="introduction">Bienvenido a la Wiki del proyecto. Aqu&iacute; encontrar&aacute;s toda la documentaci&oacute;n
-            relacionada con el proyecto: descripci&oacute;n general, presentaci&oacute;n del equipo, requerimientos, arquitectura
-            del proyecto, modelos, pruebas y por &uacute;ltimo, su despliegue. Nuestro objetivo es ofrecer una gu&iacute;a clara y
-            detallada del desarrollo y funcionamiento de la plataforma.</p>
-    </div>
-    <img th:src="@{/img/Finca.jpg}" alt="Imagen de una finca" class="finca-image">
-</div>
-
-<div class="projectContainer">
-    <div class="projectImg-Title">
-        <h2>Proyecto</h2>
-        <img th:src="@{/img/logo arrienda tu finca.png}" alt="Logo de Arrienda tu finca" class="project-logo">
-    </div>
-    <div class="project-description">
-        <p>
-            Arrienda tu finca es una aplicaci&oacute;n web que conecta a personas interesadas en arrendar
-            fincas con propietarios que desean ofrecerlas. El sistema est&aacute; dise&ntilde;ado para dos tipos de usuarios
-            principales: el Usuario Arrendatario (quien ofrece la finca) y el Usuario Arrendador (quien la busca y
-            arrienda).
-        </p>
-        <p>
-            El Usuario Arrendatario puede gestionar propiedades (crear, editar, eliminar, actualizar), revisar
-            solicitudes de arriendo, aceptarlas o rechazarlas, verificar pagos realizados y calificar al arrendador
-            luego del proceso.
-        </p>
-        <p>
-            El Usuario Arrendador puede buscar fincas por ubicaci&oacute;n, solicitar arrendamientos, realizar pagos una
-            vez
-            aprobada la solicitud y calificar tanto la finca como al arrendatario despu&eacute;s del uso.
-        </p>
-        <p>
-            La plataforma requerir&aacute; un sistema s&oacute;lido de autenticaci&oacute;n y autorizaci&oacute;n, interfaces intuitivas y una
-            arquitectura que permita una experiencia fluida y segura. El enfoque se centra en facilitar el proceso
-            de
-            arrendamiento para ambas partes, garantizando eficiencia, transparencia y satisfacci&oacute;n.
-        </p>
-    </div>
-</div>
-
-<section class="objectivesContainer">
-    <div class="objectives-title">
-        <h2>Objetivos</h2>
-    </div>
-    <div class="objectives-list">
-        <div class="objective-item">
-            <img th:src="@{/img/casa-inteligente.png}" alt="objetivo 1" class="objective-icon">
-            <p>Facilitar el arriendo de fincas mediante una plataforma web intuitiva y accesible.</p>
+        <div class="nav-links">
+            <a th:href="@{/index.html}">Home</a>
+            <a th:href="@{/requirements.html}">Requerimientos</a>
+            <a th:href="@{/architecture.html}">Arquitectura del proyecto</a>
+            <a th:href="@{/development.html}">Desarrollo</a>
+            <a th:href="@{/testing.html}">Pruebas</a>
+            <a th:href="@{/deployment.html}">Despliegue</a>
         </div>
-        <div class="objective-item">
-            <img th:src="@{/img/dashboard.png}" alt="objetivo 2" class="objective-icon">
-            <p>Gestionar propiedades f&aacute;cilmente, permitiendo a los arrendatarios crear, editar y controlar sus
-                publicaciones.</p>
+    </nav>
+
+    <div class="container">
+        <div class="text-container">
+            <h1>ARRIENDA<br>
+                <span class="subtitle">TU FINCA</span>
+            </h1>
+            <p class="introduction">Bienvenido a la Wiki del proyecto. Aqu&iacute; encontrar&aacute;s toda la
+                documentaci&oacute;n
+                relacionada con el proyecto: descripci&oacute;n general, presentaci&oacute;n del equipo, requerimientos,
+                arquitectura
+                del proyecto, modelos, pruebas y por &uacute;ltimo, su despliegue. Nuestro objetivo es ofrecer una
+                gu&iacute;a clara y
+                detallada del desarrollo y funcionamiento de la plataforma.</p>
         </div>
-        <div class="objective-item">
-            <img th:src="@{/img/www.png}" alt="objetivo 3" class="objective-icon">
-            <p>Optimizar la experiencia del usuario arrendador, con filtros de b&uacute;squeda, solicitud de arriendos y
-                pagos en l&iacute;nea.</p>
+        <img th:src="@{/img/Finca.jpg}" alt="Imagen de una finca" class="finca-image">
+    </div>
+
+    <div class="projectContainer">
+        <div class="projectImg-Title">
+            <h2>Proyecto</h2>
+            <img th:src="@{/img/logo arrienda tu finca.png}" alt="Logo de Arrienda tu finca" class="project-logo">
         </div>
-        <div class="objective-item">
-            <img th:src="@{/img/candado.png}" alt="objetivo 4" class="objective-icon">
-            <p>Garantizar seguridad y confianza mediante autenticaci&oacute;n, control de pagos y sistema de
-                calificaciones.
+        <div class="project-description">
+            <p>
+                Arrienda tu finca es una aplicaci&oacute;n web que conecta a personas interesadas en arrendar
+                fincas con propietarios que desean ofrecerlas. El sistema est&aacute; dise&ntilde;ado para dos tipos de
+                usuarios
+                principales: el Usuario Arrendatario (quien ofrece la finca) y el Usuario Arrendador (quien la busca y
+                arrienda).
+            </p>
+            <p>
+                El Usuario Arrendatario puede gestionar propiedades (crear, editar, eliminar, actualizar), revisar
+                solicitudes de arriendo, aceptarlas o rechazarlas, verificar pagos realizados y calificar al arrendador
+                luego del proceso.
+            </p>
+            <p>
+                El Usuario Arrendador puede buscar fincas por ubicaci&oacute;n, solicitar arrendamientos, realizar pagos
+                una
+                vez
+                aprobada la solicitud y calificar tanto la finca como al arrendatario despu&eacute;s del uso.
+            </p>
+            <p>
+                La plataforma requerir&aacute; un sistema s&oacute;lido de autenticaci&oacute;n y autorizaci&oacute;n,
+                interfaces intuitivas y una
+                arquitectura que permita una experiencia fluida y segura. El enfoque se centra en facilitar el proceso
+                de
+                arrendamiento para ambas partes, garantizando eficiencia, transparencia y satisfacci&oacute;n.
             </p>
         </div>
     </div>
-</section>
 
-<section class="teamContainer">
-    <div class="team-title">
-        <h2>Integrantes</h2>
-    </div>
-    <div class="team-carousel">
-        <button class="prev-btn">‹</button>
-        <div class="carousel-wrapper">
-            <div class="carousel-track">
-                <div class="team-member">
-                    <h3 class="name">Catalina Lizarazo</h3>
-                    <p class="role">Ingeniera en base de datos</p>
-                    <img th:src="@{/img/catalina.jpeg}" alt="Catalina" class="team-member-image">
-                    <p class="description">Estudiante de ingenier&iacute;a de sistemas e ingenieria industrial.
-                        Experiencia en construcci&oacute;n de bases de datos relacionales en SQL y en desarrollo de
-                        software en
-                        lenguajes como java, C++ y HTML; tambi&eacute;n en aplicaci&oacute;n de tecnolog&iacute;as de informaci&oacute;n en
-                        sistemas
-                        hombre-m&aacute;quina en campos ergon&oacute;micos.</p>
-                </div>
-                <div class="team-member">
-                    <h3 class="name">Daniela Medina</h3>
-                    <p class="role">Desarrolladora Full Stack</p>
-                    <img th:src="@{/img/daniela.jpeg}" alt="Daniela" class="team-member-image">
-                    <p class="description">Estudiante de sexto semestre de Ingenier&iacute;a de Sistemas, con inter&eacute;s en
-                        temas
-                        como arquitectura de software, computaci&oacute;n en la nube y el desarrollo de proyectos de TI. Le
-                        gusta
-                        entender c&oacute;mo funcionan las cosas por detr&aacute;s y pensar en soluciones que sean bien
-                        estructuradas.
-                        Aunque todav&iacute;a est&aacute; aprendiendo, trata de aplicar buenas pr&aacute;cticas desde ya y entender el
-                        panorama
-                        completo de los sistemas.</p>
-                </div>
-                <div class="team-member">
-                    <h3 class="name">Juan Ordo&ntilde;ez</h3>
-                    <p class="role">L&iacute;der de pruebas</p>
-                    <img th:src="@{/img/Juan.jpeg}" alt="Juan David" class="team-member-image">
-                    <p class="description">Estudiante de ingenier&iacute;a de sistemas de 6 semestre con amplio
-                        conocimiento en
-                        lenguajes como Java, c++, Python entre otros. Con grandes habilidades en relaci&oacute;n al trabajo
-                        en
-                        equipo y la gesti&oacute;n de proyectos.</p>
-                </div>
-                <div class="team-member">
-                    <h3 class="name">Sergio Ortiz</h3>
-                    <p class="role">L&iacute;der t&eacute;cnico</p>
-                    <img th:src="@{/img/sergio.jpeg}" alt="Sergio" class="team-member-image">
-                    <p class="description">Estudiante de sexto semestre de Ingenier&iacute;a de Sistemas, apasionado por el
-                        desarrollo m&oacute;vil, Ciencia de Datos, Inteligencia Artificial y gesti&oacute;n de base de datos.
-                        Posee un
-                        Amplio conocimiento en lenguajes como Java, C++, Kotlin, SQL y modelado de sistemas de
-                        informaci&oacute;n.
-                        Le gusta la comunicaci&oacute;n clara, seguir aprendiendo nuevas cosas todos los dias, aplicar
-                        buenas
-                        pr&aacute;cticas de programaci&oacute;n y trabajar en equipo.
-                    </p>
-                </div>
-                <div class="team-member">
-                    <h3 class="name">Melissa Ruiz</h3>
-                    <p class="role">L&iacute;der de planeaci&oacute;n</p>
-                    <img th:src="@{/img/melissa.jpeg}" alt="Melissa" class="team-member-image">
-                    <p class="description">Estudiante de sexto semestre de ingenier&iacute;a de sistemas, entusiasta
-                        de la rob&oacute;tica con inter&eacute;s en arquitectura e infraestructura de software, computaci&oacute;n en la
-                        nube e
-                        inteligencia artificial. Experiencia en lenguajes como Java, C++, Python, Kotlin, HTML,
-                        arduino y
-                        competencia en manejo de sistemas operativos como Linux. Entre las habilidades blandas se
-                        encuentran
-                        el trabajo en equipo, comunicaci&oacute;n asertiva y planeaci&oacute;n. Le motiva aprender y poner en
-                        pr&aacute;ctico sus
-                        conocimientos.</p>
-                </div>
-                <div class="team-member">
-                    <h3 class="name">Santiago Mesa</h3>
-                    <p class="role">Project Manager</p>
-                    <img th:src="@{/img/santiago.jpeg}" alt="Santiago" class="team-member-image">
-                    <p class="description">Ingeniero Electr&oacute;nico y estudiante de sexto semestre de Ingenier&iacute;a de
-                        Sistemas.
-                        Tiene un gran inter&eacute;s en la arquitectura de software, blockchain y el desarrollo de
-                        proyectos de TI.
-                        Cuenta con experiencia en lenguajes de programaci&oacute;n como Java, C++, Rust, Python y HTML,
-                        adem&aacute;s de
-                        conocimientos en modelado de sistemas de informaci&oacute;n y procesos de negocio. Disfruta
-                        trabajar en
-                        equipo y le motiva aprender de experiencias pr&aacute;cticas.</p>
-                </div>
+    <section class="objectivesContainer">
+        <div class="objectives-title">
+            <h2>Objetivos</h2>
+        </div>
+        <div class="objectives-list">
+            <div class="objective-item">
+                <img th:src="@{/img/casa-inteligente.png}" alt="objetivo 1" class="objective-icon">
+                <p>Facilitar el arriendo de fincas mediante una plataforma web intuitiva y accesible.</p>
+            </div>
+            <div class="objective-item">
+                <img th:src="@{/img/dashboard.png}" alt="objetivo 2" class="objective-icon">
+                <p>Gestionar propiedades f&aacute;cilmente, permitiendo a los arrendatarios crear, editar y controlar
+                    sus
+                    publicaciones.</p>
+            </div>
+            <div class="objective-item">
+                <img th:src="@{/img/www.png}" alt="objetivo 3" class="objective-icon">
+                <p>Optimizar la experiencia del usuario arrendador, con filtros de b&uacute;squeda, solicitud de
+                    arriendos y
+                    pagos en l&iacute;nea.</p>
+            </div>
+            <div class="objective-item">
+                <img th:src="@{/img/candado.png}" alt="objetivo 4" class="objective-icon">
+                <p>Garantizar seguridad y confianza mediante autenticaci&oacute;n, control de pagos y sistema de
+                    calificaciones.
+                </p>
             </div>
         </div>
-        <button class="next-btn">›</button>
-    </div>
-</section>
+    </section>
 
-<section class="contact-section">
-    <div class="contact-container">
-
-        <div class="contact-left">
-            <h2 class="contact-title">Cont&aacute;ctanos</h2>
-            <form id="contact-form" class="contact-form">
-                <div class="form-group">
-                    <label for="nombres">Nombres:</label>
-                    <input type="text" id="nombres" maxlength="100" required>
-                    <small class="error-message"></small>
-                </div>
-                <div class="form-group">
-                    <label for="apellidos">Apellidos:</label>
-                    <input type="text" id="apellidos" maxlength="100" required>
-                    <small class="error-message"></small>
-                </div>
-                <div class="form-group">
-                    <label for="correo">Correo:</label>
-                    <input type="text" id="correo" maxlength="100" required>
-                    <small class="error-message"></small>
-                </div>
-                <div class="form-group">
-                    <label for="semestre">Semestre:</label>
-                    <input type="number" id="semestre" min="0" max="16" required>
-                    <small class="error-message"></small>
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" maxlength="300" required></textarea>
-                    <small id="char-count">0/300</small>
-                    <small class="error-message"></small>
-                </div>
-                <button type="submit" class="btn-enviar">Enviar</button>
-            </form>
+    <section class="teamContainer">
+        <div class="team-title">
+            <h2>Integrantes</h2>
         </div>
-
-
-        <div class="divider"></div>
-
-
-        <div class="contact-right">
-            <h3 class="contact-subtitle">D&eacute;janos tu mensaje!</h3>
-            <p class="contact-text">
-                En esta secci&oacute;n puedes contactarnos llenando los campos del formulario y dej&aacute;ndonos todas las dudas que tengas,
-                con gusto las resolveremos.
-            </p>
+        <div class="team-carousel">
+            <button class="prev-btn">‹</button>
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    <div class="team-member">
+                        <h3 class="name">Catalina Lizarazo</h3>
+                        <p class="role">Ingeniera en base de datos</p>
+                        <img th:src="@{/img/catalina.jpeg}" alt="Catalina" class="team-member-image">
+                        <p class="description">Estudiante de ingenier&iacute;a de sistemas e ingenieria industrial.
+                            Experiencia en construcci&oacute;n de bases de datos relacionales en SQL y en desarrollo de
+                            software en
+                            lenguajes como java, C++ y HTML; tambi&eacute;n en aplicaci&oacute;n de tecnolog&iacute;as
+                            de informaci&oacute;n en
+                            sistemas
+                            hombre-m&aacute;quina en campos ergon&oacute;micos.</p>
+                    </div>
+                    <div class="team-member">
+                        <h3 class="name">Daniela Medina</h3>
+                        <p class="role">Desarrolladora Full Stack</p>
+                        <img th:src="@{/img/daniela.jpeg}" alt="Daniela" class="team-member-image">
+                        <p class="description">Estudiante de sexto semestre de Ingenier&iacute;a de Sistemas, con
+                            inter&eacute;s en
+                            temas
+                            como arquitectura de software, computaci&oacute;n en la nube y el desarrollo de proyectos de
+                            TI. Le
+                            gusta
+                            entender c&oacute;mo funcionan las cosas por detr&aacute;s y pensar en soluciones que sean
+                            bien
+                            estructuradas.
+                            Aunque todav&iacute;a est&aacute; aprendiendo, trata de aplicar buenas pr&aacute;cticas
+                            desde ya y entender el
+                            panorama
+                            completo de los sistemas.</p>
+                    </div>
+                    <div class="team-member">
+                        <h3 class="name">Juan Ordo&ntilde;ez</h3>
+                        <p class="role">L&iacute;der de pruebas</p>
+                        <img th:src="@{/img/Juan.jpeg}" alt="Juan David" class="team-member-image">
+                        <p class="description">Estudiante de ingenier&iacute;a de sistemas de 6 semestre con amplio
+                            conocimiento en
+                            lenguajes como Java, c++, Python entre otros. Con grandes habilidades en relaci&oacute;n al
+                            trabajo
+                            en
+                            equipo y la gesti&oacute;n de proyectos.</p>
+                    </div>
+                    <div class="team-member">
+                        <h3 class="name">Sergio Ortiz</h3>
+                        <p class="role">L&iacute;der t&eacute;cnico</p>
+                        <img th:src="@{/img/sergio.jpeg}" alt="Sergio" class="team-member-image">
+                        <p class="description">Estudiante de sexto semestre de Ingenier&iacute;a de Sistemas, apasionado
+                            por el
+                            desarrollo m&oacute;vil, Ciencia de Datos, Inteligencia Artificial y gesti&oacute;n de base
+                            de datos.
+                            Posee un
+                            Amplio conocimiento en lenguajes como Java, C++, Kotlin, SQL y modelado de sistemas de
+                            informaci&oacute;n.
+                            Le gusta la comunicaci&oacute;n clara, seguir aprendiendo nuevas cosas todos los dias,
+                            aplicar
+                            buenas
+                            pr&aacute;cticas de programaci&oacute;n y trabajar en equipo.
+                        </p>
+                    </div>
+                    <div class="team-member">
+                        <h3 class="name">Melissa Ruiz</h3>
+                        <p class="role">L&iacute;der de planeaci&oacute;n</p>
+                        <img th:src="@{/img/melissa.jpeg}" alt="Melissa" class="team-member-image">
+                        <p class="description">Estudiante de sexto semestre de ingenier&iacute;a de sistemas, entusiasta
+                            de la rob&oacute;tica con inter&eacute;s en arquitectura e infraestructura de software,
+                            computaci&oacute;n en la
+                            nube e
+                            inteligencia artificial. Experiencia en lenguajes como Java, C++, Python, Kotlin, HTML,
+                            arduino y
+                            competencia en manejo de sistemas operativos como Linux. Entre las habilidades blandas se
+                            encuentran
+                            el trabajo en equipo, comunicaci&oacute;n asertiva y planeaci&oacute;n. Le motiva aprender y
+                            poner en
+                            pr&aacute;ctico sus
+                            conocimientos.</p>
+                    </div>
+                    <div class="team-member">
+                        <h3 class="name">Santiago Mesa</h3>
+                        <p class="role">Project Manager</p>
+                        <img th:src="@{/img/santiago.jpeg}" alt="Santiago" class="team-member-image">
+                        <p class="description">Ingeniero Electr&oacute;nico y estudiante de sexto semestre de
+                            Ingenier&iacute;a de
+                            Sistemas.
+                            Tiene un gran inter&eacute;s en la arquitectura de software, blockchain y el desarrollo de
+                            proyectos de TI.
+                            Cuenta con experiencia en lenguajes de programaci&oacute;n como Java, C++, Rust, Python y
+                            HTML,
+                            adem&aacute;s de
+                            conocimientos en modelado de sistemas de informaci&oacute;n y procesos de negocio. Disfruta
+                            trabajar en
+                            equipo y le motiva aprender de experiencias pr&aacute;cticas.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="next-btn">›</button>
         </div>
-    </div>
-</section>
+    </section>
 
-<footer class="footer">
-    <p>© 2025 Arrienda tu finca - Todos los derechos reservados</p>
-</footer>
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-left">
+                <h2 class="contact-title">Cont&aacute;ctanos</h2>
+                <form id="contact-form" class="contact-form" method="post" th:action="@{/contacto}">
+                    <div class="form-group">
+                        <label for="nombres">Nombres:</label>
+                        <input type="text" id="nombres" name="nombres" maxlength="100" required>
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos:</label>
+                        <input type="text" id="apellidos" name="apellidos" maxlength="100" required>
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo:</label>
+                        <input type="text" id="correo" name="correo" maxlength="100" required>
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="semestre">Semestre:</label>
+                        <input type="number" id="semestre" name="semestre" min="0" max="16" required>
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" maxlength="300" required></textarea>
+                        <small id="char-count">0/300</small>
+                        <small class="error-message"></small>
+                    </div>
+                    <button type="submit" class="btn-enviar">Enviar</button>
+                </form>
+            </div>
 
-<script th:src="@{/js/menu.js}" defer></script>
-<script th:src="@{/js/contacto.js}" defer></script>
-<script th:src="@{/js/carousel.js}" defer></script>
+            <div class="divider"></div>
+
+            <div class="contact-right">
+                <h3 class="contact-subtitle">D&eacute;janos tu mensaje!</h3>
+                <p class="contact-text">
+                    En esta secci&oacute;n puedes contactarnos llenando los campos del formulario y dej&aacute;ndonos
+                    todas las dudas que tengas,
+                    con gusto las resolveremos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Arrienda tu finca - Todos los derechos reservados</p>
+    </footer>
+
+    <script th:src="@{/js/menu.js}" defer></script>
+    <script th:src="@{/js/contacto.js}" defer></script>
+    <script th:src="@{/js/carousel.js}" defer></script>
 </body>
+
 </html>

@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     form.addEventListener("submit", (e) => {
-        e.preventDefault();
         let valido = true;
 
         inputs.forEach(input => {
@@ -29,9 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             if (input.id === "correo") {
-                const regex = /^[A-Z0-9]+@[A-Z0-9]+\.[A-Z]{2,}$/;
+                // Regex para correo más permisivo y en minúsculas
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!regex.test(input.value.trim())) {
-                    errorMsg.textContent = "Correo inválido (use mayúsculas, sin espacios ni caracteres especiales).";
+                    errorMsg.textContent = "Correo inválido.";
                     errorMsg.style.display = "block";
                     input.classList.add("error");
                     valido = false;
@@ -58,10 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        if (valido) {
-            alert("Formulario enviado con éxito");
-            form.reset();
+        if (!valido) {
+            e.preventDefault(); // Cancela el envío solo si hay errores
+        }else {
+            // Si es válido, mostrar alert de éxito y limpiar formulario
+            alert("¡Formulario enviado con éxito!");
             charCount.textContent = "0/300";
         }
+        // Si es válido, el formulario se envía normalmente y no se cancela el evento.
     });
 });

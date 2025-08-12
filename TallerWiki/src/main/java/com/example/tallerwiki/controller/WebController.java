@@ -1,22 +1,10 @@
-package com.example.tallerwiki;
+package com.example.tallerwiki.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class WebController {
-
-    // Mapea la raíz del sitio (http://localhost:8080/) al index.html
-    @GetMapping("/")
-    public String index() {
-        return "index"; // Devuelve el nombre del archivo HTML sin la extensión .html
-    }
-
-    // Mapea http://localhost:8080/index.html también
-    @GetMapping("/index.html")
-    public String home() {
-        return "index";
-    }
 
     @GetMapping("/architecture.html")
     public String architecture() {
