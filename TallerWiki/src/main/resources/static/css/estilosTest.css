@@ -148,15 +148,18 @@ body {
 }
 
 .testing-section h2 {
-    color: #EE6C4D;
-    font-size: 2em;
-    margin-bottom: 20px;
+    font-size: 1.5em;
     font-weight: 600;
+    color: #2c3e50;
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #667eea;
+    position: relative;
 }
 
 .testing-section h3 {
     color: #2c3e50;
-    font-size: 1.6em;
+    font-size: 1.1em;
     font-weight: 600;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 10px;
@@ -166,7 +169,7 @@ body {
 
 .testing-section p {
     color: #333;
-    font-size: 1.1em;
+    font-size: 0.9em;
     line-height: 1.6;
     margin-bottom: 15px;
 }
@@ -179,7 +182,7 @@ body {
 .testing-section li {
     margin-bottom: 15px;
     color: #333;
-    font-size: 1.1em;
+    font-size: 0.9em;
     line-height: 1.6;
 }
 
