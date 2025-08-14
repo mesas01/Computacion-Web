@@ -1,4 +1,4 @@
-/* REGLAS GLOBALES */
+
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +12,6 @@ body {
     background-color: #f4f7f6;
 }
 
-/* BARRA DE NAVEGACIÓN */
 .navBar {
     background-color: #3D5A80;
     width: 100%;
@@ -64,7 +63,6 @@ body {
     transform: scaleX(1);
 }
 
-/* ESTILOS MENÚ DE HAMBURGUESA */
 .hamburger-menu {
     display: none;
     flex-direction: column;

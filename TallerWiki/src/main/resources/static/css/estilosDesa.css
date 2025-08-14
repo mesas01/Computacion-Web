@@ -1,4 +1,4 @@
-/* REGLAS GLOBALES */
+
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ body {
     background-color: #f4f7f6;
 }
 
-/* BARRA DE NAVEGACIÓN */
+
 .navBar {
     background-color: #3D5A80;
     width: 100%;
@@ -63,15 +63,15 @@ body {
     transform: scaleX(1);
 }
 
-/* ESTILOS MENÚ DE HAMBURGUESA */
+
 .hamburger-menu {
     display: none;
     flex-direction: column;
     justify-content: space-around;
     width: 30px;
     height: 25px;
-    background: transparent; /* Añadido para quitar fondo */
-    border: none; /* Añadido para quitar borde */
+    background: transparent;
+    border: none;
     cursor: pointer;
     padding: 0;
     z-index: 1010;
@@ -98,7 +98,7 @@ body {
 }
 
 
-/* SECCIÓN DEL TÍTULO PRINCIPAL */
+
 .container {
     background-color: #3D5A80;
     padding: 50px 40px;
@@ -129,7 +129,7 @@ body {
     line-height: 1.5;
 }
 
-/* ESTILOS PARA ENDPOINTS DE DESARROLLO */
+
 .desarrollo-container {
     max-width: 1400px;
     margin: 40px auto;
@@ -290,11 +290,11 @@ body {
         width: 100%;
         text-align: center;
         padding: 15px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Líneas añadidas */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .nav-links a:last-child {
-        border-bottom: none; /* Se quita la última línea */
+        border-bottom: none;
     }
 
     .nav-links a::after {
