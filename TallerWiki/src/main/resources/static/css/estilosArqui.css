@@ -1,5 +1,5 @@
 /*REGLAS GLOBALES Y RESETS-*/
-/* Aplica 'box-sizing: border-box' y resetea márgenes y paddings en todos los elementos. */
+/* Aplica 'box-sizing: border-box' y resetea margenes y paddings en todos los elementos. */
 * {
     margin: 0;
     padding: 0;
@@ -148,22 +148,21 @@ body {
     line-height: 1.5;
 }
 
-/* Contenedor de texto dentro de la sección principal. */
+
 .container .text-container {
     padding: 0;
     margin: 0;
     max-width: 900px;
 }
 
-/*SECCIÓN DIAGRAMAS C4 Y MODELOS*/
-/* Contenedores principales para los diagramas y modelos. */
+
 .diagramasC4-container, .modelo-container {
     max-width: 1200px;
     margin: 40px auto;
     padding: 20px;
 }
 
-/* Estilos para los subtítulos de las secciones. */
+
 .section-subtitle h2 {
     font-size: 1.5em;
     font-weight: 600;
@@ -174,7 +173,6 @@ body {
     position: relative;
 }
 
-/* Estilos para las tarjetas de descripción de diagramas. */
 .diagramas-description {
     background: white;
     border-radius: 12px;
@@ -183,23 +181,19 @@ body {
     margin-bottom: 40px;
 }
 
-/* Estilos para los párrafos dentro de la descripción. */
 .diagramas-description p {
     margin-bottom: 15px;
     text-align: justify;
     color: #555;
 }
 
-/* Contenedor de la cuadrícula de diagramas, usa CSS Grid. */
 .diagramas-grid {
     display: grid;
-    /* Crea columnas que se ajustan automáticamente. */
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
     margin-top: 30px;
 }
 
-/* Estilos para cada tarjeta de diagrama o modelo. */
 .diagram-card, .modelo-card {
     background: white;
     border-radius: 12px;
@@ -208,13 +202,11 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efecto hover al pasar el mouse por encima de las tarjetas. */
 .diagram-card:hover, .modelo-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Estilos para el título de las tarjetas. */
 .diagram-title, .modelo-title {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: white;

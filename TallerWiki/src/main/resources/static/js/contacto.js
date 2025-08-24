@@ -59,12 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (!valido) {
-            e.preventDefault(); // Cancela el envío solo si hay errores
+            e.preventDefault(); // Cancela el envio solo si hay errores
         }else {
-            // Si es válido, mostrar alert de éxito y limpiar formulario
+            // Si es valido, mostrar alert de exito y limpiar formulario
             alert("¡Formulario enviado con éxito!");
             charCount.textContent = "0/300";
         }
-        // Si es válido, el formulario se envía normalmente y no se cancela el evento.
+        // Si es valido, el formulario se envia y no se cancela el evento.
     });
 });
