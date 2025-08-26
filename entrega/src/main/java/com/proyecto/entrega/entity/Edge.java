@@ -1,11 +1,10 @@
 package com.proyecto.entrega.entity;
 
 
-import org.hibernate.annotations.ManyToAny;
+
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -37,15 +36,15 @@ public class Edge{
 
     @ManyToOne
     @JoinColumn(name = "process_id")
-    private Process process_id;
+    private Process process;
 
     @ManyToOne
     @JoinColumn(name = "activity_source_id")
-    private Activity activity_source;
+    private Activity activitySource;
 
     @ManyToOne
     @JoinColumn(name = "activity_destiny_id")
-    private Activity activity_destiny;
+    private Activity activityDestiny;
 
 }
 

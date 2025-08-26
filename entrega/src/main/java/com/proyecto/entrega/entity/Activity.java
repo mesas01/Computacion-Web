@@ -38,7 +38,7 @@ public class Activity {
 
     @ManyToOne
     @JoinColumn(name = "process_id")
-    private Process process_id;
+    private Process process;
 
 }
 
