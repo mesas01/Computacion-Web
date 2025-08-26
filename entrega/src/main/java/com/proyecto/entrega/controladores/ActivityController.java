@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.proyecto.entrega.controladores.service.ActivityService;
 import com.proyecto.entrega.dto.ActivityDTO;
+import com.proyecto.entrega.service.ActivityService;
 
 @RestController
 @RequestMapping("/api/activity")

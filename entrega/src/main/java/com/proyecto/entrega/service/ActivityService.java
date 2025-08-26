@@ -1,4 +1,4 @@
-package com.proyecto.entrega.controladores.service;
+package com.proyecto.entrega.service;
 
 import java.util.List;
 
@@ -38,7 +38,7 @@ public class ActivityService {
     public void deleteActivity(Long id) {
         activityRepository.deleteById(id);
     }
-    
+
     public List<ActivityDTO> findActivities() {
         List<Activity> activities = activityRepository.findAll();
         return activities.stream()

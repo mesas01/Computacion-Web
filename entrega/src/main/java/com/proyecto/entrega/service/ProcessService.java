@@ -1,4 +1,4 @@
-package com.proyecto.entrega.controladores.service;
+package com.proyecto.entrega.service;
 
 import java.util.List;
 

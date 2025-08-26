@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.proyecto.entrega.controladores.service.EdgeService;
 import com.proyecto.entrega.dto.EdgeDTO;
+import com.proyecto.entrega.service.EdgeService;
 
 @RequestMapping("/api/edge")
 public class EdgeController {

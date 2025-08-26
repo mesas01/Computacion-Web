@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-import com.proyecto.entrega.controladores.service.ProcessService;
 import com.proyecto.entrega.dto.ProcessDTO;
+import com.proyecto.entrega.service.ProcessService;
 
 @RequestMapping("/api/process")
 public class ProcessController {
