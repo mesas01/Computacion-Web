@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.proyecto.entrega.dto.ProcessDTO;
 import com.proyecto.entrega.service.ProcessService;
-
+@RestController
 @RequestMapping("/api/process")
 public class ProcessController {
     @Autowired

@@ -18,8 +18,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Where(clause = "status = 0")
-@SQLDelete(sql = "UPDATE activity SET status = 1 WHERE id = ?")
+@Where(clause = "status = 'active'")
+@SQLDelete(sql = "UPDATE process SET status = 'inactive' WHERE id = ?")
 
 public class Process{
     

@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.proyecto.entrega.dto.EdgeDTO;
 import com.proyecto.entrega.service.EdgeService;
 
+@RestController
 @RequestMapping("/api/edge")
 public class EdgeController {
 
