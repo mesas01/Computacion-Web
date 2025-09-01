@@ -1,0 +1,175 @@
+Resumen de Cambios y Próximos Pasos
+=====================================
+
+Este documento resume las implementaciones realizadas en el backend del proyecto "proyecto/entrega" y detalla los próximos pasos a seguir.
+
+-------------------------------------
+1. ¿Qué se hizo?
+-------------------------------------
+
+Se ha construido la base del backend para el sistema de gestión de procesos, implementando las capas de controlador, servicio, repositorio, DTO y entidad para las funcionalidades principales definidas en las historias de usuario. El objetivo fue crear la estructura necesaria para manejar Empresas, Usuarios, Roles, Procesos, Actividades, Arcos y Gateways.
+
+Funcionalidades Implementadas:
+------------------------------
+
+A. Gestión de Cuentas (HU-01, HU-02):
+   - Creación de la entidad `Empresa` para registrar organizaciones de forma independiente.
+   - Creación de la entidad `Usuario` para gestionar las cuentas de los colaboradores.
+   - Creación de la entidad `Rol` para definir permisos y funciones dentro de la empresa.
+   - Se implementaron los servicios y controladores para registrar nuevas empresas y nuevos usuarios dentro de una empresa.
+
+B. Gestión de Gateways (HU-14 a HU-16):
+   - Creación de la entidad `Gateway` para representar puntos de decisión en los procesos.
+   - Se implementó la lógica para crear y consultar gateways asociados a un proceso.
+
+C. Corrección y Validación de Entidades Existentes:
+   - Se modificaron las entidades `Process`, `Activity` y `Edge` para alinearlas con los requisitos de las historias de usuario y para que se integren correctamente con las nuevas entidades (`Empresa`, `Rol`, `Gateway`).
+
+-------------------------------------
+2. Archivos Creados y Modificados
+-------------------------------------
+
+A continuación se detallan los archivos que fueron creados o modificados para cada entidad.
+
+**Entidad: Empresa (HU-01)**
+- `src/main/java/com/proyecto/entrega/entity/Empresa.java` (Creado): Define la estructura de la tabla de empresas.
+- `src/main/java/com/proyecto/entrega/dto/EmpresaDTO.java` (Creado): Objeto para transferir datos de la empresa de forma segura.
+- `src/main/java/com/proyecto/entrega/repository/EmpresaRepository.java` (Creado): Interfaz para el acceso a datos de la empresa.
+- `src/main/java/com/proyecto/entrega/service/EmpresaService.java` (Creado): Contiene la lógica de negocio para el registro de empresas.
+- `src/main/java/com/proyecto/entrega/controller/EmpresaController.java` (Creado): Expone la API REST para la gestión de empresas.
+
+**Entidad: Rol (HU-17 a HU-20)**
+- `src/main/java/com/proyecto/entrega/entity/Rol.java` (Creado): Define los roles de proceso asociados a una empresa.
+- `src/main/java/com/proyecto/entrega/dto/RolDTO.java` (Creado): DTO para la entidad Rol.
+- `src/main/java/com/proyecto/entrega/repository/RolRepository.java` (Creado): Repositorio para la entidad Rol.
+- `src/main/java/com/proyecto/entrega/service/RolService.java` (Creado): Lógica de negocio para la gestión de roles.
+- `src/main/java/com/proyecto/entrega/controller/RolController.java` (Creado): API REST para la gestión de roles.
+
+**Entidad: Usuario (HU-02, HU-03)**
+- `src/main/java/com/proyecto/entrega/entity/Usuario.java` (Creado): Define los usuarios del sistema, asociados a una empresa y un rol.
+- `src/main/java/com/proyecto/entrega/dto/UsuarioDTO.java` (Creado): DTO para la entidad Usuario.
+- `src/main/java/com/proyecto/entrega/repository/UsuarioRepository.java` (Creado): Repositorio para la entidad Usuario.
+- `src/main/java/com/proyecto/entrega/service/UsuarioService.java` (Creado): Lógica de negocio para el registro de usuarios.
+- `src/main/java/com/proyecto/entrega/controller/UsuarioController.java` (Creado): API REST para la gestión de usuarios.
+
+**Entidad: Gateway (HU-14 a HU-16)**
+- `src/main/java/com/proyecto/entrega/entity/Gateway.java` (Creado): Define los gateways (puntos de decisión) en un proceso.
+- `src/main/java/com/proyecto/entrega/dto/GatewayDTO.java` (Creado): DTO para la entidad Gateway.
+- `src/main/java/com/proyecto/entrega/repository/GatewayRepository.java` (Creado): Repositorio para la entidad Gateway.
+- `src/main/java/com/proyecto/entrega/service/GatewayService.java` (Creado): Lógica de negocio para la gestión de gateways.
+- `src/main/java/com/proyecto/entrega/controller/GatewayController.java` (Creado): API REST para la gestión de gateways.
+
+**Entidades Modificadas:**
+
+**Process (HU-04 a HU-07):**
+- `src/main/java/com/proyecto/entrega/entity/Process.java` (Modificado): Se añadió la relación con `Empresa` y el campo `category`.
+- `src/main/java/com/proyecto/entrega/dto/ProcessDTO.java` (Modificado): Se actualizó para incluir `empresaId` y `category`.
+- `src/main/java/com/proyecto/entrega/service/ProcessService.java` (Modificado): Se reescribió la lógica para alinearla con las HU.
+- `src/main/java/com/proyecto/entrega/repository/ProcessRepository.java` (Modificado): Se añadió el método `findByEmpresaId`.
+- `src/main/java/com/proyecto/entrega/controller/ProcessController.java` (Creado/Modificado): Se crearon/ajustaron los endpoints para el CRUD de procesos.
+
+**Activity (HU-08 a HU-10):**
+- `src/main/java/com/proyecto/entrega/entity/Activity.java` (Modificado): Se añadió la relación con `Rol` y se simplificaron los campos.
+- `src/main/java/com/proyecto/entrega/dto/ActivityDTO.java` (Modificado): Se actualizó para reflejar los nuevos campos de la entidad.
+- `src/main/java/com/proyecto/entrega/service/ActivityService.java` (Modificado): Se reescribió la lógica para asociar actividades con roles y procesos.
+- `src/main/java/com/proyecto/entrega/repository/ActivityRepository.java` (Modificado): Se añadió el método `findByProcessId`.
+- `src/main/java/com/proyecto/entrega/controller/ActivityController.java` (Creado/Modificado): Se crearon/ajustaron los endpoints.
+
+**Edge (HU-11 a HU-13):**
+- `src/main/java/com/proyecto/entrega/entity/Edge.java` (Modificado): Se rediseñó para permitir conexiones genéricas entre actividades y gateways.
+- `src/main/java/com/proyecto/entrega/dto/EdgeDTO.java` (Modificado): Se actualizó para el nuevo diseño de la entidad.
+- `src/main/java/com/proyecto/entrega/service/EdgeService.java` (Modificado): Se reescribió la lógica para manejar la creación de arcos genéricos.
+- `src/main/java/com/proyecto/entrega/repository/EdgeRepository.java` (Modificado): Se añadió el método `findByProcessId`.
+- `src/main/java/com/proyecto/entrega/controller/EdgeController.java` (Creado/Modificado): Se crearon/ajustaron los endpoints.
+
+-------------------------------------
+3. ¿Qué hay que hacer? (Próximos Pasos)
+-------------------------------------
+
+La base funcional del backend está completa. El siguiente paso crucial es implementar la seguridad para cumplir con la HU-03 (Inicio de sesión) y asegurar que solo los usuarios autorizados puedan acceder y modificar los recursos.
+
+**Tarea Principal: Implementar Autenticación y Autorización con Spring Security**
+
+1.  **Añadir Dependencias:** Incluir `spring-boot-starter-security` en el `pom.xml` para integrar Spring Security.
+2.  **Configurar la Seguridad:**
+    - Crear una clase de configuración de seguridad que defina las reglas de acceso a los endpoints (qué rutas son públicas y cuáles requieren autenticación).
+    - Implementar un `UserDetailsService` que cargue los datos del `Usuario` desde la base de datos.
+    - Configurar un `PasswordEncoder` (como `BCryptPasswordEncoder`) para almacenar las contraseñas de forma segura (hasheadas).
+3.  **Crear Endpoints de Autenticación:**
+    - Desarrollar un endpoint para el login (`/api/auth/login`) que valide las credenciales y, si son correctas, genere un token (por ejemplo, JWT - JSON Web Token).
+    - El endpoint de registro de usuario en `UsuarioService` debe ser modificado para hashear la contraseña antes de guardarla.
+4.  **Proteger los Endpoints:**
+    - Configurar Spring Security para que valide el token en cada petición a las rutas protegidas.
+    - Implementar la autorización basada en roles para restringir acciones (ej. solo un administrador puede eliminar un proceso).
+
+Esta implementación garantizará que el sistema sea seguro y que los datos de cada empresa estén
+
+----------------------------------------------------------------------------------------
+
+Explicación del Flujo de Acción (Como en un Restaurante)
+=========================================================
+
+Imagina que nuestra aplicación es un restaurante. Cada vez que usas la aplicación, es como si estuvieras pidiendo comida. Así es como funciona todo el proceso, paso a paso.
+
+-------------------------------------
+Paso 1: El Cliente hace un Pedido (Tú en el Navegador)
+-------------------------------------
+
+- **Quién eres:** El cliente sentado en la mesa.
+- **Qué haces:** Abres la página web (el menú del restaurante) y decides qué quieres hacer. Por ejemplo, haces clic en "Crear Nuevo Proceso" y llenas un formulario con el nombre y la descripción.
+- **La acción:** Al hacer clic en "Guardar", estás haciendo un pedido.
+
+-------------------------------------
+Paso 2: El Mesero Anota y Lleva el Pedido a la Cocina (El Controlador)
+-------------------------------------
+
+- **Quién es:** El `Controlador` (Controller) en nuestro código. Es como el mesero del restaurante.
+- **Qué hace:** El Controlador recibe tu pedido (la información del formulario que enviaste). No sabe cocinar, pero sabe exactamente a quién en la cocina entregarle la orden.
+- **La acción:** Tu pedido viaja por internet y llega al Controlador. Él lo toma y se lo pasa al Chef.
+
+-------------------------------------
+Paso 3: El Chef Prepara el Plato (El Servicio)
+-------------------------------------
+
+- **Quién es:** El `Servicio` (Service) en nuestro código. Es el Chef principal de la cocina.
+- **Qué hace:** El Chef recibe la orden del mesero. Aquí es donde ocurre la magia (la "lógica de negocio"). Si pediste "Crear un proceso", el Chef sabe qué pasos seguir:
+    1.  Verifica que el pedido esté completo (que no falten ingredientes, como el nombre del proceso).
+    2.  Se asegura de que todo esté en orden (por ejemplo, que tengas permiso para crear procesos).
+    3.  Prepara todo para que el plato pueda ser cocinado.
+
+-------------------------------------
+Paso 4: El Ayudante de Cocina Busca los Ingredientes (El Repositorio y la Base de Datos)
+-------------------------------------
+
+- **Quién es:** El `Repositorio` (Repository) y la `Base de Datos` (Database). Son como el ayudante de cocina y la despensa gigante.
+- **Qué hacen:** El Chef le dice al Repositorio: "¡Necesito guardar este nuevo proceso!". El Repositorio es el único que tiene la llave de la despensa (la Base de Datos). Va a la despensa y guarda el nuevo proceso en el estante correcto.
+- **La acción:** Si quieres guardar algo, el Repositorio lo escribe en la Base de Datos. Si quieres ver algo, el Repositorio lo busca y se lo trae al Chef.
+
+-------------------------------------
+Paso 5: El Plato se Prepara para ser Servido (El DTO)
+-------------------------------------
+
+- **Qué es:** El `DTO` (Data Transfer Object). Es el plato final, bien presentado y listo para que el cliente lo vea.
+- **Qué hace:** Una vez que el proceso se guarda en la despensa (Base de Datos), no se lo devolvemos al cliente de cualquier manera. El Chef lo pone en un "plato" especial (el DTO), asegurándose de que se vea bien y solo tenga la información que el cliente necesita ver. Por ejemplo, no le mostramos "ingredientes secretos" (como contraseñas o datos internos).
+
+-------------------------------------
+Paso 6: El Mesero te Entrega el Plato (Respuesta al Navegador)
+-------------------------------------
+
+- **La acción final:**
+    1.  El Chef (Servicio) le entrega el plato listo (el DTO) al Mesero (Controlador).
+    2.  El Mesero (Controlador) lo lleva de vuelta a tu mesa (tu navegador).
+    3.  En tu pantalla, ves un mensaje como "Proceso creado con éxito" y ves el nuevo proceso en la lista.
+
+**En Resumen:**
+
+- **Tú (Frontend):** Pides algo.
+- **Controlador (Mesero):** Recibe el pedido.
+- **Servicio (Chef):** Piensa y prepara el pedido.
+- **Repositorio (Ayudante):** Guarda o busca cosas en la despensa (Base de Datos).
+- **DTO (Plato):** Es la versión bonita de los datos que se te devuelve.
+
+Este ciclo se repite para absolutamente todo: crear un usuario, editar una actividad, eliminar un arco, etc. Es la forma organizada en que nuestra aplicación trabaja para que todo funcione de manera ordenada y segura.
+
+
+

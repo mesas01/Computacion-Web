@@ -34,3 +34,7 @@ build/
 
 ### JTE ###
 /jte-classes/
+
+# Archivos de la base de datos H2
+*.mv.db
+*.trace.db
