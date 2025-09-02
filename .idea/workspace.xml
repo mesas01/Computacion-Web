@@ -4,26 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dea830e0-51b6-44e7-85bc-529aa6e2c966" name="Changes" comment="arreglos y mejoras">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="dea830e0-51b6-44e7-85bc-529aa6e2c966" name="Changes" comment="ultimos warnings cambiados">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/ActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/ActivityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/EdgeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/EdgeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/EmpresaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/EmpresaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/GatewayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/GatewayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/ProcessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/ProcessController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/RolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/RolController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/ActivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/ActivityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/EdgeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/EdgeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/EmpresaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/EmpresaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/GatewayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/GatewayService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/ProcessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/ProcessService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/RolService.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/RolService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/resumen.txt" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/resumen.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +108,9 @@
       </set>
     </attachedChunks>
   </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="dea830e0-51b6-44e7-85bc-529aa6e2c966" name="Changes" comment="" />
@@ -144,7 +130,7 @@
       <workItem from="1756692912333" duration="1700000" />
       <workItem from="1756694925657" duration="1553000" />
       <workItem from="1756696604857" duration="1860000" />
-      <workItem from="1756787213984" duration="6440000" />
+      <workItem from="1756787213984" duration="7719000" />
     </task>
     <task id="LOCAL-00001" summary="cambios mejorados">
       <option name="closed" value="true" />
@@ -162,7 +148,23 @@
       <option name="project" value="LOCAL" />
       <updated>1756791677639</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ultimos warnings cambiados">
+      <option name="closed" value="true" />
+      <created>1756793829371</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1756793829371</updated>
+    </task>
+    <task id="LOCAL-00004" summary="ultimos warnings cambiados">
+      <option name="closed" value="true" />
+      <created>1756793852029</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1756793852029</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +184,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="cambios mejorados" />
     <MESSAGE value="arreglos y mejoras" />
-    <option name="LAST_COMMIT_MESSAGE" value="arreglos y mejoras" />
+    <MESSAGE value="ultimos warnings cambiados" />
+    <option name="LAST_COMMIT_MESSAGE" value="ultimos warnings cambiados" />
   </component>
 </project>

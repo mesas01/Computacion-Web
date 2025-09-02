@@ -1,175 +1,115 @@
-Resumen de Cambios y Próximos Pasos
-=====================================
+======================================================
+PARA: EL PROFESOR (VISIÓN ARQUITECTÓNICA Y TÉCNICA)
+======================================================
+PROYECTO: Backend para Sistema de Gestión de Procesos (BPM)
 
-Este documento resume las implementaciones realizadas en el backend del proyecto "proyecto/entrega" y detalla los próximos pasos a seguir.
+Resumen del Proyecto:
+Este proyecto consiste en el desarrollo de un backend RESTful utilizando Spring Boot, diseñado para servir como el núcleo de un sistema de gestión de procesos de negocio (BPM). La arquitectura está orientada a servicios, siguiendo principios de diseño robustos para garantizar la escalabilidad, mantenibilidad y seguridad de la aplicación.
 
--------------------------------------
-1. ¿Qué se hizo?
--------------------------------------
+Detalles Arquitectónicos y Decisiones de Diseño Clave:
 
-Se ha construido la base del backend para el sistema de gestión de procesos, implementando las capas de controlador, servicio, repositorio, DTO y entidad para las funcionalidades principales definidas en las historias de usuario. El objetivo fue crear la estructura necesaria para manejar Empresas, Usuarios, Roles, Procesos, Actividades, Arcos y Gateways.
+Arquitectura en Capas (Layered Architecture):
+El proyecto sigue un estricto patrón de arquitectura en capas para asegurar la separación de responsabilidades (SoC):
 
-Funcionalidades Implementadas:
-------------------------------
+Capa de Controlador (API Layer): Expone los endpoints RESTful. Su única responsabilidad es recibir las peticiones HTTP, validar los datos de entrada (DTOs) y delegar la lógica de negocio a la capa de servicio. No contiene lógica de negocio.
 
-A. Gestión de Cuentas (HU-01, HU-02):
-   - Creación de la entidad `Empresa` para registrar organizaciones de forma independiente.
-   - Creación de la entidad `Usuario` para gestionar las cuentas de los colaboradores.
-   - Creación de la entidad `Rol` para definir permisos y funciones dentro de la empresa.
-   - Se implementaron los servicios y controladores para registrar nuevas empresas y nuevos usuarios dentro de una empresa.
+Capa de Servicio (Business Logic Layer): Es el cerebro de la aplicación. Orquesta las operaciones, aplica la lógica de negocio especificada en las historias de usuario (ej. validaciones de duplicados, creación transaccional de entidades dependientes) y coordina la interacción con la capa de persistencia.
 
-B. Gestión de Gateways (HU-14 a HU-16):
-   - Creación de la entidad `Gateway` para representar puntos de decisión en los procesos.
-   - Se implementó la lógica para crear y consultar gateways asociados a un proceso.
+Capa de Repositorio (Data Access Layer): Abstrae el acceso a los datos mediante Spring Data JPA. Define las interfaces para las operaciones CRUD y las consultas personalizadas, permitiendo que la capa de servicio sea agnóstica a la implementación de la base de datos.
 
-C. Corrección y Validación de Entidades Existentes:
-   - Se modificaron las entidades `Process`, `Activity` y `Edge` para alinearlas con los requisitos de las historias de usuario y para que se integren correctamente con las nuevas entidades (`Empresa`, `Rol`, `Gateway`).
+Capa de Dominio (Entities): Modela los objetos del negocio utilizando entidades JPA, definiendo la estructura de la base de datos, las relaciones y las restricciones.
 
--------------------------------------
-2. Archivos Creados y Modificados
--------------------------------------
+Inversión de Control y Inyección de Dependencias (IoC/DI):
+Se ha adoptado la inyección por constructor como el estándar en todo el proyecto, en lugar de la inyección por campo. Esta decisión se tomó para:
 
-A continuación se detallan los archivos que fueron creados o modificados para cada entidad.
+Garantizar la inmutabilidad de las dependencias, declarándolas como final.
 
-**Entidad: Empresa (HU-01)**
-- `src/main/java/com/proyecto/entrega/entity/Empresa.java` (Creado): Define la estructura de la tabla de empresas.
-- `src/main/java/com/proyecto/entrega/dto/EmpresaDTO.java` (Creado): Objeto para transferir datos de la empresa de forma segura.
-- `src/main/java/com/proyecto/entrega/repository/EmpresaRepository.java` (Creado): Interfaz para el acceso a datos de la empresa.
-- `src/main/java/com/proyecto/entrega/service/EmpresaService.java` (Creado): Contiene la lógica de negocio para el registro de empresas.
-- `src/main/java/com/proyecto/entrega/controller/EmpresaController.java` (Creado): Expone la API REST para la gestión de empresas.
+Mejorar la testabilidad de las clases, facilitando la inyección de mocks en pruebas unitarias.
 
-**Entidad: Rol (HU-17 a HU-20)**
-- `src/main/java/com/proyecto/entrega/entity/Rol.java` (Creado): Define los roles de proceso asociados a una empresa.
-- `src/main/java/com/proyecto/entrega/dto/RolDTO.java` (Creado): DTO para la entidad Rol.
-- `src/main/java/com/proyecto/entrega/repository/RolRepository.java` (Creado): Repositorio para la entidad Rol.
-- `src/main/java/com/proyecto/entrega/service/RolService.java` (Creado): Lógica de negocio para la gestión de roles.
-- `src/main/java/com/proyecto/entrega/controller/RolController.java` (Creado): API REST para la gestión de roles.
+Exponer explícitamente las dependencias de cada componente a través de su contrato (el constructor), lo que mejora la claridad del código.
 
-**Entidad: Usuario (HU-02, HU-03)**
-- `src/main/java/com/proyecto/entrega/entity/Usuario.java` (Creado): Define los usuarios del sistema, asociados a una empresa y un rol.
-- `src/main/java/com/proyecto/entrega/dto/UsuarioDTO.java` (Creado): DTO para la entidad Usuario.
-- `src/main/java/com/proyecto/entrega/repository/UsuarioRepository.java` (Creado): Repositorio para la entidad Usuario.
-- `src/main/java/com/proyecto/entrega/service/UsuarioService.java` (Creado): Lógica de negocio para el registro de usuarios.
-- `src/main/java/com/proyecto/entrega/controller/UsuarioController.java` (Creado): API REST para la gestión de usuarios.
+Se utiliza la anotación @RequiredArgsConstructor de Lombok para generar estos constructores de forma limpia.
 
-**Entidad: Gateway (HU-14 a HU-16)**
-- `src/main/java/com/proyecto/entrega/entity/Gateway.java` (Creado): Define los gateways (puntos de decisión) en un proceso.
-- `src/main/java/com/proyecto/entrega/dto/GatewayDTO.java` (Creado): DTO para la entidad Gateway.
-- `src/main/java/com/proyecto/entrega/repository/GatewayRepository.java` (Creado): Repositorio para la entidad Gateway.
-- `src/main/java/com/proyecto/entrega/service/GatewayService.java` (Creado): Lógica de negocio para la gestión de gateways.
-- `src/main/java/com/proyecto/entrega/controller/GatewayController.java` (Creado): API REST para la gestión de gateways.
+Manejo de Datos y Persistencia:
 
-**Entidades Modificadas:**
+DTO (Data Transfer Objects): Se utiliza el patrón DTO para desacoplar la representación de los datos de la API de las entidades de persistencia. Esto previene la exposición de la estructura interna de la base de datos y permite crear contratos de API estables.
 
-**Process (HU-04 a HU-07):**
-- `src/main/java/com/proyecto/entrega/entity/Process.java` (Modificado): Se añadió la relación con `Empresa` y el campo `category`.
-- `src/main/java/com/proyecto/entrega/dto/ProcessDTO.java` (Modificado): Se actualizó para incluir `empresaId` y `category`.
-- `src/main/java/com/proyecto/entrega/service/ProcessService.java` (Modificado): Se reescribió la lógica para alinearla con las HU.
-- `src/main/java/com/proyecto/entrega/repository/ProcessRepository.java` (Modificado): Se añadió el método `findByEmpresaId`.
-- `src/main/java/com/proyecto/entrega/controller/ProcessController.java` (Creado/Modificado): Se crearon/ajustaron los endpoints para el CRUD de procesos.
+Mapeo Automatizado: Se ha configurado un bean de ModelMapper para manejar las conversiones entre DTOs y Entidades de forma eficiente y consistente.
 
-**Activity (HU-08 a HU-10):**
-- `src/main/java/com/proyecto/entrega/entity/Activity.java` (Modificado): Se añadió la relación con `Rol` y se simplificaron los campos.
-- `src/main/java/com/proyecto/entrega/dto/ActivityDTO.java` (Modificado): Se actualizó para reflejar los nuevos campos de la entidad.
-- `src/main/java/com/proyecto/entrega/service/ActivityService.java` (Modificado): Se reescribió la lógica para asociar actividades con roles y procesos.
-- `src/main/java/com/proyecto/entrega/repository/ActivityRepository.java` (Modificado): Se añadió el método `findByProcessId`.
-- `src/main/java/com/proyecto/entrega/controller/ActivityController.java` (Creado/Modificado): Se crearon/ajustaron los endpoints.
+Borrado Lógico (Soft Deletes): En entidades críticas como Process y Activity, se implementó el borrado lógico mediante las anotaciones @SQLDelete y @SQLRestriction de Hibernate. Esto preserva la integridad de los datos y la trazabilidad, en lugar de eliminar registros permanentemente.
 
-**Edge (HU-11 a HU-13):**
-- `src/main/java/com/proyecto/entrega/entity/Edge.java` (Modificado): Se rediseñó para permitir conexiones genéricas entre actividades y gateways.
-- `src/main/java/com/proyecto/entrega/dto/EdgeDTO.java` (Modificado): Se actualizó para el nuevo diseño de la entidad.
-- `src/main/java/com/proyecto/entrega/service/EdgeService.java` (Modificado): Se reescribió la lógica para manejar la creación de arcos genéricos.
-- `src/main/java/com/proyecto/entrega/repository/EdgeRepository.java` (Modificado): Se añadió el método `findByProcessId`.
-- `src/main/java/com/proyecto/entrega/controller/EdgeController.java` (Creado/Modificado): Se crearon/ajustaron los endpoints.
+Manejo de Errores Centralizado:
+Se implementó un GlobalExceptionHandler utilizando la anotación @ControllerAdvice. Este componente intercepta excepciones personalizadas lanzadas desde la capa de servicio (NotFoundException, DuplicateResourceException) y las traduce automáticamente en respuestas HTTP con los códigos de estado apropiados (404, 409), manteniendo los controladores limpios y libres de bloques try-catch.
 
--------------------------------------
-3. ¿Qué hay que hacer? (Próximos Pasos)
--------------------------------------
+Seguridad:
+Se ha integrado Spring Security como base para la seguridad de la aplicación. El primer y más crítico paso implementado es el hashing de contraseñas mediante un PasswordEncoder (BCrypt), asegurando que las credenciales de los usuarios nunca se almacenen en texto plano.
 
-La base funcional del backend está completa. El siguiente paso crucial es implementar la seguridad para cumplir con la HU-03 (Inicio de sesión) y asegurar que solo los usuarios autorizados puedan acceder y modificar los recursos.
+======================================================
+PARA: MÍ (FLUJO DE TRABAJO Y DETALLES IMPORTANTES)
+======================================================
+Objetivo: Entender el viaje completo de una petición a través de nuestro backend.
 
-**Tarea Principal: Implementar Autenticación y Autorización con Spring Security**
+Ejemplo Práctico: Registrar una Nueva Empresa (POST /api/empresas/registrar)
 
-1.  **Añadir Dependencias:** Incluir `spring-boot-starter-security` en el `pom.xml` para integrar Spring Security.
-2.  **Configurar la Seguridad:**
-    - Crear una clase de configuración de seguridad que defina las reglas de acceso a los endpoints (qué rutas son públicas y cuáles requieren autenticación).
-    - Implementar un `UserDetailsService` que cargue los datos del `Usuario` desde la base de datos.
-    - Configurar un `PasswordEncoder` (como `BCryptPasswordEncoder`) para almacenar las contraseñas de forma segura (hasheadas).
-3.  **Crear Endpoints de Autenticación:**
-    - Desarrollar un endpoint para el login (`/api/auth/login`) que valide las credenciales y, si son correctas, genere un token (por ejemplo, JWT - JSON Web Token).
-    - El endpoint de registro de usuario en `UsuarioService` debe ser modificado para hashear la contraseña antes de guardarla.
-4.  **Proteger los Endpoints:**
-    - Configurar Spring Security para que valide el token en cada petición a las rutas protegidas.
-    - Implementar la autorización basada en roles para restringir acciones (ej. solo un administrador puede eliminar un proceso).
+Este es el flujo paso a paso de lo que ocurre cuando enviamos un JSON desde Postman para crear una empresa.
 
-Esta implementación garantizará que el sistema sea seguro y que los datos de cada empresa estén
+Paso 1: El Cliente (Postman) 💻
+Tú envías una petición POST a http://localhost:8080/api/empresas/registrar. En el "Body" de la petición, envías un JSON con el nombre, nit y correo de la empresa.
 
-----------------------------------------------------------------------------------------
+Paso 2: La Puerta de Entrada (Capa de Controlador) 🚪
 
-Explicación del Flujo de Acción (Como en un Restaurante)
-=========================================================
+Spring Boot recibe la petición y, gracias a @RequestMapping("/api/empresas"), sabe que debe dirigirla al EmpresaController.
 
-Imagina que nuestra aplicación es un restaurante. Cada vez que usas la aplicación, es como si estuvieras pidiendo comida. Así es como funciona todo el proceso, paso a paso.
+Dentro del controlador, la anotación @PostMapping("/registrar") le dice que el método registrarEmpresa debe manejar esta petición.
 
--------------------------------------
-Paso 1: El Cliente hace un Pedido (Tú en el Navegador)
--------------------------------------
+@RequestBody toma el JSON que enviaste y lo convierte en un objeto EmpresaDTO.
 
-- **Quién eres:** El cliente sentado en la mesa.
-- **Qué haces:** Abres la página web (el menú del restaurante) y decides qué quieres hacer. Por ejemplo, haces clic en "Crear Nuevo Proceso" y llenas un formulario con el nombre y la descripción.
-- **La acción:** Al hacer clic en "Guardar", estás haciendo un pedido.
+@Valid le dice a Spring: "¡Oye, revisa este DTO! ¿Cumple con las reglas que pusimos, como @NotEmpty?". Si no las cumple, el GlobalExceptionHandler se activa y devuelve un error 400 Bad Request automáticamente.
 
--------------------------------------
-Paso 2: El Mesero Anota y Lleva el Pedido a la Cocina (El Controlador)
--------------------------------------
+Si todo está bien, el controlador, que es muy simple, solo hace una cosa: llama al método registrarEmpresa del EmpresaService y le pasa el DTO.
 
-- **Quién es:** El `Controlador` (Controller) en nuestro código. Es como el mesero del restaurante.
-- **Qué hace:** El Controlador recibe tu pedido (la información del formulario que enviaste). No sabe cocinar, pero sabe exactamente a quién en la cocina entregarle la orden.
-- **La acción:** Tu pedido viaja por internet y llega al Controlador. Él lo toma y se lo pasa al Chef.
+Paso 3: El Cerebro (Capa de Servicio) 🧠
 
--------------------------------------
-Paso 3: El Chef Prepara el Plato (El Servicio)
--------------------------------------
+El EmpresaService recibe el EmpresaDTO. Aquí ocurre toda la magia y se toman las decisiones.
 
-- **Quién es:** El `Servicio` (Service) en nuestro código. Es el Chef principal de la cocina.
-- **Qué hace:** El Chef recibe la orden del mesero. Aquí es donde ocurre la magia (la "lógica de negocio"). Si pediste "Crear un proceso", el Chef sabe qué pasos seguir:
-    1.  Verifica que el pedido esté completo (que no falten ingredientes, como el nombre del proceso).
-    2.  Se asegura de que todo esté en orden (por ejemplo, que tengas permiso para crear procesos).
-    3.  Prepara todo para que el plato pueda ser cocinado.
+Transacción: El método está marcado como @Transactional. Esto es como una promesa: "O todo lo que está aquí adentro funciona, o no hago nada". Si hay un error a mitad de camino, la base de datos revierte todos los cambios.
 
--------------------------------------
-Paso 4: El Ayudante de Cocina Busca los Ingredientes (El Repositorio y la Base de Datos)
--------------------------------------
+Lógica de Negocio: El servicio primero revisa si ya existe una empresa con ese NIT o nombre. Si es así, lanza una DuplicateResourceException, que el GlobalExceptionHandler convierte en un error 409 Conflict.
 
-- **Quién es:** El `Repositorio` (Repository) y la `Base de Datos` (Database). Son como el ayudante de cocina y la despensa gigante.
-- **Qué hacen:** El Chef le dice al Repositorio: "¡Necesito guardar este nuevo proceso!". El Repositorio es el único que tiene la llave de la despensa (la Base de Datos). Va a la despensa y guarda el nuevo proceso en el estante correcto.
-- **La acción:** Si quieres guardar algo, el Repositorio lo escribe en la Base de Datos. Si quieres ver algo, el Repositorio lo busca y se lo trae al Chef.
+Mapeo: Si la empresa es nueva, ModelMapper entra en acción y convierte el EmpresaDTO (un objeto de datos simple) en una entidad Empresa (un objeto listo para ser guardado en la base de datos).
 
--------------------------------------
-Paso 5: El Plato se Prepara para ser Servido (El DTO)
--------------------------------------
+Persistencia (Guardado): El servicio le dice al EmpresaRepository que guarde la nueva entidad Empresa.
 
-- **Qué es:** El `DTO` (Data Transfer Object). Es el plato final, bien presentado y listo para que el cliente lo vea.
-- **Qué hace:** Una vez que el proceso se guarda en la despensa (Base de Datos), no se lo devolvemos al cliente de cualquier manera. El Chef lo pone en un "plato" especial (el DTO), asegurándose de que se vea bien y solo tenga la información que el cliente necesita ver. Por ejemplo, no le mostramos "ingredientes secretos" (como contraseñas o datos internos).
+Lógica Adicional (HU-01): Después de guardar la empresa, el servicio continúa con la transacción:
 
--------------------------------------
-Paso 6: El Mesero te Entrega el Plato (Respuesta al Navegador)
--------------------------------------
+Crea un nuevo Rol ("Administrador") y lo asocia a la nueva empresa.
 
-- **La acción final:**
-    1.  El Chef (Servicio) le entrega el plato listo (el DTO) al Mesero (Controlador).
-    2.  El Mesero (Controlador) lo lleva de vuelta a tu mesa (tu navegador).
-    3.  En tu pantalla, ves un mensaje como "Proceso creado con éxito" y ves el nuevo proceso en la lista.
+Le pide al RolRepository que lo guarde.
 
-**En Resumen:**
+Crea un nuevo Usuario administrador, usando el correo de la empresa.
 
-- **Tú (Frontend):** Pides algo.
-- **Controlador (Mesero):** Recibe el pedido.
-- **Servicio (Chef):** Piensa y prepara el pedido.
-- **Repositorio (Ayudante):** Guarda o busca cosas en la despensa (Base de Datos).
-- **DTO (Plato):** Es la versión bonita de los datos que se te devuelve.
+¡IMPORTANTE! Usa el PasswordEncoder para hashear (encriptar) la contraseña antes de guardarla.
 
-Este ciclo se repite para absolutamente todo: crear un usuario, editar una actividad, eliminar un arco, etc. Es la forma organizada en que nuestra aplicación trabaja para que todo funcione de manera ordenada y segura.
+Le pide al UsuarioRepository que lo guarde.
 
+Paso 4: El Archivador (Capa de Repositorio) 🗄️
 
+El EmpresaRepository (y los otros repositorios) es una interfaz que nosotros no implementamos; Spring Data JPA lo hace por nosotros.
 
+Cuando el servicio llama a empresaRepository.save(nuevaEmpresa), Spring Data JPA traduce esa llamada a un comando SQL INSERT INTO empresa (...) VALUES (...).
+
+Paso 5: El Almacén (Base de Datos) 💾
+
+PostgreSQL recibe el comando SQL y guarda la nueva fila en la tabla empresa, y luego en rol y usuario. La transacción se completa con éxito (commit).
+
+Paso 6: El Camino de Regreso ↩️
+
+La base de datos le devuelve al repositorio la entidad Empresa recién guardada (ahora con un id).
+
+El servicio recibe esta entidad, la mapea de vuelta a un EmpresaDTO usando ModelMapper, y se la devuelve al controlador.
+
+El controlador envuelve el EmpresaDTO en un ResponseEntity con el estado 201 Created y lo envía de vuelta a Postman.
+
+Tú ves en Postman el JSON de la empresa creada y el código de estado 201.
+
+¡Ese es el ciclo de vida completo! Cada capa tiene su propia responsabilidad, lo que hace que el sistema sea organizado, seguro y fácil de mantener.
