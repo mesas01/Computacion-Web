@@ -1,53 +1,22 @@
 package com.proyecto.entrega.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class EmpresaDTO {
-
     private Long id;
+
+    @NotEmpty(message = "El nombre no puede estar vacío")
     private String nombre;
+
+    @NotEmpty(message = "El NIT no puede estar vacío")
     private String nit;
+
+    @NotEmpty(message = "El correo de contacto no puede estar vacío")
+    @Email(message = "El formato del correo es inválido")
     private String correoContacto;
-
-    // Constructores
-    public EmpresaDTO() {
-    }
-
-    public EmpresaDTO(Long id, String nombre, String nit, String correoContacto) {
-        this.id = id;
-        this.nombre = nombre;
-        this.nit = nit;
-        this.correoContacto = correoContacto;
-    }
-
-    // Getters y Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getNit() {
-        return nit;
-    }
-
-    public void setNit(String nit) {
-        this.nit = nit;
-    }
-
-    public String getCorreoContacto() {
-        return correoContacto;
-    }
-
-    public void setCorreoContacto(String correoContacto) {
-        this.correoContacto = correoContacto;
-    }
 }

@@ -1,43 +1,21 @@
 package com.proyecto.entrega.dto;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class GatewayDTO {
 
     private Long id;
+
+    @NotEmpty(message = "El tipo de gateway no puede estar vacío")
+    @Pattern(regexp = "EXCLUSIVO|PARALELO|INCLUSIVO", message = "El tipo debe ser EXCLUSIVO, PARALELO o INCLUSIVO")
     private String tipo;
+
+    @NotNull(message = "El ID del proceso es obligatorio")
     private Long processId;
-
-    // Constructores
-    public GatewayDTO() {
-    }
-
-    public GatewayDTO(Long id, String tipo, Long processId) {
-        this.id = id;
-        this.tipo = tipo;
-        this.processId = processId;
-    }
-
-    // Getters y Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public Long getProcessId() {
-        return processId;
-    }
-
-    public void setProcessId(Long processId) {
-        this.processId = processId;
-    }
 }

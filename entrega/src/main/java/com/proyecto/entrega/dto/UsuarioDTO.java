@@ -1,62 +1,35 @@
 package com.proyecto.entrega.dto;
 
-public class UsuarioDTO {
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
+public class UsuarioDTO {
     private Long id;
     private String correo;
-    private String password; // Nota: No devolver el password en las respuestas de la API
     private Long empresaId;
     private Long rolId;
 
-    // Constructores
-    public UsuarioDTO() {
-    }
+    // DTO solo para la creación,
+    // el password no se expone en las respuestas
+    @Getter
+    @Setter
+    public static class Create {
+        @NotEmpty(message = "El correo no puede estar vacío")
+        @Email(message = "El formato del correo es inválido")
+        private String correo;
 
-    public UsuarioDTO(Long id, String correo, Long empresaId, Long rolId) {
-        this.id = id;
-        this.correo = correo;
-        this.empresaId = empresaId;
-        this.rolId = rolId;
-    }
+        @NotEmpty(message = "La contraseña no puede estar vacía")
+        private String password;
 
-    // Getters y Setters
-    public Long getId() {
-        return id;
-    }
+        @NotNull(message = "El ID de la empresa es obligatorio")
+        private Long empresaId;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Long getEmpresaId() {
-        return empresaId;
-    }
-
-    public void setEmpresaId(Long empresaId) {
-        this.empresaId = empresaId;
-    }
-
-    public Long getRolId() {
-        return rolId;
-    }
-
-    public void setRolId(Long rolId) {
-        this.rolId = rolId;
+        @NotNull(message = "El ID del rol es obligatorio")
+        private Long rolId;
     }
 }

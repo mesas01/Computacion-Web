@@ -1,53 +1,21 @@
 package com.proyecto.entrega.dto;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class RolDTO {
 
     private Long id;
+
+    @NotEmpty(message = "El nombre del rol no puede estar vacío")
     private String nombre;
+
     private String descripcion;
+
+    @NotNull(message = "El ID de la empresa es obligatorio para asociar el rol")
     private Long empresaId;
-
-    // Constructores
-    public RolDTO() {
-    }
-
-    public RolDTO(Long id, String nombre, String descripcion, Long empresaId) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.empresaId = empresaId;
-    }
-
-    // Getters y Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public Long getEmpresaId() {
-        return empresaId;
-    }
-
-    public void setEmpresaId(Long empresaId) {
-        this.empresaId = empresaId;
-    }
 }
