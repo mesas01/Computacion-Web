@@ -13,14 +13,14 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(CompanyNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleCompanyNotFound(CompanyNotFoundException e) {
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleNotFoundException(NotFoundException e) {
         ErrorResponse error = new ErrorResponse("ERROR_NOT_FOUND", e.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 
-    @ExceptionHandler(DuplicateCompanyException.class)
-    public ResponseEntity<ErrorResponse> handleDuplicateCompany(DuplicateCompanyException e) {
+    @ExceptionHandler(DuplicateResourceException.class)
+    public ResponseEntity<ErrorResponse> handleDuplicateResourceException(DuplicateResourceException e) {
         ErrorResponse error = new ErrorResponse("ERROR_DUPLICATE", e.getMessage());
         return ResponseEntity.status(HttpStatus.CONFLICT).body(error);
     }
