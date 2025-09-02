@@ -3,7 +3,7 @@ package com.proyecto.entrega.controller;
 import com.proyecto.entrega.dto.EdgeDTO;
 import com.proyecto.entrega.service.EdgeService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,23 +12,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/edges")
+@RequiredArgsConstructor
 public class EdgeController {
 
-    @Autowired
-    private EdgeService edgeService;
+    private final EdgeService edgeService;
 
-    /**
-     * HU-11: Crear un arco.
-     */
     @PostMapping
     public ResponseEntity<EdgeDTO> createEdge(@Valid @RequestBody EdgeDTO edgeDTO) {
         EdgeDTO newEdge = edgeService.createEdge(edgeDTO);
         return new ResponseEntity<>(newEdge, HttpStatus.CREATED);
     }
 
-    /**
-     * HU-13: Eliminar un arco.
-     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteEdge(@PathVariable Long id) {
         edgeService.deleteEdge(id);

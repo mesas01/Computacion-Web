@@ -8,35 +8,27 @@ import com.proyecto.entrega.repository.ActivityRepository;
 import com.proyecto.entrega.repository.EdgeRepository;
 import com.proyecto.entrega.repository.GatewayRepository;
 import com.proyecto.entrega.repository.ProcessRepository;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class EdgeService {
 
-    @Autowired
-    private EdgeRepository edgeRepository;
-    @Autowired
-    private ProcessRepository processRepository;
-    @Autowired
-    private ActivityRepository activityRepository;
-    @Autowired
-    private GatewayRepository gatewayRepository;
-    @Autowired
-    private ModelMapper modelMapper;
+    private final EdgeRepository edgeRepository;
+    private final ProcessRepository processRepository;
+    private final ActivityRepository activityRepository;
+    private final GatewayRepository gatewayRepository;
+    private final ModelMapper modelMapper;
 
-    /**
-     * HU-11: Crear un arco.
-     */
     public EdgeDTO createEdge(EdgeDTO edgeDTO) {
         Process process = processRepository.findById(edgeDTO.getProcessId())
                 .orElseThrow(() -> new NotFoundException("Proceso no encontrado con ID: " + edgeDTO.getProcessId()));
 
-        // Validar que los nodos de origen y destino existan
         validateSourceAndTarget(edgeDTO.getSourceType(), edgeDTO.getSourceId());
         validateSourceAndTarget(edgeDTO.getTargetType(), edgeDTO.getTargetId());
 
@@ -47,9 +39,6 @@ public class EdgeService {
         return modelMapper.map(newEdge, EdgeDTO.class);
     }
 
-    /**
-     * HU-13: Eliminar un arco.
-     */
     public void deleteEdge(Long id) {
         if (!edgeRepository.existsById(id)) {
             throw new NotFoundException("Arco (Edge) no encontrado con ID: " + id);

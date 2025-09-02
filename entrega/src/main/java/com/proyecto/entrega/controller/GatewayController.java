@@ -3,7 +3,7 @@ package com.proyecto.entrega.controller;
 import com.proyecto.entrega.dto.GatewayDTO;
 import com.proyecto.entrega.service.GatewayService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,23 +12,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/gateways")
+@RequiredArgsConstructor
 public class GatewayController {
 
-    @Autowired
-    private GatewayService gatewayService;
+    private final GatewayService gatewayService;
 
-    /**
-     * HU-14: Crear un gateway.
-     */
     @PostMapping
     public ResponseEntity<GatewayDTO> createGateway(@Valid @RequestBody GatewayDTO gatewayDTO) {
         GatewayDTO newGateway = gatewayService.createGateway(gatewayDTO);
         return new ResponseEntity<>(newGateway, HttpStatus.CREATED);
     }
 
-    /**
-     * HU-16: Eliminar un gateway.
-     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteGateway(@PathVariable Long id) {
         gatewayService.deleteGateway(id);
