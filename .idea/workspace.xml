@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dea830e0-51b6-44e7-85bc-529aa6e2c966" name="Changes" comment="">
+    <list default="true" id="dea830e0-51b6-44e7-85bc-529aa6e2c966" name="Changes" comment="ressumen">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/resumen.txt" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/resumen.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Activity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +133,8 @@
       <workItem from="1756696604857" duration="1860000" />
       <workItem from="1756787213984" duration="7719000" />
       <workItem from="1756824258614" duration="966000" />
-      <workItem from="1756827396779" duration="192000" />
+      <workItem from="1756827396779" duration="469000" />
+      <workItem from="1756844978095" duration="3596000" />
     </task>
     <task id="LOCAL-00001" summary="cambios mejorados">
       <option name="closed" value="true" />
@@ -168,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756793852029</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ressumen">
+      <option name="closed" value="true" />
+      <created>1756827627609</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1756827627609</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +197,7 @@
     <MESSAGE value="cambios mejorados" />
     <MESSAGE value="arreglos y mejoras" />
     <MESSAGE value="ultimos warnings cambiados" />
-    <option name="LAST_COMMIT_MESSAGE" value="ultimos warnings cambiados" />
+    <MESSAGE value="ressumen" />
+    <option name="LAST_COMMIT_MESSAGE" value="ressumen" />
   </component>
 </project>

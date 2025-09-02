@@ -21,6 +21,8 @@ public class Activity {
     private String tipo;
     private String status;
 
+    //se le dice a hibernate que no cargue los datos de la relación desde
+    // la bd hasta que sea absolutamente necesario".
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "process_id", nullable = false)
     private Process process;
