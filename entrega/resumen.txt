@@ -4,45 +4,70 @@ PARA: EL PROFESOR (VISIÓN ARQUITECTÓNICA Y TÉCNICA)
 PROYECTO: Backend para Sistema de Gestión de Procesos (BPM)
 
 Resumen del Proyecto:
-Este proyecto consiste en el desarrollo de un backend RESTful utilizando Spring Boot, diseñado para servir como el núcleo de un sistema de gestión de procesos de negocio (BPM). La arquitectura está orientada a servicios, siguiendo principios de diseño robustos para garantizar la escalabilidad, mantenibilidad y seguridad de la aplicación.
+Este proyecto consiste en el desarrollo de un backend RESTful utilizando Spring Boot, diseñado para servir
+como el núcleo de un sistema de gestión de procesos de negocio (BPM). La arquitectura está orientada a
+servicios, siguiendo principios de diseño robustos para garantizar la escalabilidad, mantenibilidad y
+seguridad de la aplicación.
 
 Detalles Arquitectónicos y Decisiones de Diseño Clave:
 
 Arquitectura en Capas (Layered Architecture):
-El proyecto sigue un estricto patrón de arquitectura en capas para asegurar la separación de responsabilidades (SoC):
+El proyecto sigue un estricto patrón de arquitectura en capas para
+asegurar la separación de responsabilidades (SoC):
 
-Capa de Controlador (API Layer): Expone los endpoints RESTful. Su única responsabilidad es recibir las peticiones HTTP, validar los datos de entrada (DTOs) y delegar la lógica de negocio a la capa de servicio. No contiene lógica de negocio.
+Capa de Controlador (API Layer): Expone los endpoints RESTful. Su única responsabilidad
+es recibir las peticiones HTTP, validar los datos de entrada (DTOs) y delegar la lógica de
+negocio a la capa de servicio. No contiene lógica de negocio.
 
-Capa de Servicio (Business Logic Layer): Es el cerebro de la aplicación. Orquesta las operaciones, aplica la lógica de negocio especificada en las historias de usuario (ej. validaciones de duplicados, creación transaccional de entidades dependientes) y coordina la interacción con la capa de persistencia.
+Capa de Servicio (Business Logic Layer): Es el cerebro de la aplicación. Orquesta las
+operaciones, aplica la lógica de negocio especificada en las historias de usuario
+(ej. validaciones de duplicados, creación transaccional de entidades dependientes)
+y coordina la interacción con la capa de persistencia.
 
-Capa de Repositorio (Data Access Layer): Abstrae el acceso a los datos mediante Spring Data JPA. Define las interfaces para las operaciones CRUD y las consultas personalizadas, permitiendo que la capa de servicio sea agnóstica a la implementación de la base de datos.
+Capa de Repositorio (Data Access Layer): Abstrae el acceso a los datos mediante Spring Data JPA.
+ Define las interfaces para las operaciones CRUD y las consultas personalizadas, permitiendo
+ que la capa de servicio sea agnóstica a la implementación de la base de datos.
 
-Capa de Dominio (Entities): Modela los objetos del negocio utilizando entidades JPA, definiendo la estructura de la base de datos, las relaciones y las restricciones.
+Capa de Dominio (Entities): Modela los objetos del negocio utilizando entidades JPA,
+definiendo la estructura de la base de datos, las relaciones y las restricciones.
 
 Inversión de Control y Inyección de Dependencias (IoC/DI):
-Se ha adoptado la inyección por constructor como el estándar en todo el proyecto, en lugar de la inyección por campo. Esta decisión se tomó para:
+Se ha adoptado la inyección por constructor como el estándar en todo el proyecto,
+en lugar de la inyección por campo. Esta decisión se tomó para:
 
 Garantizar la inmutabilidad de las dependencias, declarándolas como final.
 
 Mejorar la testabilidad de las clases, facilitando la inyección de mocks en pruebas unitarias.
 
-Exponer explícitamente las dependencias de cada componente a través de su contrato (el constructor), lo que mejora la claridad del código.
+Exponer explícitamente las dependencias de cada componente a través de su contrato (el constructor),
+lo que mejora la claridad del código.
 
 Se utiliza la anotación @RequiredArgsConstructor de Lombok para generar estos constructores de forma limpia.
 
 Manejo de Datos y Persistencia:
 
-DTO (Data Transfer Objects): Se utiliza el patrón DTO para desacoplar la representación de los datos de la API de las entidades de persistencia. Esto previene la exposición de la estructura interna de la base de datos y permite crear contratos de API estables.
+DTO (Data Transfer Objects): Se utiliza el patrón DTO para desacoplar la representación de
+los datos de la API de las entidades de persistencia. Esto previene la exposición de la
+estructura interna de la base de datos y permite crear contratos de API estables.
 
-Mapeo Automatizado: Se ha configurado un bean de ModelMapper para manejar las conversiones entre DTOs y Entidades de forma eficiente y consistente.
+Mapeo Automatizado: Se ha configurado un bean de ModelMapper para manejar las conversiones
+entre DTOs y Entidades de forma eficiente y consistente.
 
-Borrado Lógico (Soft Deletes): En entidades críticas como Process y Activity, se implementó el borrado lógico mediante las anotaciones @SQLDelete y @SQLRestriction de Hibernate. Esto preserva la integridad de los datos y la trazabilidad, en lugar de eliminar registros permanentemente.
+Borrado Lógico (Soft Deletes): En entidades críticas como Process y Activity, se implementó
+el borrado lógico mediante las anotaciones @SQLDelete y @SQLRestriction de Hibernate.
+Esto preserva la integridad de los datos y la trazabilidad, en lugar de eliminar registros permanentemente.
 
 Manejo de Errores Centralizado:
-Se implementó un GlobalExceptionHandler utilizando la anotación @ControllerAdvice. Este componente intercepta excepciones personalizadas lanzadas desde la capa de servicio (NotFoundException, DuplicateResourceException) y las traduce automáticamente en respuestas HTTP con los códigos de estado apropiados (404, 409), manteniendo los controladores limpios y libres de bloques try-catch.
+Se implementó un GlobalExceptionHandler utilizando la anotación @ControllerAdvice.
+Este componente intercepta excepciones personalizadas lanzadas desde la capa de servicio
+(NotFoundException, DuplicateResourceException) y las traduce automáticamente en respuestas
+ HTTP con los códigos de estado apropiados (404, 409), manteniendo los controladores limpios
+y libres de bloques try-catch.
 
 Seguridad:
-Se ha integrado Spring Security como base para la seguridad de la aplicación. El primer y más crítico paso implementado es el hashing de contraseñas mediante un PasswordEncoder (BCrypt), asegurando que las credenciales de los usuarios nunca se almacenen en texto plano.
+Se ha integrado Spring Security como base para la seguridad de la aplicación. El primer y más crítico
+ paso implementado es el hashing de contraseñas mediante un PasswordEncoder (BCrypt),
+ asegurando que las credenciales de los usuarios nunca se almacenen en texto plano.
 
 ======================================================
 PARA: MÍ (FLUJO DE TRABAJO Y DETALLES IMPORTANTES)
@@ -54,29 +79,40 @@ Ejemplo Práctico: Registrar una Nueva Empresa (POST /api/empresas/registrar)
 Este es el flujo paso a paso de lo que ocurre cuando enviamos un JSON desde Postman para crear una empresa.
 
 Paso 1: El Cliente (Postman) 💻
-Tú envías una petición POST a http://localhost:8080/api/empresas/registrar. En el "Body" de la petición, envías un JSON con el nombre, nit y correo de la empresa.
+Tú envías una petición POST a http://localhost:8080/api/empresas/registrar. En el "Body"
+de la petición, envías un JSON con el nombre, nit y correo de la empresa.
 
 Paso 2: La Puerta de Entrada (Capa de Controlador) 🚪
 
-Spring Boot recibe la petición y, gracias a @RequestMapping("/api/empresas"), sabe que debe dirigirla al EmpresaController.
+Spring Boot recibe la petición y, gracias a @RequestMapping("/api/empresas"),
+sabe que debe dirigirla al EmpresaController.
 
-Dentro del controlador, la anotación @PostMapping("/registrar") le dice que el método registrarEmpresa debe manejar esta petición.
+Dentro del controlador, la anotación @PostMapping("/registrar") le dice que el
+método registrarEmpresa debe manejar esta petición.
 
 @RequestBody toma el JSON que enviaste y lo convierte en un objeto EmpresaDTO.
 
-@Valid le dice a Spring: "¡Oye, revisa este DTO! ¿Cumple con las reglas que pusimos, como @NotEmpty?". Si no las cumple, el GlobalExceptionHandler se activa y devuelve un error 400 Bad Request automáticamente.
+@Valid le dice a Spring: "¡Oye, revisa este DTO! ¿Cumple con las reglas que pusimos,
+como @NotEmpty?". Si no las cumple, el GlobalExceptionHandler se activa y devuelve un
+error 400 Bad Request automáticamente.
 
-Si todo está bien, el controlador, que es muy simple, solo hace una cosa: llama al método registrarEmpresa del EmpresaService y le pasa el DTO.
+Si todo está bien, el controlador, que es muy simple, solo hace una cosa:
+llama al método registrarEmpresa del EmpresaService y le pasa el DTO.
 
 Paso 3: El Cerebro (Capa de Servicio) 🧠
 
 El EmpresaService recibe el EmpresaDTO. Aquí ocurre toda la magia y se toman las decisiones.
 
-Transacción: El método está marcado como @Transactional. Esto es como una promesa: "O todo lo que está aquí adentro funciona, o no hago nada". Si hay un error a mitad de camino, la base de datos revierte todos los cambios.
+Transacción: El método está marcado como @Transactional. Esto es como una promesa:
+"O todo lo que está aquí adentro funciona, o no hago nada". Si hay un error a mitad de
+camino, la base de datos revierte todos los cambios.
 
-Lógica de Negocio: El servicio primero revisa si ya existe una empresa con ese NIT o nombre. Si es así, lanza una DuplicateResourceException, que el GlobalExceptionHandler convierte en un error 409 Conflict.
+Lógica de Negocio: El servicio primero revisa si ya existe una empresa con ese NIT o nombre.
+Si es así, lanza una DuplicateResourceException, que el GlobalExceptionHandler convierte en
+un error 409 Conflict.
 
-Mapeo: Si la empresa es nueva, ModelMapper entra en acción y convierte el EmpresaDTO (un objeto de datos simple) en una entidad Empresa (un objeto listo para ser guardado en la base de datos).
+Mapeo: Si la empresa es nueva, ModelMapper entra en acción y convierte el EmpresaDTO
+(un objeto de datos simple) en una entidad Empresa (un objeto listo para ser guardado en la base de datos).
 
 Persistencia (Guardado): El servicio le dice al EmpresaRepository que guarde la nueva entidad Empresa.
 
@@ -94,22 +130,28 @@ Le pide al UsuarioRepository que lo guarde.
 
 Paso 4: El Archivador (Capa de Repositorio) 🗄️
 
-El EmpresaRepository (y los otros repositorios) es una interfaz que nosotros no implementamos; Spring Data JPA lo hace por nosotros.
+El EmpresaRepository (y los otros repositorios) es una interfaz que nosotros no implementamos;
+Spring Data JPA lo hace por nosotros.
 
-Cuando el servicio llama a empresaRepository.save(nuevaEmpresa), Spring Data JPA traduce esa llamada a un comando SQL INSERT INTO empresa (...) VALUES (...).
+Cuando el servicio llama a empresaRepository.save(nuevaEmpresa), Spring Data JPA traduce esa
+llamada a un comando SQL INSERT INTO empresa (...) VALUES (...).
 
 Paso 5: El Almacén (Base de Datos) 💾
 
-PostgreSQL recibe el comando SQL y guarda la nueva fila en la tabla empresa, y luego en rol y usuario. La transacción se completa con éxito (commit).
+PostgreSQL recibe el comando SQL y guarda la nueva fila en la tabla empresa, y luego en rol y usuario.
+La transacción se completa con éxito (commit).
 
 Paso 6: El Camino de Regreso ↩️
 
 La base de datos le devuelve al repositorio la entidad Empresa recién guardada (ahora con un id).
 
-El servicio recibe esta entidad, la mapea de vuelta a un EmpresaDTO usando ModelMapper, y se la devuelve al controlador.
+El servicio recibe esta entidad, la mapea de vuelta a un EmpresaDTO usando ModelMapper,
+y se la devuelve al controlador.
 
-El controlador envuelve el EmpresaDTO en un ResponseEntity con el estado 201 Created y lo envía de vuelta a Postman.
+El controlador envuelve el EmpresaDTO en un ResponseEntity con el estado 201 Created y
+lo envía de vuelta a Postman.
 
 Tú ves en Postman el JSON de la empresa creada y el código de estado 201.
 
-¡Ese es el ciclo de vida completo! Cada capa tiene su propia responsabilidad, lo que hace que el sistema sea organizado, seguro y fácil de mantener.
+¡Ese es el ciclo de vida completo! Cada capa tiene su propia responsabilidad,
+lo que hace que el sistema sea organizado, seguro y fácil de mantener.
