@@ -18,13 +18,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-<<<<<<< Updated upstream
 @Where(clause = "status = 'active'")
 @SQLDelete(sql = "UPDATE process SET status = 'inactive' WHERE id = ?")
-=======
-@Where(clause = "status = 0")
-@SQLDelete(sql = "UPDATE activity SET status = 1 WHERE id = ?")
->>>>>>> Stashed changes
 
 public class Process{
     
@@ -36,11 +31,3 @@ public class Process{
     private String status;
 
 }
-<<<<<<< Updated upstream
-
-
-
-
-
-=======
->>>>>>> Stashed changes
