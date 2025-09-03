@@ -1,7 +1,10 @@
 package com.proyecto.entrega.entity;
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
@@ -22,8 +25,13 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+<<<<<<< Updated upstream
 @Where(clause = "status = 'active'")
 @SQLDelete(sql = "UPDATE edge SET status = 'inactive' WHERE id = ?")
+=======
+@Where(clause = "status = 0")
+@SQLDelete(sql = "UPDATE activity SET status = 1 WHERE id = ?")
+>>>>>>> Stashed changes
 
 public class Edge{
     
@@ -36,6 +44,7 @@ public class Edge{
 
     @ManyToOne
     @JoinColumn(name = "process_id")
+<<<<<<< Updated upstream
     private Process process;
 
     @ManyToOne
@@ -45,6 +54,17 @@ public class Edge{
     @ManyToOne
     @JoinColumn(name = "activity_destiny_id")
     private Activity activityDestiny;
+=======
+    private Process process_id;
+
+    @ManyToOne
+    @JoinColumn(name = "activity_source_id")
+    private Activity activity_source;
+
+    @ManyToOne
+    @JoinColumn(name = "activity_destiny_id")
+    private Activity activity_destiny;
+>>>>>>> Stashed changes
 
 }
 
