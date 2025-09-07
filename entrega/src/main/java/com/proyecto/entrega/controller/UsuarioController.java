@@ -3,7 +3,7 @@ package com.proyecto.entrega.controller;
 import com.proyecto.entrega.dto.UsuarioDTO;
 import com.proyecto.entrega.service.UsuarioService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,11 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/usuarios")
-@RequiredArgsConstructor
 public class UsuarioController {
 
-    private final UsuarioService usuarioService;
+    @Autowired
+    private UsuarioService usuarioService;
 
+    /**
+     * HU-02: Registrar un nuevo usuario en una empresa.
+     */
     @PostMapping("/registrar")
     public ResponseEntity<UsuarioDTO> registrarUsuario(@Valid @RequestBody UsuarioDTO.Create usuarioDTO) {
         UsuarioDTO nuevoUsuario = usuarioService.registrarUsuario(usuarioDTO);

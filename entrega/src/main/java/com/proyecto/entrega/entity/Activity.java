@@ -4,12 +4,12 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.SQLRestriction;
+import org.hibernate.annotations.Where;
 
 @Getter
 @Setter
 @Entity
-@SQLRestriction("status <> 'inactive'")
+@Where(clause = "status != 'inactive'")
 @SQLDelete(sql = "UPDATE activity SET status = 'inactive' WHERE id = ?")
 public class Activity {
     @Id

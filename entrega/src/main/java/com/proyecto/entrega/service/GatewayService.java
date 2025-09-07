@@ -6,21 +6,26 @@ import com.proyecto.entrega.entity.Process;
 import com.proyecto.entrega.exception.NotFoundException;
 import com.proyecto.entrega.repository.GatewayRepository;
 import com.proyecto.entrega.repository.ProcessRepository;
-import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class GatewayService {
 
-    private final GatewayRepository gatewayRepository;
-    private final ProcessRepository processRepository;
-    private final ModelMapper modelMapper;
+    @Autowired
+    private GatewayRepository gatewayRepository;
+    @Autowired
+    private ProcessRepository processRepository;
+    @Autowired
+    private ModelMapper modelMapper;
 
+    /**
+     * HU-14: Crear un gateway.
+     */
     public GatewayDTO createGateway(GatewayDTO gatewayDTO) {
         Process process = processRepository.findById(gatewayDTO.getProcessId())
                 .orElseThrow(() -> new NotFoundException("Proceso no encontrado con ID: " + gatewayDTO.getProcessId()));
@@ -32,6 +37,9 @@ public class GatewayService {
         return modelMapper.map(newGateway, GatewayDTO.class);
     }
 
+    /**
+     * HU-16: Eliminar gateway.
+     */
     public void deleteGateway(Long id) {
         if (!gatewayRepository.existsById(id)) {
             throw new NotFoundException("Gateway no encontrado con ID: " + id);
