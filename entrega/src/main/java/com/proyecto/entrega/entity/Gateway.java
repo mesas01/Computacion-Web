@@ -1,31 +1,43 @@
 package com.proyecto.entrega.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 @Entity
 public class Gateway {
-
-    // aquí un Enum para asegurar que solo valores válidos sean posibles.
-    public enum TipoGateway {
-        EXCLUSIVO,
-        PARALELO,
-        INCLUSIVO
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Guarda como String en la base de datos
-    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private TipoGateway tipo;
+    private String tipo; // exclusivo, paralelo, inclusivo
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "process_id", nullable = false)
     private Process process;
+
+    // Getters y Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Process getProcess() {
+        return process;
+    }
+
+    public void setProcess(Process process) {
+        this.process = process;
+    }
 }

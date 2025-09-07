@@ -1,13 +1,7 @@
 package com.proyecto.entrega.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
-import java.util.List;
-
-@Getter
-@Setter
 @Entity
 public class Rol {
 
@@ -25,7 +19,36 @@ public class Rol {
     @JoinColumn(name = "empresa_id", nullable = false)
     private Empresa empresa;
 
-    // Un rol puede estar en muchas actividades.
-    @OneToMany(mappedBy = "rolResponsable", fetch = FetchType.LAZY)
-    private List<Activity> activities;
+    // Getters y Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
 }

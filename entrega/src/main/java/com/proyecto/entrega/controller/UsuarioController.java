@@ -2,7 +2,6 @@ package com.proyecto.entrega.controller;
 
 import com.proyecto.entrega.dto.UsuarioDTO;
 import com.proyecto.entrega.service.UsuarioService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,12 +17,13 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    /**
-     * HU-02: Registrar un nuevo usuario en una empresa.
-     */
     @PostMapping("/registrar")
-    public ResponseEntity<UsuarioDTO> registrarUsuario(@Valid @RequestBody UsuarioDTO.Create usuarioDTO) {
-        UsuarioDTO nuevoUsuario = usuarioService.registrarUsuario(usuarioDTO);
-        return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);
+    public ResponseEntity<UsuarioDTO> registrarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+        try {
+            UsuarioDTO nuevoUsuario = usuarioService.registrarUsuario(usuarioDTO);
+            return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
     }
 }
