@@ -3,7 +3,7 @@ package com.proyecto.entrega.service;
 import com.proyecto.entrega.dto.CompanyDTO;
 import com.proyecto.entrega.entity.Company;
 import com.proyecto.entrega.repository.CompanyRepository;
-import com.proyecto.entrega.exception.CompanyNotFoundException;
+import com.proyecto.entrega.exception.NotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

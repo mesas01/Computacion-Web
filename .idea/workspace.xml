@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dea830e0-51b6-44e7-85bc-529aa6e2c966" name="Changes" comment="" />
+    <list default="true" id="dea830e0-51b6-44e7-85bc-529aa6e2c966" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/entrega/HistoriasUsuarioProceso.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controladores/CompanyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/dto/CompanyDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Company.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/exception/CompanyNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/exception/DuplicateCompanyException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/exception/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/CompanyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/CompanyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TallerWiki/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/TallerWiki/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/dto/ActivityDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/dto/ActivityDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/dto/EdgeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/dto/EdgeDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/dto/ProcessDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/dto/ProcessDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Edge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Process.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/ActivityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/ActivityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/EdgeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/EdgeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/ProcessRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/ProcessRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/ActivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/ActivityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/EdgeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/EdgeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/ProcessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/service/ProcessService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,7 +118,7 @@
       <workItem from="1756684348712" duration="4902000" />
       <workItem from="1756692912333" duration="1700000" />
       <workItem from="1756694925657" duration="1553000" />
-      <workItem from="1756696604857" duration="1860000" />
+      <workItem from="1756696604857" duration="1610000" />
     </task>
     <servers />
   </component>
