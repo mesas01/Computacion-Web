@@ -1,7 +1,5 @@
 package com.proyecto.entrega.entity;
 
-
-
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
@@ -11,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,28 +22,21 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Where(clause = "status = 'active'")
-@SQLDelete(sql = "UPDATE edge SET status = 'inactive' WHERE id = ?")
+@SQLDelete(sql = "UPDATE activity SET status = 'inactive' WHERE id = ?")
 
-public class User{
-    
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String correo;
-    private String contraseña;
+    private String nombre;
+    private String descripcion;
 
+    // Relación N:1 con Company
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id")
-    private Role role;
-
+    // Relación 1:N con usuarios (varios usuarios pueden tener el mismo rol)
+    @OneToMany(mappedBy = "role")
+    private User users;
 }
-
-
-
-
-

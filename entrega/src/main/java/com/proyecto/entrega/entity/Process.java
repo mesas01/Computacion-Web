@@ -34,11 +34,15 @@ public class Process{
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "company_id")  // clave foránea
+    @JoinColumn(name = "company_id")
     private Company company;
 
     @OneToMany(mappedBy = "process")
     private Gateway gateways;
+
+    // Relación 1:N con roles
+    @OneToMany(mappedBy = "company")
+    private Role roles;
 }
 
 
