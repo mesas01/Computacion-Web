@@ -4,11 +4,9 @@ import com.proyecto.entrega.dto.ActivityDTO;
 import com.proyecto.entrega.entity.Activity;
 import com.proyecto.entrega.entity.Process;
 import com.proyecto.entrega.entity.Rol;
-import com.proyecto.entrega.exception.NotFoundException;
 import com.proyecto.entrega.repository.ActivityRepository;
 import com.proyecto.entrega.repository.ProcessRepository;
 import com.proyecto.entrega.repository.RolRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,25 +22,26 @@ public class ActivityService {
     private ProcessRepository processRepository;
     @Autowired
     private RolRepository rolRepository;
-    @Autowired
-    private ModelMapper modelMapper;
 
     /**
      * HU-08: Crear una actividad.
      */
     public ActivityDTO createActivity(ActivityDTO activityDTO) {
         Process process = processRepository.findById(activityDTO.getProcessId())
-                .orElseThrow(() -> new NotFoundException("Proceso no encontrado con ID: " + activityDTO.getProcessId()));
+                .orElseThrow(() -> new IllegalArgumentException("Proceso no encontrado"));
         Rol rol = rolRepository.findById(activityDTO.getRolResponsableId())
-                .orElseThrow(() -> new NotFoundException("Rol no encontrado con ID: " + activityDTO.getRolResponsableId()));
+                .orElseThrow(() -> new IllegalArgumentException("Rol no encontrado"));
 
-        Activity activity = modelMapper.map(activityDTO, Activity.class);
+        Activity activity = new Activity();
+        activity.setName(activityDTO.getName());
+        activity.setDescription(activityDTO.getDescription());
+        activity.setTipo(activityDTO.getTipo());
+        activity.setStatus("active");
         activity.setProcess(process);
         activity.setRolResponsable(rol);
-        activity.setStatus("active"); // Estado por defecto
 
         Activity newActivity = activityRepository.save(activity);
-        return modelMapper.map(newActivity, ActivityDTO.class);
+        return convertToDTO(newActivity);
     }
 
     /**
@@ -50,35 +49,41 @@ public class ActivityService {
      */
     public ActivityDTO updateActivity(Long id, ActivityDTO activityDTO) {
         Activity activity = activityRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Actividad no encontrada con ID: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Actividad no encontrada"));
         Rol rol = rolRepository.findById(activityDTO.getRolResponsableId())
-                .orElseThrow(() -> new NotFoundException("Rol no encontrado con ID: " + activityDTO.getRolResponsableId()));
+                .orElseThrow(() -> new IllegalArgumentException("Rol no encontrado"));
 
-        modelMapper.map(activityDTO, activity);
-        activity.setId(id); // Aseguramos que el ID no cambie
+        activity.setName(activityDTO.getName());
+        activity.setDescription(activityDTO.getDescription());
+        activity.setTipo(activityDTO.getTipo());
         activity.setRolResponsable(rol);
 
         Activity updatedActivity = activityRepository.save(activity);
-        return modelMapper.map(updatedActivity, ActivityDTO.class);
+        return convertToDTO(updatedActivity);
     }
 
     /**
-     * HU-10: Eliminar una actividad (borrado lógico).
+     * HU-10: Eliminar una actividad.
      */
     public void deleteActivity(Long id) {
-        if (!activityRepository.existsById(id)) {
-            throw new NotFoundException("Actividad no encontrada con ID: " + id);
-        }
-        activityRepository.deleteById(id); // El @SQLDelete en la entidad hace el trabajo
+        activityRepository.deleteById(id);
     }
 
     public List<ActivityDTO> findActivitiesByProcess(Long processId) {
-        if (!processRepository.existsById(processId)) {
-            throw new NotFoundException("Proceso no encontrado con ID: " + processId);
-        }
-
         return activityRepository.findByProcessId(processId).stream()
-                .map(activity -> modelMapper.map(activity, ActivityDTO.class))
+                .map(this::convertToDTO)
                 .collect(Collectors.toList());
+    }
+
+    private ActivityDTO convertToDTO(Activity activity) {
+        return new ActivityDTO(
+                activity.getId(),
+                activity.getName(),
+                activity.getDescription(),
+                activity.getTipo(),
+                activity.getStatus(),
+                activity.getProcess().getId(),
+                activity.getRolResponsable() != null ? activity.getRolResponsable().getId() : null
+        );
     }
 }

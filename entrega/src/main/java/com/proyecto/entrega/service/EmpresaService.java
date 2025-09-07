@@ -2,19 +2,12 @@ package com.proyecto.entrega.service;
 
 import com.proyecto.entrega.dto.EmpresaDTO;
 import com.proyecto.entrega.entity.Empresa;
-import com.proyecto.entrega.entity.Rol;
-import com.proyecto.entrega.entity.Usuario;
-import com.proyecto.entrega.exception.DuplicateResourceException;
 import com.proyecto.entrega.repository.EmpresaRepository;
-import com.proyecto.entrega.repository.RolRepository;
-import com.proyecto.entrega.repository.UsuarioRepository;
-import jakarta.transaction.Transactional;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -22,53 +15,62 @@ public class EmpresaService {
 
     @Autowired
     private EmpresaRepository empresaRepository;
-    @Autowired
-    private RolRepository rolRepository;
-    @Autowired
-    private UsuarioRepository usuarioRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-    @Autowired
-    private ModelMapper modelMapper;
 
     /**
-     * HU-01: Registro de empresa con creación de admin inicial.
-     * La anotación @Transactional asegura que si algo falla, toda la operación se deshace.
+     * HU-01: Registro de empresa.
+     * Crea una nueva empresa en el sistema.
+     * @param empresaDTO Datos de la empresa a crear.
+     * @return El DTO de la empresa creada.
+     * @throws IllegalStateException si ya existe una empresa con el mismo NIT o nombre.
      */
-    @Transactional
     public EmpresaDTO registrarEmpresa(EmpresaDTO empresaDTO) {
-        // 1. Validar que la empresa no exista
+        // Validar que no exista una empresa con el mismo NIT o nombre
         if (empresaRepository.findByNit(empresaDTO.getNit()).isPresent()) {
-            throw new DuplicateResourceException("Ya existe una empresa con el NIT: " + empresaDTO.getNit());
+            throw new IllegalStateException("Ya existe una empresa con el NIT proporcionado.");
         }
         if (empresaRepository.findByNombre(empresaDTO.getNombre()).isPresent()) {
-            throw new DuplicateResourceException("Ya existe una empresa con el nombre: " + empresaDTO.getNombre());
+            throw new IllegalStateException("Ya existe una empresa con el nombre proporcionado.");
         }
 
-        // 2. Guardar la nueva empresa
-        Empresa nuevaEmpresa = empresaRepository.save(modelMapper.map(empresaDTO, Empresa.class));
+        Empresa empresa = new Empresa();
+        empresa.setNombre(empresaDTO.getNombre());
+        empresa.setNit(empresaDTO.getNit());
+        empresa.setCorreoContacto(empresaDTO.getCorreoContacto());
 
-        // 3. Crear el rol de "Administrador" para esta empresa
-        Rol adminRol = new Rol();
-        adminRol.setNombre("Administrador");
-        adminRol.setDescripcion("Rol con todos los permisos de gestión.");
-        adminRol.setEmpresa(nuevaEmpresa);
-        Rol rolGuardado = rolRepository.save(adminRol);
+        Empresa nuevaEmpresa = empresaRepository.save(empresa);
 
-        // 4. Crear el usuario administrador inicial
-        Usuario adminUsuario = new Usuario();
-        adminUsuario.setCorreo(nuevaEmpresa.getCorreoContacto()); // Usa el correo de contacto de la empresa
-        adminUsuario.setPassword(passwordEncoder.encode(nuevaEmpresa.getNit())); // Usamos el NIT como contraseña inicial segura
-        adminUsuario.setEmpresa(nuevaEmpresa);
-        adminUsuario.setRol(rolGuardado);
-        usuarioRepository.save(adminUsuario);
+        // Aquí se podría añadir la lógica para crear el usuario administrador inicial.
 
-        return modelMapper.map(nuevaEmpresa, EmpresaDTO.class);
+        return convertToDTO(nuevaEmpresa);
     }
 
+    /**
+     * Obtiene una empresa por su ID.
+     * @param id El ID de la empresa.
+     * @return Un Optional con el DTO de la empresa si se encuentra.
+     */
+    public Optional<EmpresaDTO> getEmpresaById(Long id) {
+        return empresaRepository.findById(id).map(this::convertToDTO);
+    }
+
+    /**
+     * Obtiene todas las empresas registradas.
+     * @return Lista de DTOs de todas las empresas.
+     */
     public List<EmpresaDTO> getAllEmpresas() {
         return empresaRepository.findAll().stream()
-                .map(empresa -> modelMapper.map(empresa, EmpresaDTO.class))
+                .map(this::convertToDTO)
                 .collect(Collectors.toList());
+    }
+
+    // --- Métodos de conversión ---
+
+    private EmpresaDTO convertToDTO(Empresa empresa) {
+        return new EmpresaDTO(
+                empresa.getId(),
+                empresa.getNombre(),
+                empresa.getNit(),
+                empresa.getCorreoContacto()
+        );
     }
 }
