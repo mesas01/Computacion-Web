@@ -1,5 +1,7 @@
 package com.proyecto.entrega.entity;
 
+
+
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
@@ -21,19 +23,20 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Where(clause = "status = 'active'")
-@SQLDelete(sql = "UPDATE process SET status = 'inactive' WHERE id = ?")
+@SQLDelete(sql = "UPDATE edge SET status = 'inactive' WHERE id = ?")
 
-public class Process{
+public class User{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name; 
-    private String description;
-    private String status;
+    private String rol;
+    private String name;
+    private String correo;
+    private String contraseña;
 
     @ManyToOne
-    @JoinColumn(name = "company_id")  // clave foránea
+    @JoinColumn(name = "company_id")
     private Company company;
 
 }
