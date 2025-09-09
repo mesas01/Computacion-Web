@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+//esta clase solo atiende las peticiones de los clientes (desde internet)
+//le pasa el trabajo al servicio correspóndiente
+@RestController// Le dice a Spring: "Esta clase atenderá peticiones por internet (es una API)"
 @RequestMapping("/api/processes")
 @RequiredArgsConstructor
 public class ProcessController {
