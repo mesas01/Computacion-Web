@@ -4,32 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dea830e0-51b6-44e7-85bc-529aa6e2c966" name="Changes" comment="resumen">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="dea830e0-51b6-44e7-85bc-529aa6e2c966" name="Changes" comment="mejoras en la gestión de estado y consultas de entidades, se comento y entendio las entidades y se pusieron las consultas de los repos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/EntregaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/EntregaApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/ModelMapperConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/ModelMapperConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/ServletInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/ServletInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/ProcessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/controller/ProcessController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Edge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Empresa.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Empresa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Gateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Gateway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Process.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Rol.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Rol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/entity/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/exception/DuplicateResourceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/exception/DuplicateResourceException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/exception/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/exception/ErrorResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/exception/NotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/exception/NotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/ActivityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/ActivityRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/EmpresaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/EmpresaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/GatewayRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/GatewayRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/ProcessRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/ProcessRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/RolRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/RolRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/repository/UsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/dto/UsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/dto/UsuarioDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +27,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -63,10 +41,10 @@
     &quot;accountId&quot;: &quot;65adfcb5-442c-40ba-b415-804d37530479&quot;
   }
 }</component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -162,7 +140,7 @@
       <workItem from="1756954336412" duration="912000" />
       <workItem from="1757378422047" duration="619000" />
       <workItem from="1757379197962" duration="5378000" />
-      <workItem from="1757384956489" duration="9879000" />
+      <workItem from="1757384956489" duration="10887000" />
     </task>
     <task id="LOCAL-00001" summary="cambios mejorados">
       <option name="closed" value="true" />
@@ -204,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756795771063</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="mejoras en la gestión de estado y consultas de entidades, se comento y entendio las entidades y se pusieron las consultas de los repos">
+      <option name="closed" value="true" />
+      <created>1757395098946</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1757395098946</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +212,8 @@
     <MESSAGE value="arreglos y mejoras" />
     <MESSAGE value="ultimos warnings cambiados" />
     <MESSAGE value="resumen" />
-    <option name="LAST_COMMIT_MESSAGE" value="resumen" />
+    <MESSAGE value="mejoras en la gestión de estado y consultas de entidades, se comento y entendio las entidades y se pusieron las consultas de los repos" />
+    <option name="LAST_COMMIT_MESSAGE" value="mejoras en la gestión de estado y consultas de entidades, se comento y entendio las entidades y se pusieron las consultas de los repos" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
