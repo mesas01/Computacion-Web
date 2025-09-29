@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dea830e0-51b6-44e7-85bc-529aa6e2c966" name="Changes" comment="mejoras en la gestión de estado y consultas de entidades, se comento y entendio las entidades y se pusieron las consultas de los repos">
+    <list default="true" id="dea830e0-51b6-44e7-85bc-529aa6e2c966" name="Changes" comment="restructuración del UsuarioDTO para mejorar seguridad, claridad y compatibilidad con el mapeo">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/dto/UsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/src/main/java/com/proyecto/entrega/dto/UsuarioDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,8 +108,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
-        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
+        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-IU-252.26199.169" />
       </set>
     </attachedChunks>
   </component>
@@ -140,7 +140,9 @@
       <workItem from="1756954336412" duration="912000" />
       <workItem from="1757378422047" duration="619000" />
       <workItem from="1757379197962" duration="5378000" />
-      <workItem from="1757384956489" duration="10887000" />
+      <workItem from="1757384956489" duration="10920000" />
+      <workItem from="1759113714532" duration="409000" />
+      <workItem from="1759114233506" duration="646000" />
     </task>
     <task id="LOCAL-00001" summary="cambios mejorados">
       <option name="closed" value="true" />
@@ -190,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757395098946</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="restructuración del UsuarioDTO para mejorar seguridad, claridad y compatibilidad con el mapeo">
+      <option name="closed" value="true" />
+      <created>1757395937744</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1757395937744</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +223,8 @@
     <MESSAGE value="ultimos warnings cambiados" />
     <MESSAGE value="resumen" />
     <MESSAGE value="mejoras en la gestión de estado y consultas de entidades, se comento y entendio las entidades y se pusieron las consultas de los repos" />
-    <option name="LAST_COMMIT_MESSAGE" value="mejoras en la gestión de estado y consultas de entidades, se comento y entendio las entidades y se pusieron las consultas de los repos" />
+    <MESSAGE value="restructuración del UsuarioDTO para mejorar seguridad, claridad y compatibilidad con el mapeo" />
+    <option name="LAST_COMMIT_MESSAGE" value="restructuración del UsuarioDTO para mejorar seguridad, claridad y compatibilidad con el mapeo" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
